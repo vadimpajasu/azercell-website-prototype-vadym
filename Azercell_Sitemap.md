@@ -74,6 +74,70 @@
 ---
 
 ## 2. B2B — Business
+
+Approved menu hierarchy (confirmed 4 September 2026):
+
+- Business (/business/)
+  - Mobile (/business/mobile/)
+    - My Business Tariff Plans (/business/mobile/tariffs/)
+    - My Business Internet Packs (/business/mobile/internet/)
+    - Roaming (/business/mobile/roaming/)
+    - Mobile Marketing (/business/mobile/mobile-marketing/)
+    - My Business Wi-Fi (/business/campaigns/my-business-wifi/)
+    - Campaigns (/business/campaigns/)
+    - Archive (/business/mobile/archive/)
+  - Fixed (/business/fixed/)
+    - Internet Leased Line (/business/fixed/internet-leased-line/)
+    - MPLS / VPN (/business/fixed/mpls-vpn/)
+    - Fixed connectivity (/business/fixed/fixed-connectivity/)
+    - Managed Wi-Fi (/business/fixed/managed-wifi/)
+  - ICT Solutions (/business/ict-solutions/)
+    - Unified Communications (/business/ict-solutions/unified-communications/)
+      - Business VoIP
+      - My Business Calls Manager
+      - SIP / IP Telephony
+    - IoT & M2M (/business/iot/)
+      - My Business IoT Tariff Plans
+      - IoT Roaming Packs
+      - IoT Pool Packages
+      - Fleet Management
+      - YolDash
+      - M2M Service
+      - APN/PDP
+      - Irrigation System Control
+    - Security (/business/ict-solutions/security/)
+      - Cybersecurity Solutions
+      - Security Audits & Consulting
+      - Managed Security
+      - DNS Security
+      - Fraud Protection
+    - Automation & Management (/business/automation-management/)
+      - Robotic Automation
+      - Mobile Team Management
+      - Mobile Device Management
+    - Cloud & Digital Platforms (/business/ict-solutions/cloud-digital-platforms/)
+      - InfoHUB
+      - CPaaS
+      - Azercell Biznes Platform
+      - Free DPI
+  - Partnerships (/business/partnerships/)
+  - Support (/business/support/)
+    - FAQ
+    - Live Chat
+    - Contact Us
+    - Locations
+    - Online Itemized Bill
+  - Company (/business/company/)
+    - About Us
+    - Media & Press
+    - Careers
+    - Azercell Academy
+    - Azercell Life
+    - My Business Loyalty
+
+The approved tree is the global-menu taxonomy. Existing tariff, roaming and campaign detail pages remain part of the full inventory even when they are not listed in the menu. Existing built URLs are retained where practical.
+
+### Legacy live-site inventory (source reference, superseded as menu IA)
 `https://azercell.com/en/corporate.html`
 
 - [Business homepage](https://azercell.com/en/corporate.html)

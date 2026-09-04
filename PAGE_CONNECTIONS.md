@@ -55,20 +55,20 @@ Default pattern: query param on the page path — `/path/?type=value`. "All" = n
 | `/tariffs/roaming/travel-packs/` | Header → Mobile → Roaming → Travel packs; homepage hero → See travel packs | CONNECTED |
 | `/tariffs/roaming/countries-and-prices/` | Header → Mobile → Roaming → Countries & prices | CONNECTED |
 | `/join-azercell/transfer-number/` | Homepage acquisition → Transfer your number; header Mobile → e-Sim → Move number to e-SIM | CONNECTED |
-| `/business/campaigns/` | Business header and footer → Campaigns; Business homepage → All campaigns | CONNECTED |
-| `/business/campaigns/why-azercell-business/` | Campaigns hub; Business header and footer | CONNECTED |
-| `/business/campaigns/my-business-wifi/` | Campaigns hub; Business header item and promo; Business footer; Business homepage campaign card | CONNECTED |
-| `/business/campaigns/acquisition-campaigns/` | Campaigns hub; Business header | CONNECTED |
+| `/business/campaigns/` | Business header/footer → Mobile → Campaigns; Business homepage → All campaigns | CONNECTED |
+| `/business/campaigns/why-azercell-business/` | Campaigns hub; Business homepage concept 2 | CONNECTED |
+| `/business/campaigns/my-business-wifi/` | Campaigns hub; Business header/footer → Mobile → My Business Wi-Fi; Business homepage card | CONNECTED |
+| `/business/campaigns/acquisition-campaigns/` | Campaigns hub | CONNECTED |
 | `/business/campaigns/acquisition-campaigns/mnp-60gb/` | Acquisition campaigns hub | CONNECTED |
 | `/business/campaigns/acquisition-campaigns/mnp-80gb/` | Acquisition campaigns hub | CONNECTED |
-| `/business/campaigns/devices-and-financing/` | Campaigns hub; Business header; Business homepage campaign card | CONNECTED |
+| `/business/campaigns/devices-and-financing/` | Campaigns hub; Business homepage campaign card | CONNECTED |
 | `/business/campaigns/devices-and-financing/iphone-16-for-b2b/` | Devices & financing hub; iPhone 17 campaign page | CONNECTED |
 | `/business/campaigns/devices-and-financing/iphone-17-for-b2b/` | Devices & financing hub; iPhone 16 campaign page | CONNECTED |
 | `/business/campaigns/devices-and-financing/smartphone-leasing/` | Devices & financing hub; both iPhone campaign pages | CONNECTED |
-| `/business/campaigns/my-business-tariff-discounts/` | Campaigns hub; Business header | CONNECTED |
-| `/business/campaigns/my-business-club/` | Campaigns hub; Business header and footer | CONNECTED |
+| `/business/campaigns/my-business-tariff-discounts/` | Campaigns hub | CONNECTED |
+| `/business/campaigns/my-business-club/` | Campaigns hub; Business homepage concept 2 | CONNECTED |
 | `/business/campaigns/my-business-club/virtual-wallet/` | Campaigns hub; My Business Club | CONNECTED |
-| `/business/campaigns/archive/` | Campaigns hub; Business header and footer | CONNECTED |
+| `/business/campaigns/archive/` | Campaigns hub; planned Mobile Archive landing | CONNECTED / PLANNED |
 
 **Tab URLs on `/tariffs/mobile/`:** `?type=prepaid`, `?type=postpaid`, `?type=data-only`, or no param for All. Tabs update the URL when clicked.
 
@@ -307,7 +307,7 @@ Same layout pattern as DigiMax (pack carousel + FAQ + cross-links). Each has `?t
 | Lead form handoff | Contact / *6050 | CONNECTED |
 | Announcement bar | Personal `SITE_CHROME.announcements` | CONNECTED |
 | Header nav | `SITE_CHROME.businessNav`; Business audience tab active | PLANNED destinations via working placeholders |
-| Solution block below hero | Four Digital solutions category landings | PLANNED via working placeholders |
+| ICT Solutions block below hero | Five approved ICT Solutions category landings | PLANNED via working placeholders |
 | Campaigns section → All campaigns | `/business/campaigns/` | CONNECTED |
 | Campaign cards → My Business Wi-Fi; Devices & financing | Built Campaigns routes | CONNECTED |
 | Floating bar | `SITE_CHROME.businessFloatingBar` | Mixed (see Floating bar section) |
@@ -317,26 +317,26 @@ Same layout pattern as DigiMax (pack carousel + FAQ + cross-links). Each has `?t
 
 Desktop category labels navigate to their landing pages. Hover/focus or the restored adjacent arrow opens the mega menu. Business category links use the same type, height and padding as Personal. Mobile uses a category link plus a separate expand control.
 
-Business reuses the Personal menu presentation patterns and type scale: Mobile and Digital solutions use the Personal Mobile rail/detail layout; Mobile retains an accented Azercell Biznes entry. Their rail labels remain landing-page links and expose submenus on hover/focus without repeating the selected label in the detail pane. Standard categories use the Personal Company list layout. Campaigns lists Why Azercell Business first, the active My Business Wi-Fi campaign, My Business Club and the archive beside a My Business Wi-Fi promo card.
+Business uses the approved top-level order: Mobile, Fixed, ICT Solutions, Partnerships, Support and Company. ICT Solutions uses the rail/detail layout for its five third-level groups; the other populated categories use the standard list layout. Campaigns and My Business Wi-Fi are entries under Mobile. Existing campaign detail pages remain reachable through the Campaigns hub.
 
 | Category | Landing / children | Status |
 |----------|--------------------|--------|
-| Company | `/about/…` | PLANNED; Careers and Azercell Life external |
-| Mobile | `/business/mobile/…` | Mixed: Roaming section CONNECTED; other destinations PLANNED |
-| Connectivity | `/business/connectivity/…` | PLANNED; Fixed service relationship on hold |
-| Digital solutions | `/business/digital-solutions/` → IoT & M2M, Fleet & field operations, Automation & management, Customer engagement | PLANNED; separate Fleet package page on hold |
-| Campaigns | Hub, Why Azercell Business?, My Business Wi-Fi, Acquisition campaigns, Devices & financing, tariff discounts, My Business Club, archive | CONNECTED |
-| Support | `/business/support/…` | PLANNED |
+| Mobile | Tariffs, Internet Packs, Roaming, Mobile Marketing, My Business Wi-Fi, Campaigns, Archive | Roaming, Wi-Fi and Campaigns CONNECTED; other destinations PLANNED |
+| Fixed | Internet Leased Line, MPLS / VPN, Fixed connectivity, Managed Wi-Fi | PLANNED |
+| ICT Solutions | Unified Communications, IoT & M2M, Security, Automation & Management, Cloud & Digital Platforms | PLANNED |
+| Partnerships | `/business/partnerships/` | PLANNED |
+| Support | FAQ, Live Chat, Contact Us, Locations, Online Itemized Bill | PLANNED |
+| Company | About Us, Media & Press, Careers, Azercell Academy, Azercell Life, My Business Loyalty | Shared/external destinations mixed with PLANNED |
 | Header → Log in | `/business/login/` | PLANNED; final destination pending |
 | Header → Contact manager | biznes.azercell.com | CONNECTED (external) |
 
 ### Business footer (`SITE_CHROME.businessFooter`)
 
-Uses the responsive Personal footer shell with the confirmed B2B groups, `*6050`, Campaigns links and the Azercell Biznes app banner. The footer is rendered in the inverse dark theme on every built Business page; the former My Business Club feature banner is removed. The Mobile group contains tariff plans, internet packs and roaming; Azercell Biznes appears only in its banner. Deeper tariff, internet-pack and roaming links remain in the mega menu. Unknown store destinations are intentionally non-clickable.
+Uses the responsive Personal footer shell with the same six approved Business groups as the header. ICT Solutions shows its five category landings and every approved child destination in a grouped five-column desktop layout; the same groups expand vertically on mobile. Mobile and the remaining groups list their approved second-level destinations. The Azercell Biznes app banner remains a utility element outside the menu hierarchy. Unknown store destinations remain non-clickable.
 
 Every built Business page also renders its opening hero in the inverse dark theme with light typography, controls and divider lines.
 
-The Business footer connects Campaigns hub, Why Azercell Business?, My Business Wi-Fi, My Business Club and Campaigns archive. Acquisition campaigns, Devices & financing and tariff discounts remain discoverable from the header and Campaigns hub instead of the footer.
+The Business footer connects Campaigns and My Business Wi-Fi under Mobile. Deeper campaign pages remain discoverable from the Campaigns hub instead of the global footer.
 
 ---
 
@@ -406,9 +406,8 @@ All 14 Campaigns routes render the shared Business announcement bar, header, inv
 
 | Shared inbound source | Campaigns destinations | Status |
 |-----------------------|------------------------|--------|
-| Business header category and menu | Hub; Why Azercell Business?; My Business Wi-Fi; Acquisition campaigns; Devices & financing; tariff discounts; My Business Club; archive | CONNECTED |
-| Business header promo | My Business Wi-Fi | CONNECTED |
-| Business footer Campaigns column | Hub; Why Azercell Business?; My Business Wi-Fi; My Business Club; archive | CONNECTED |
+| Business header → Mobile | Campaigns hub and My Business Wi-Fi | CONNECTED |
+| Business footer → Mobile | Campaigns hub and My Business Wi-Fi | CONNECTED |
 | Business homepage Campaigns section | Hub; My Business Wi-Fi; Devices & financing | CONNECTED |
 | Campaigns hub | Why; Wi-Fi; Club; Acquisition; Devices; tariff discounts; Virtual Wallet; archive | CONNECTED |
 | Shared Business chrome → non-Campaigns destinations | Existing built/external links and intentional `/planned/` placeholders | CONNECTED / PLANNED |
@@ -422,7 +421,7 @@ All 14 Campaigns routes render the shared Business announcement bar, header, inv
 | Primary cards | Why Azercell Business?; My Business Wi-Fi; My Business Club | CONNECTED |
 | Campaign catalogue | Acquisition campaigns; Devices & financing; tariff discounts; Virtual Wallet; archive | CONNECTED |
 
-**Inbound:** Business header and footer; Business homepage Campaigns section.
+**Inbound:** Business header/footer → Mobile → Campaigns; Business homepage Campaigns section.
 
 ---
 
@@ -433,7 +432,7 @@ All 14 Campaigns routes render the shared Business announcement bar, header, inv
 | Hero back link | `/business/campaigns/` | CONNECTED |
 | Hero → Contact us | `mailto:business@azercell.com` | CONNECTED (external protocol) |
 
-**Inbound:** Campaigns hub; Business header and footer.
+**Inbound:** Campaigns hub; Business homepage concept 2.
 
 ---
 
@@ -444,7 +443,7 @@ All 14 Campaigns routes render the shared Business announcement bar, header, inv
 | Hero back link | `/business/campaigns/` | CONNECTED |
 | Hero and package note → Contact us | `mailto:business@azercell.com` | CONNECTED (external protocol) |
 
-**Inbound:** Campaigns hub; Business header item and promo; Business footer; Business homepage campaign card.
+**Inbound:** Campaigns hub; Business header/footer → Mobile → My Business Wi-Fi; Business homepage card.
 
 ---
 
@@ -456,7 +455,7 @@ All 14 Campaigns routes render the shared Business announcement bar, header, inv
 | Hero → Check eligibility | `mailto:business@azercell.com` | CONNECTED (external protocol) |
 | Bundle cards | MNP 60GB; MNP 80GB | CONNECTED |
 
-**Inbound:** Campaigns hub; Business header.
+**Inbound:** Campaigns hub.
 
 ---
 
@@ -483,7 +482,7 @@ Routes:
 | Hero back link | `/business/campaigns/` | CONNECTED |
 | Campaign cards | iPhone 16; iPhone 17; Smartphone Leasing | CONNECTED |
 
-**Inbound:** Campaigns hub; Business header; Business homepage campaign card.
+**Inbound:** Campaigns hub; Business homepage campaign card.
 
 ---
 
@@ -522,7 +521,7 @@ Routes:
 | Hero back link | `/business/campaigns/` | CONNECTED |
 | Eligibility CTA → Contact Azercell Business | `mailto:business@azercell.com` | CONNECTED (external protocol) |
 
-**Inbound:** Campaigns hub; Business header.
+**Inbound:** Campaigns hub.
 
 ---
 
@@ -534,7 +533,7 @@ Routes:
 | Hero → Contact us | `mailto:business@azercell.com` | CONNECTED (external protocol) |
 | Virtual Wallet card | `/business/campaigns/my-business-club/virtual-wallet/` | CONNECTED |
 
-**Inbound:** Campaigns hub; Business header and footer.
+**Inbound:** Campaigns hub; Business homepage concept 2.
 
 ---
 
@@ -662,19 +661,19 @@ Personal keeps Internet, Tariffs, Roaming and Kinon. Business and B2B planned pl
 
 ## `/business2/` — Business homepage concept 2
 
-This route is an unlinked review concept based on `Azercell_Business_Homepage_Content_(temporary).docx`. It reuses the shared Business header, footer and floating bar without modifying their content or behavior.
+This route is an unlinked review concept based on `Azercell_Business_Homepage_Content_(temporary).docx`. It now uses the approved Business header/footer IA and keeps the existing floating utility bar.
 
 | Section / link | Target | Status |
 |----------------|--------|--------|
-| Hero → Explore business solutions | `/business/digital-solutions/` | PLANNED |
+| Hero → Explore ICT Solutions | `/business/ict-solutions/` | PLANNED |
 | Hero / quick action → Talk to sales | `mailto:business@azercell.com` | CONNECTED (external) |
-| Digital Solutions cards | Four B2B solution category routes | PLANNED |
-| Tariffs, internet and connectivity gateways | Registered B2B routes | PLANNED |
+| ICT Solutions cards | Unified Communications, IoT & M2M, Security, Automation & Management, Cloud & Digital Platforms | PLANNED |
+| Tariffs, internet and Fixed gateways | Registered B2B routes | PLANNED |
 | Roaming gateways | Built B2B roaming routes | CONNECTED |
 | Active campaigns | Featured My Business Wi-Fi; Why Azercell Business + My Business Club on the second row; additional active cards append below | CONNECTED |
 | Azercell Biznes | biznes.azercell.com | CONNECTED (external) |
 | Online Itemized Bill | Current Azercell corporate page | CONNECTED (external) |
-| Support shortcuts | `tel:*6050`, FAQ/location routes, itemized bill | Mixed |
+| Support shortcuts | FAQ, Live Chat, Contact Us, Locations, itemized bill | Mixed |
 
 **Inbound:** Direct review URL only. It is intentionally absent from shared navigation.
 
@@ -693,6 +692,8 @@ This route is an unlinked review concept based on `Azercell_Business_Homepage_Co
 
 | Date | Change |
 |------|--------|
+| 2026-09-04 | Expanded the B2B footer to mirror the complete approved ICT Solutions hierarchy, kept the five ICT families visually grouped on desktop and mobile, and aligned the Partnerships link label with the approved map. |
+| 2026-09-04 | Applied the approved Business IA to the registry, header, footer and both Business homepage concepts; preserved built Campaigns/Roaming URLs and registered planned destinations for new sections. |
 | 2026-09-01 | Refined `/business2/`: removed the source legend and lead form; accepted the hero as white-on-dark; reorganized campaigns into one full-width feature plus a two-card row with an extensible overflow grid; kept Azercell Biznes primary CTA white. |
 | 2026-09-01 | Added the unlinked `/business2/` homepage concept from the temporary content document, preserving shared chrome and applying `#f0f` / `#8000FF80` source markers. |
 | 2026-08-31 | Completed the separate B2B Campaigns connection audit for all 14 routes: documented every public inbound and route-specific outbound, synchronized page comments, corrected Campaigns `PAGE_REGISTRY.links`, and made campaign component `usedOn` lists match actual rendering. No Campaigns connection gaps remain. |

@@ -567,6 +567,16 @@
               '<ul class="cmp-header__nav-list">' +
                 nav.map(function (item, index) {
                   if (isBusiness) {
+                    var hasBusinessMenu = (item.items || []).length > 0;
+                    if (!hasBusinessMenu) {
+                      return (
+                        '<li class="cmp-nav__category">' +
+                          '<a class="cmp-header__nav-btn cmp-nav__category-link"' + attr('href', item.href) + '>' +
+                            esc(item.label) +
+                          '</a>' +
+                        '</li>'
+                      );
+                    }
                     return (
                       '<li class="cmp-nav__category" data-menu-hover="' + index + '">' +
                         '<div class="cmp-nav__category-control">' +
@@ -624,6 +634,13 @@
             '<div class="cmp-nav__mobile-groups">' +
               nav.map(function (item, index) {
                 if (isBusiness) {
+                  if (!(item.items || []).length) {
+                    return '<section class="cmp-nav__mobile-group">' +
+                      '<div class="cmp-nav__mobile-category-row">' +
+                        navLink(item, 't-h4 cmp-nav__mobile-category-link') +
+                      '</div>' +
+                    '</section>';
+                  }
                   return '<section class="cmp-nav__mobile-group">' +
                     '<div class="cmp-nav__mobile-category-row">' +
                       navLink(item, 't-h4 cmp-nav__mobile-category-link') +
@@ -668,6 +685,16 @@
           var cls = 'cmp-nav__footer-link t-body';
           if (item.nested) cls += ' cmp-nav__footer-link--nested';
           if (item.featured) cls += ' cmp-nav__footer-link--featured';
+          if (item.children && item.children.length) {
+            return '<div class="cmp-nav__footer-subgroup">' +
+              navLink(item, cls + ' cmp-nav__footer-link--category') +
+              '<div class="cmp-nav__footer-subgroup-links">' +
+                item.children.map(function (child) {
+                  return navLink(child, 'cmp-nav__footer-link cmp-nav__footer-link--nested t-body');
+                }).join('') +
+              '</div>' +
+            '</div>';
+          }
           return navLink(item, cls);
         }).join('') +
       '</div>' +
@@ -714,12 +741,12 @@
           '<div class="cmp-nav__footer-main">' +
             '<div class="cmp-nav__footer-groups">' +
               (props.groups || []).slice(0, 2).map(function (group) {
-                return personalFooterGroup(group.title, group.links);
+                return personalFooterGroup(group.title, group.links, group.wide ? ' data-footer-wide="true"' : '');
               }).join('') +
               (includeAppsGroup ? personalFooterGroup('Apps', props.appsV1, ' data-apps-v1', 'apps-v1') : '') +
               (includeAppsGroup ? personalFooterGroup('Apps', props.appsV2, ' data-apps-v2', 'apps-v2') : '') +
               (props.groups || []).slice(2).map(function (group) {
-                return personalFooterGroup(group.title, group.links);
+                return personalFooterGroup(group.title, group.links, group.wide ? ' data-footer-wide="true"' : '');
               }).join('') +
             '</div>' +
             '<div class="cmp-nav__footer-feature-cards">' + featureCards.map(personalFooterFeatureCard).join('') + '</div>' +

@@ -176,21 +176,20 @@
 
     /* ---------------- B2B ---------------- */
     { path: '/business/', title: 'Business homepage', parent: null, branch: 'b2b', status: 'built',
-      links: ['/', '/about/', '/business/mobile/', '/business/connectivity/', '/business/digital-solutions/', '/business/iot/',
-              '/business/fleet-field-operations/', '/business/automation-management/',
-              '/business/customer-engagement/', '/business/campaigns/', '/business/support/',
-              '/business/campaigns/my-business-wifi/', '/business/campaigns/devices-and-financing/',
+      links: ['/', '/about/', '/business/mobile/', '/business/fixed/', '/business/ict-solutions/', '/business/iot/',
+              '/business/automation-management/', '/business/partnerships/', '/business/support/', '/business/company/',
+              '/business/campaigns/', '/business/campaigns/my-business-wifi/',
               'https://biznes.azercell.com'] },
     { path: '/business2/', title: 'Business homepage concept 2', parent: null, branch: 'b2b', status: 'built',
-      links: ['/business/mobile/', '/business/connectivity/', '/business/digital-solutions/', '/business/iot/',
-              '/business/fleet-field-operations/', '/business/automation-management/',
-              '/business/customer-engagement/', '/business/campaigns/', '/business/support/',
+      links: ['/business/mobile/', '/business/fixed/', '/business/ict-solutions/', '/business/iot/',
+              '/business/automation-management/', '/business/partnerships/', '/business/support/', '/business/company/',
+              '/business/campaigns/',
               '/business/campaigns/why-azercell-business/', '/business/campaigns/my-business-wifi/',
               '/business/mobile/roaming/', 'https://biznes.azercell.com'] },
     { path: '/business/mobile/', title: 'Mobile', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/tariffs/', title: 'My Business tariff plans', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
+    { path: '/business/mobile/tariffs/', title: 'My Business Tariff Plans', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
     { path: '/business/mobile/tariffs/archive/', title: 'Tariffs archive', parent: '/business/mobile/tariffs/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/internet/', title: 'My Business internet packs', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
+    { path: '/business/mobile/internet/', title: 'My Business Internet Packs', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
     { path: '/business/mobile/internet/monthly/', title: 'Monthly internet packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
     { path: '/business/mobile/internet/short-term/', title: 'Short-term packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
     { path: '/business/mobile/internet/social/', title: 'Social network packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
@@ -213,40 +212,61 @@
     { path: '/business/mobile/roaming/internet-packs/', title: 'Roaming internet packs', parent: '/business/mobile/roaming/', branch: 'b2b', status: 'built',
       links: ['https://kabinetim.azercell.com/',
               'https://www.azercell.com/en/corporate/mobile-communications/roaming/roaming-data-packages.html'] },
-    { path: '/business/mobile/azercell-biznes/', title: 'Azercell Biznes', parent: '/business/mobile/', branch: 'b2b', status: 'planned',
+    { path: '/business/mobile/azercell-biznes/', title: 'Azercell Biznes Platform', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned',
       links: ['https://biznes.azercell.com'] },
-    { path: '/business/connectivity/', title: 'Connectivity', parent: '/business/', branch: 'b2b', status: 'planned',
-      note: 'Category definition and relationship to the current Fixed service section are on hold for client review.' },
-    { path: '/business/connectivity/leased-line/', title: 'My Business Internet Leased Line', parent: '/business/connectivity/', branch: 'b2b', status: 'planned' },
-    { path: '/business/connectivity/wifi/', title: 'My Business Wi-Fi', parent: '/business/connectivity/', branch: 'b2b', status: 'planned' },
-    { path: '/business/connectivity/unified-communications/', title: 'Unified Communications', parent: '/business/connectivity/', branch: 'b2b', status: 'planned' },
-    { path: '/business/digital-solutions/', title: 'Digital solutions', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/', title: 'IoT & M2M', parent: '/business/digital-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/overview/', title: 'IoT overview', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/m2m/', title: 'M2M', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/', title: 'Fleet & field operations', parent: '/business/digital-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/yoldash-360/', title: 'YolDASH360', parent: '/business/fleet-field-operations/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/fleet/', title: 'My Business Fleet', parent: '/business/fleet-field-operations/', branch: 'b2b', status: 'planned',
-      note: 'The separate My Business Fleet package page is on hold for client review.' },
-    { path: '/business/fleet-field-operations/team-management/', title: 'Mobile Team Management', parent: '/business/fleet-field-operations/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/irrigation/', title: 'Irrigation Control System', parent: '/business/fleet-field-operations/', branch: 'b2b', status: 'planned' },
-    { path: '/business/automation-management/', title: 'Automation & management', parent: '/business/digital-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/automation-management/rpa/', title: 'Robotic Automation Solution (RPA)', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
+    { path: '/business/mobile/mobile-marketing/', title: 'Mobile Marketing', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
+    { path: '/business/mobile/archive/', title: 'Archive', parent: '/business/mobile/', branch: 'b2b', status: 'planned',
+      links: ['/business/mobile/tariffs/archive/', '/business/mobile/internet/archive/', '/business/campaigns/archive/'] },
+
+    { path: '/business/fixed/', title: 'Fixed', parent: '/business/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fixed/internet-leased-line/', title: 'Internet Leased Line', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fixed/mpls-vpn/', title: 'MPLS / VPN', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fixed/fixed-connectivity/', title: 'Fixed connectivity', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fixed/managed-wifi/', title: 'Managed Wi-Fi', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
+
+    { path: '/business/ict-solutions/', title: 'ICT Solutions', parent: '/business/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/unified-communications/', title: 'Unified Communications', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/unified-communications/business-voip/', title: 'Business VoIP', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/unified-communications/calls-manager/', title: 'My Business Calls Manager', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/unified-communications/sip-ip-telephony/', title: 'SIP / IP Telephony', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/', title: 'IoT & M2M', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/tariff-plans/', title: 'My Business IoT Tariff Plans', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/roaming-packs/', title: 'IoT Roaming Packs', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/pool-packages/', title: 'IoT Pool Packages', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/overview/', title: 'IoT overview (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/iot/m2m/', title: 'M2M Service', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/apn-pdp/', title: 'APN/PDP', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fleet-field-operations/yoldash-360/', title: 'YolDash', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fleet-field-operations/fleet/', title: 'Fleet Management', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fleet-field-operations/irrigation/', title: 'Irrigation System Control', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/automation-management/', title: 'Automation & Management', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
+    { path: '/business/automation-management/rpa/', title: 'Robotic Automation', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fleet-field-operations/team-management/', title: 'Mobile Team Management', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
     { path: '/business/automation-management/device-management/', title: 'Mobile Device Management', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/', title: 'Customer engagement', parent: '/business/digital-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/cpaas/', title: 'Customer Experience Management Platform', parent: '/business/customer-engagement/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/infohub/', title: 'InfoHUB', parent: '/business/customer-engagement/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/mobile-marketing/', title: 'Mobile Marketing', parent: '/business/customer-engagement/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/bulk-sms/', title: 'Bulk & Profile SMS', parent: '/business/customer-engagement/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/content-services/', title: 'Call Signature / Content Services', parent: '/business/customer-engagement/', branch: 'b2b', status: 'planned' },
-    { path: '/business/campaigns/', title: 'Campaigns', parent: '/business/', branch: 'b2b', status: 'built',
+
+    { path: '/business/ict-solutions/security/', title: 'Security', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/security/cybersecurity-solutions/', title: 'Cybersecurity Solutions', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/security/audits-consulting/', title: 'Security Audits & Consulting', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/security/managed-security/', title: 'Managed Security', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/security/dns-security/', title: 'DNS Security', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/security/fraud-protection/', title: 'Fraud Protection', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
+
+    { path: '/business/ict-solutions/cloud-digital-platforms/', title: 'Cloud & Digital Platforms', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
+    { path: '/business/customer-engagement/infohub/', title: 'InfoHUB', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned' },
+    { path: '/business/customer-engagement/cpaas/', title: 'CPaaS', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/cloud-digital-platforms/free-dpi/', title: 'Free DPI', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned' },
+    { path: '/business/customer-engagement/bulk-sms/', title: 'Bulk & Profile SMS', parent: '/business/mobile/mobile-marketing/', branch: 'b2b', status: 'planned' },
+    { path: '/business/customer-engagement/content-services/', title: 'Call Signature / Content Services', parent: '/business/mobile/mobile-marketing/', branch: 'b2b', status: 'planned' },
+
+    { path: '/business/partnerships/', title: 'Partnerships', parent: '/business/', branch: 'b2b', status: 'planned' },
+    { path: '/business/campaigns/', title: 'Campaigns', parent: '/business/mobile/', branch: 'b2b', status: 'built',
       links: ['/business/campaigns/why-azercell-business/', '/business/campaigns/my-business-wifi/',
               '/business/campaigns/acquisition-campaigns/', '/business/campaigns/devices-and-financing/',
               '/business/campaigns/my-business-tariff-discounts/', '/business/campaigns/my-business-club/',
               '/business/campaigns/my-business-club/virtual-wallet/', '/business/campaigns/archive/'] },
     { path: '/business/campaigns/why-azercell-business/', title: 'Why Azercell Business?', parent: '/business/campaigns/', branch: 'b2b', status: 'built',
       links: ['/business/campaigns/', 'mailto:business@azercell.com'] },
-    { path: '/business/campaigns/my-business-wifi/', title: 'My Business Wi-Fi', parent: '/business/campaigns/', branch: 'b2b', status: 'built',
+    { path: '/business/campaigns/my-business-wifi/', title: 'My Business Wi-Fi', parent: '/business/mobile/', branch: 'b2b', status: 'built',
       links: ['/business/campaigns/', 'mailto:business@azercell.com'] },
     { path: '/business/campaigns/acquisition-campaigns/', title: 'Acquisition campaigns', parent: '/business/campaigns/', branch: 'b2b', status: 'built',
       links: ['/business/campaigns/', '/business/campaigns/acquisition-campaigns/mnp-60gb/',
@@ -283,14 +303,31 @@
               'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-gm.html',
               'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-lenovo.html'] },
     { path: '/business/support/', title: 'Support', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/help/', title: 'Help', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/talk-to-support/', title: 'Talk to Support', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/faqs/', title: 'Browse all FAQs', parent: '/business/support/', branch: 'b2b', status: 'planned' },
+    { path: '/business/support/faq/', title: 'FAQ', parent: '/business/support/', branch: 'b2b', status: 'planned' },
+    { path: '/business/support/live-chat/', title: 'Live Chat', parent: '/business/support/', branch: 'b2b', status: 'planned' },
+    { path: '/business/support/contact-us/', title: 'Contact Us', parent: '/business/support/', branch: 'b2b', status: 'planned' },
     { path: '/business/support/locations/', title: 'Locations', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/help-and-support/', title: 'Help & Support', parent: '/business/support/', branch: 'b2b', status: 'planned' },
     { path: '/business/support/itemized-bill/', title: 'Online Itemized Bill', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/azercell-biznes/top-up/', title: 'Top-up', parent: '/business/mobile/azercell-biznes/', branch: 'b2b', status: 'planned' },
-    { path: '/business/login/', title: 'Log in', parent: '/business/', branch: 'b2b', status: 'planned',
+
+    { path: '/business/company/', title: 'Company', parent: '/business/', branch: 'b2b', status: 'planned',
+      links: ['/about/', '/about/press/', '/about/academy/', '/business/company/my-business-loyalty/',
+              'https://careers.azercell.com/search/', 'https://azercellliler.azercell.com/'] },
+    { path: '/business/company/my-business-loyalty/', title: 'My Business Loyalty', parent: '/business/company/', branch: 'b2b', status: 'planned' },
+
+    /* Legacy registered aliases retained for old review links; not part of the approved menu. */
+    { path: '/business/connectivity/', title: 'Connectivity (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/connectivity/leased-line/', title: 'Internet Leased Line (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/connectivity/wifi/', title: 'My Business Wi-Fi (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/connectivity/unified-communications/', title: 'Unified Communications (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/digital-solutions/', title: 'Digital solutions (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/fleet-field-operations/', title: 'Fleet & field operations (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/customer-engagement/', title: 'Customer engagement (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/support/help/', title: 'Help (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/support/talk-to-support/', title: 'Talk to Support (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/support/faqs/', title: 'Browse all FAQs (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/support/help-and-support/', title: 'Help & Support (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/mobile/azercell-biznes/top-up/', title: 'Top-up (legacy utility)', parent: null, branch: 'internal', status: 'planned' },
+    { path: '/business/login/', title: 'Log in', parent: null, branch: 'internal', status: 'planned',
       note: 'Destination is not confirmed yet.' },
 
     /* ---------------- Other ---------------- */
@@ -638,97 +675,84 @@
 
     businessNav: [
       {
-        label: 'Company', href: href('/about/'), mode: 'list',
+        label: 'Mobile', href: href('/business/mobile/'), mode: 'list',
         items: [
-          { label: 'About us', href: href('/about/') },
-          { label: 'Media & press', href: href('/about/press/') },
-          { label: 'Corporate Social Responsibility', href: href('/about/sustainability/csr/') },
-          { label: 'Sustainability', href: href('/about/sustainability/') },
-          { label: 'Careers ↗', href: 'https://careers.azercell.com/search/' },
-          { label: 'Azercell Academy', href: href('/about/academy/') },
-          { label: 'Azercell Life ↗', href: 'https://azercellliler.azercell.com/' },
-          { label: 'Contact us', href: href('/about/contact/') },
-          { label: 'Awards', href: href('/about/awards/') }
+          { label: 'My Business Tariff Plans', href: href('/business/mobile/tariffs/') },
+          { label: 'My Business Internet Packs', href: href('/business/mobile/internet/') },
+          { label: 'Roaming', href: href('/business/mobile/roaming/') },
+          { label: 'Mobile Marketing', href: href('/business/mobile/mobile-marketing/') },
+          { label: 'My Business Wi-Fi', href: href('/business/campaigns/my-business-wifi/') },
+          { label: 'Campaigns', href: href('/business/campaigns/') },
+          { label: 'Archive', href: href('/business/mobile/archive/') }
         ]
       },
       {
-        label: 'Mobile', href: href('/business/mobile/'), mode: 'detail-links',
+        label: 'Fixed', href: href('/business/fixed/'), mode: 'list',
         items: [
-          { label: 'Azercell Biznes', href: href('/business/mobile/azercell-biznes/'), featured: true },
-          { label: 'My Business tariff plans', href: href('/business/mobile/tariffs/'), detail: [
-            { label: 'Tariffs archive', href: href('/business/mobile/tariffs/archive/') }
+          { label: 'Internet Leased Line', href: href('/business/fixed/internet-leased-line/') },
+          { label: 'MPLS / VPN', href: href('/business/fixed/mpls-vpn/') },
+          { label: 'Fixed connectivity', href: href('/business/fixed/fixed-connectivity/') },
+          { label: 'Managed Wi-Fi', href: href('/business/fixed/managed-wifi/') }
+        ]
+      },
+      {
+        label: 'ICT Solutions', href: href('/business/ict-solutions/'), mode: 'detail-links',
+        items: [
+          { label: 'Unified Communications', href: href('/business/ict-solutions/unified-communications/'), detail: [
+            { label: 'Business VoIP', href: href('/business/ict-solutions/unified-communications/business-voip/') },
+            { label: 'My Business Calls Manager', href: href('/business/ict-solutions/unified-communications/calls-manager/') },
+            { label: 'SIP / IP Telephony', href: href('/business/ict-solutions/unified-communications/sip-ip-telephony/') }
           ] },
-          { label: 'My Business Internet packs', href: href('/business/mobile/internet/'), detail: [
-            { label: 'Monthly internet packs', href: href('/business/mobile/internet/monthly/') },
-            { label: 'Short-term packs', href: href('/business/mobile/internet/short-term/') },
-            { label: 'Social network packs', href: href('/business/mobile/internet/social/') },
-            { label: 'Internet packs Archive', href: href('/business/mobile/internet/archive/') }
-          ] },
-          { label: 'Roaming', href: href('/business/mobile/roaming/'), detail: [
-            { label: 'Countries and prices', href: href('/business/mobile/roaming/countries-and-prices/') },
-            { label: 'Turkiye', href: href('/business/mobile/roaming/countries-and-prices/turkiye/'), nested: true },
-            { label: 'Georgia', href: href('/business/mobile/roaming/countries-and-prices/georgia/'), nested: true },
-            { label: 'Germany', href: href('/business/mobile/roaming/countries-and-prices/germany/'), nested: true },
-            { label: 'Roaming internet packs', href: href('/business/mobile/roaming/internet-packs/') }
-          ] }
-        ]
-      },
-      {
-        label: 'Connectivity', href: href('/business/connectivity/'), mode: 'list',
-        items: [
-          { label: 'My Business Internet Leased Line', href: href('/business/connectivity/leased-line/') },
-          { label: 'My Business Wi-Fi', href: href('/business/connectivity/wifi/') },
-          { label: 'Unified Communications', href: href('/business/connectivity/unified-communications/') }
-        ]
-      },
-      {
-        label: 'Digital solutions', href: href('/business/digital-solutions/'), mode: 'detail-links',
-        items: [
           { label: 'IoT & M2M', href: href('/business/iot/'), detail: [
-            { label: 'IoT overview', href: href('/business/iot/overview/') },
-            { label: 'M2M', href: href('/business/iot/m2m/') }
+            { label: 'My Business IoT Tariff Plans', href: href('/business/iot/tariff-plans/') },
+            { label: 'IoT Roaming Packs', href: href('/business/iot/roaming-packs/') },
+            { label: 'IoT Pool Packages', href: href('/business/iot/pool-packages/') },
+            { label: 'Fleet Management', href: href('/business/fleet-field-operations/fleet/') },
+            { label: 'YolDash', href: href('/business/fleet-field-operations/yoldash-360/') },
+            { label: 'M2M Service', href: href('/business/iot/m2m/') },
+            { label: 'APN/PDP', href: href('/business/iot/apn-pdp/') },
+            { label: 'Irrigation System Control', href: href('/business/fleet-field-operations/irrigation/') }
           ] },
-          { label: 'Fleet & field operations', href: href('/business/fleet-field-operations/'), detail: [
-            { label: 'YolDASH360', href: href('/business/fleet-field-operations/yoldash-360/') },
-            { label: 'My Business Fleet', href: href('/business/fleet-field-operations/fleet/') },
+          { label: 'Security', href: href('/business/ict-solutions/security/'), detail: [
+            { label: 'Cybersecurity Solutions', href: href('/business/ict-solutions/security/cybersecurity-solutions/') },
+            { label: 'Security Audits & Consulting', href: href('/business/ict-solutions/security/audits-consulting/') },
+            { label: 'Managed Security', href: href('/business/ict-solutions/security/managed-security/') },
+            { label: 'DNS Security', href: href('/business/ict-solutions/security/dns-security/') },
+            { label: 'Fraud Protection', href: href('/business/ict-solutions/security/fraud-protection/') }
+          ] },
+          { label: 'Automation & Management', href: href('/business/automation-management/'), detail: [
+            { label: 'Robotic Automation', href: href('/business/automation-management/rpa/') },
             { label: 'Mobile Team Management', href: href('/business/fleet-field-operations/team-management/') },
-            { label: 'Irrigation Control System', href: href('/business/fleet-field-operations/irrigation/') }
-          ] },
-          { label: 'Automation & management', href: href('/business/automation-management/'), detail: [
-            { label: 'Robotic Automation Solution (RPA)', href: href('/business/automation-management/rpa/') },
             { label: 'Mobile Device Management', href: href('/business/automation-management/device-management/') }
           ] },
-          { label: 'Customer engagement', href: href('/business/customer-engagement/'), detail: [
-            { label: 'Customer Experience Management Platform', href: href('/business/customer-engagement/cpaas/') },
+          { label: 'Cloud & Digital Platforms', href: href('/business/ict-solutions/cloud-digital-platforms/'), detail: [
             { label: 'InfoHUB', href: href('/business/customer-engagement/infohub/') },
-            { label: 'Mobile Marketing', href: href('/business/customer-engagement/mobile-marketing/') },
-            { label: 'Bulk & Profile SMS', href: href('/business/customer-engagement/bulk-sms/') },
-            { label: 'Call Signature / Content Services', href: href('/business/customer-engagement/content-services/') }
+            { label: 'CPaaS', href: href('/business/customer-engagement/cpaas/') },
+            { label: 'Azercell Biznes Platform', href: href('/business/mobile/azercell-biznes/') },
+            { label: 'Free DPI', href: href('/business/ict-solutions/cloud-digital-platforms/free-dpi/') }
           ] }
         ]
       },
-      {
-        label: 'Campaigns', href: href('/business/campaigns/'), mode: 'list-promo',
-        items: [
-          { label: 'Why Azercell Business?', href: href('/business/campaigns/why-azercell-business/') },
-          { label: 'My Business Wi-Fi', href: href('/business/campaigns/my-business-wifi/') },
-          { label: 'Acquisition campaigns', href: href('/business/campaigns/acquisition-campaigns/') },
-          { label: 'Devices & financing', href: href('/business/campaigns/devices-and-financing/') },
-          { label: 'My Business tariff discounts', href: href('/business/campaigns/my-business-tariff-discounts/') },
-          { label: 'My Business Club', href: href('/business/campaigns/my-business-club/') },
-          { label: 'Campaigns archive', href: href('/business/campaigns/archive/') }
-        ],
-        promo: { label: 'My Business Wi-Fi', href: href('/business/campaigns/my-business-wifi/') }
-      },
+      { label: 'Partnerships', href: href('/business/partnerships/'), mode: 'list', items: [] },
       {
         label: 'Support', href: href('/business/support/'), mode: 'list',
         items: [
-          { label: 'Help', href: href('/business/support/help/') },
-          { label: 'Talk to Support', href: href('/business/support/talk-to-support/') },
-          { label: 'Browse all FAQs', href: href('/business/support/faqs/') },
+          { label: 'FAQ', href: href('/business/support/faq/') },
+          { label: 'Live Chat', href: href('/business/support/live-chat/') },
+          { label: 'Contact Us', href: href('/business/support/contact-us/') },
           { label: 'Locations', href: href('/business/support/locations/') },
-          { label: 'Help & Support', href: href('/business/support/help-and-support/') },
           { label: 'Online Itemized Bill', href: href('/business/support/itemized-bill/') }
+        ]
+      },
+      {
+        label: 'Company', href: href('/business/company/'), mode: 'list',
+        items: [
+          { label: 'About Us', href: href('/about/') },
+          { label: 'Media & Press', href: href('/about/press/') },
+          { label: 'Careers', href: 'https://careers.azercell.com/search/' },
+          { label: 'Azercell Academy', href: href('/about/academy/') },
+          { label: 'Azercell Life', href: 'https://azercellliler.azercell.com/' },
+          { label: 'My Business Loyalty', href: href('/business/company/my-business-loyalty/') }
         ]
       }
     ],
@@ -834,62 +858,73 @@
       },
       includeAppsGroup: false,
       groups: [
-        { title: 'About Azercell', links: [
-          { label: 'About us', href: href('/about/') },
-          { label: 'Media & press', href: href('/about/press/') },
-          { label: 'Corporate Social Responsibility', href: href('/about/sustainability/csr/') },
-          { label: 'Sustainability', href: href('/about/sustainability/') },
+        { title: 'Mobile', links: [
+          { label: 'My Business Tariff Plans', href: href('/business/mobile/tariffs/') },
+          { label: 'My Business Internet Packs', href: href('/business/mobile/internet/') },
+          { label: 'Roaming', href: href('/business/mobile/roaming/') },
+          { label: 'Mobile Marketing', href: href('/business/mobile/mobile-marketing/') },
+          { label: 'My Business Wi-Fi', href: href('/business/campaigns/my-business-wifi/') },
+          { label: 'Campaigns', href: href('/business/campaigns/') },
+          { label: 'Archive', href: href('/business/mobile/archive/') }
+        ] },
+        { title: 'Fixed', links: [
+          { label: 'Internet Leased Line', href: href('/business/fixed/internet-leased-line/') },
+          { label: 'MPLS / VPN', href: href('/business/fixed/mpls-vpn/') },
+          { label: 'Fixed connectivity', href: href('/business/fixed/fixed-connectivity/') },
+          { label: 'Managed Wi-Fi', href: href('/business/fixed/managed-wifi/') }
+        ] },
+        { title: 'ICT Solutions', wide: true, links: [
+          { label: 'Unified Communications', href: href('/business/ict-solutions/unified-communications/'), children: [
+            { label: 'Business VoIP', href: href('/business/ict-solutions/unified-communications/business-voip/') },
+            { label: 'My Business Calls Manager', href: href('/business/ict-solutions/unified-communications/calls-manager/') },
+            { label: 'SIP / IP Telephony', href: href('/business/ict-solutions/unified-communications/sip-ip-telephony/') }
+          ] },
+          { label: 'IoT & M2M', href: href('/business/iot/'), children: [
+            { label: 'My Business IoT Tariff Plans', href: href('/business/iot/tariff-plans/') },
+            { label: 'IoT Roaming Packs', href: href('/business/iot/roaming-packs/') },
+            { label: 'IoT Pool Packages', href: href('/business/iot/pool-packages/') },
+            { label: 'Fleet Management', href: href('/business/fleet-field-operations/fleet/') },
+            { label: 'YolDash', href: href('/business/fleet-field-operations/yoldash-360/') },
+            { label: 'M2M Service', href: href('/business/iot/m2m/') },
+            { label: 'APN/PDP', href: href('/business/iot/apn-pdp/') },
+            { label: 'Irrigation System Control', href: href('/business/fleet-field-operations/irrigation/') }
+          ] },
+          { label: 'Security', href: href('/business/ict-solutions/security/'), children: [
+            { label: 'Cybersecurity Solutions', href: href('/business/ict-solutions/security/cybersecurity-solutions/') },
+            { label: 'Security Audits & Consulting', href: href('/business/ict-solutions/security/audits-consulting/') },
+            { label: 'Managed Security', href: href('/business/ict-solutions/security/managed-security/') },
+            { label: 'DNS Security', href: href('/business/ict-solutions/security/dns-security/') },
+            { label: 'Fraud Protection', href: href('/business/ict-solutions/security/fraud-protection/') }
+          ] },
+          { label: 'Automation & Management', href: href('/business/automation-management/'), children: [
+            { label: 'Robotic Automation', href: href('/business/automation-management/rpa/') },
+            { label: 'Mobile Team Management', href: href('/business/fleet-field-operations/team-management/') },
+            { label: 'Mobile Device Management', href: href('/business/automation-management/device-management/') }
+          ] },
+          { label: 'Cloud & Digital Platforms', href: href('/business/ict-solutions/cloud-digital-platforms/'), children: [
+            { label: 'InfoHUB', href: href('/business/customer-engagement/infohub/') },
+            { label: 'CPaaS', href: href('/business/customer-engagement/cpaas/') },
+            { label: 'Azercell Biznes Platform', href: href('/business/mobile/azercell-biznes/') },
+            { label: 'Free DPI', href: href('/business/ict-solutions/cloud-digital-platforms/free-dpi/') }
+          ] }
+        ] },
+        { title: 'Partnerships', links: [
+          { label: 'Partnerships', href: href('/business/partnerships/') }
+        ] },
+        { title: 'Support', links: [
+          { label: 'FAQ', href: href('/business/support/faq/') },
+          { label: 'Live Chat', href: href('/business/support/live-chat/') },
+          { label: 'Contact Us', href: href('/business/support/contact-us/') },
+          { label: 'Locations', href: href('/business/support/locations/') },
+          { label: 'Online Itemized Bill', href: href('/business/support/itemized-bill/') }
+        ] },
+        { title: 'Company', links: [
+          { label: 'About Us', href: href('/about/') },
+          { label: 'Media & Press', href: href('/about/press/') },
           { label: 'Careers', href: 'https://careers.azercell.com/search/' },
           { label: 'Azercell Academy', href: href('/about/academy/') },
           { label: 'Azercell Life', href: 'https://azercellliler.azercell.com/' },
-          { label: 'Awards', href: href('/about/awards/') }
-        ] },
-        { title: 'Mobile', links: [
-          { label: 'My Business tariff plans', href: href('/business/mobile/tariffs/') },
-          { label: 'My Business Internet packs', href: href('/business/mobile/internet/') },
-          { label: 'Roaming', href: href('/business/mobile/roaming/') }
-        ] },
-        { title: 'Connectivity', links: [
-          { label: 'My Business Internet Leased Line', href: href('/business/connectivity/leased-line/') },
-          { label: 'My Business Wi-Fi', href: href('/business/connectivity/wifi/') },
-          { label: 'Unified Communications', href: href('/business/connectivity/unified-communications/') }
-        ] },
-        { title: 'IoT & M2M', links: [
-          { label: 'IoT overview', href: href('/business/iot/overview/') },
-          { label: 'M2M', href: href('/business/iot/m2m/') }
-        ] },
-        { title: 'Fleet & field operations', links: [
-          { label: 'YolDASH360', href: href('/business/fleet-field-operations/yoldash-360/') },
-          { label: 'My Business Fleet', href: href('/business/fleet-field-operations/fleet/') },
-          { label: 'Mobile Team Management', href: href('/business/fleet-field-operations/team-management/') },
-          { label: 'Irrigation Control System', href: href('/business/fleet-field-operations/irrigation/') }
-        ] },
-        { title: 'Automation & management', links: [
-          { label: 'Robotic Automation Solution (RPA)', href: href('/business/automation-management/rpa/') },
-          { label: 'Mobile Device Management', href: href('/business/automation-management/device-management/') }
-        ] },
-        { title: 'Customer engagement', links: [
-          { label: 'Customer Experience Management Platform', href: href('/business/customer-engagement/cpaas/') },
-          { label: 'InfoHUB', href: href('/business/customer-engagement/infohub/') },
-          { label: 'Mobile Marketing', href: href('/business/customer-engagement/mobile-marketing/') },
-          { label: 'Bulk & Profile SMS', href: href('/business/customer-engagement/bulk-sms/') },
-          { label: 'Call Signature / Content Services', href: href('/business/customer-engagement/content-services/') }
-        ] },
-        { title: 'Campaigns', links: [
-          { label: 'All campaigns', href: href('/business/campaigns/') },
-          { label: 'Why Azercell Business?', href: href('/business/campaigns/why-azercell-business/') },
-          { label: 'My Business Wi-Fi', href: href('/business/campaigns/my-business-wifi/') },
-          { label: 'My Business Club', href: href('/business/campaigns/my-business-club/') },
-          { label: 'Campaigns archive', href: href('/business/campaigns/archive/') }
-        ] },
-        { title: 'Support', links: [
-          { label: 'Help', href: href('/business/support/help/') },
-          { label: 'Browse all FAQs', href: href('/business/support/faqs/') },
-          { label: 'Contact us', href: href('/about/contact/') },
-          { label: 'Talk to Support', href: href('/business/support/talk-to-support/') },
-          { label: 'Locations', href: href('/business/support/locations/') },
-          { label: 'Call center *6050', href: 'tel:*6050' },
-          { label: 'Online Itemized Bill', href: href('/business/support/itemized-bill/') }
+          { label: 'My Business Loyalty', href: href('/business/company/my-business-loyalty/') }
         ] }
       ],
       featureCards: [

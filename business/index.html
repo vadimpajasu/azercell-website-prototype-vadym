@@ -36,16 +36,17 @@
   var render = Components.render;
 
   var BIZNES = 'https://biznes.azercell.com';
-  var CONTACT = href('/about/contact/');
+  var CONTACT = href('/business/support/contact-us/');
   var businessHeader = R.headerProps({ branch: 'business' });
   var businessSolutions = {
-    title: 'Solution block',
+    title: 'ICT Solutions',
     variant: 'solutions',
     items: [
+      { label: 'Unified Communications', body: 'Bring business voice, calling and IP telephony together', href: href('/business/ict-solutions/unified-communications/') },
       { label: 'IoT & M2M', body: 'Connect devices and automate data exchange', href: href('/business/iot/') },
-      { label: 'Fleet & field operations', body: 'Track vehicles, teams and field work', href: href('/business/fleet-field-operations/') },
-      { label: 'Automation & management', body: 'Streamline workflows and manage devices', href: href('/business/automation-management/') },
-      { label: 'Customer engagement', body: 'Reach customers across every channel', href: href('/business/customer-engagement/') }
+      { label: 'Security', body: 'Protect networks, systems, data and users', href: href('/business/ict-solutions/security/') },
+      { label: 'Automation & Management', body: 'Streamline workflows, teams and devices', href: href('/business/automation-management/') },
+      { label: 'Cloud & Digital Platforms', body: 'Connect customer communications and digital self-service', href: href('/business/ict-solutions/cloud-digital-platforms/') }
     ]
   };
 
@@ -140,68 +141,68 @@
   var solutions = [
     {
       category: 'fixed',
-      name: 'My Business Internet Leased Line',
+      name: 'Internet Leased Line',
       price: 'From 199 AZN',
       priceNote: 'Per month, per point, VAT excluded',
       body: 'Dedicated wireless internet from 5Mb/s to 100Mb/s for sites that cannot tolerate consumer-grade connections.',
       meta: ['500 AZN one-time installation', '3-day install turnaround', '99.5% uptime SLA on 100Mb/s'],
-      href: href('/business/connectivity/leased-line/')
+      href: href('/business/fixed/internet-leased-line/')
     },
     {
-      category: 'fixed',
-      name: 'Unified service',
+      category: 'ict',
+      name: 'Unified Communications',
       price: 'Price on request',
       body: 'Mobile, fixed, cloud and contact centre delivered as one package instead of separate vendors.',
-      href: href('/business/connectivity/unified-communications/')
+      href: href('/business/ict-solutions/unified-communications/')
     },
     {
-      category: 'fixed',
+      category: 'mobile',
       name: 'My Business Wi-Fi',
       price: 'From 40 AZN',
       priceNote: 'Per month',
       body: 'Portable Mi-Fi hotspots for up to 10 devices, or fixed WTTx units for up to 32 devices.',
       meta: ['Mi-Fi 60GB — 40 AZN', 'WTTx 110GB — 50 AZN', 'WTTx 210GB — 70 AZN'],
-      href: href('/business/connectivity/wifi/')
+      href: href('/business/campaigns/my-business-wifi/')
     },
     {
-      category: 'cloud',
-      name: 'Customer Experience Management Platform',
+      category: 'ict',
+      name: 'CPaaS',
       price: 'Price on request',
       body: 'Build your own customer communications — calls, video, chat, SMS, email and chatbots — on Azercell infrastructure.',
       href: href('/business/customer-engagement/cpaas/')
     },
     {
-      category: 'cloud',
+      category: 'ict',
       name: 'InfoHUB',
       price: 'Price on request',
       body: 'Cloud knowledge and collaboration tool that turns business data into an operations dashboard.',
       href: href('/business/customer-engagement/infohub/')
     },
     {
-      category: 'iot',
-      name: 'YolDASH360',
+      category: 'ict',
+      name: 'YolDash',
       price: 'Price on request',
       priceNote: 'Monthly subscription',
       body: 'Smart dash-cam fleet video surveillance with cloud footage and driver alerts.',
       href: href('/business/fleet-field-operations/yoldash-360/')
     },
     {
-      category: 'iot',
-      name: 'M2M',
+      category: 'ict',
+      name: 'M2M Service',
       price: 'Price on request',
       body: 'Connectivity for mobile modules, GPS trackers, sensors and gateways across industries.',
       href: href('/business/iot/m2m/')
     },
     {
-      category: 'iot',
-      name: 'Robotic Automation Solution (RPA)',
+      category: 'ict',
+      name: 'Robotic Automation',
       price: 'Price on request',
       body: 'Custom bots that take over invoicing, onboarding, data entry and reporting.',
       href: href('/business/automation-management/rpa/')
     },
     {
-      category: 'iot',
-      name: 'Mobile device management',
+      category: 'ict',
+      name: 'Mobile Device Management',
       price: '11 AZN',
       priceNote: 'Per device, per month',
       body: 'Enterprise control and security over company devices, with dual-profile BYOD support.',
@@ -209,8 +210,8 @@
       href: href('/business/automation-management/device-management/')
     },
     {
-      category: 'iot',
-      name: 'Mobile team management',
+      category: 'ict',
+      name: 'Mobile Team Management',
       price: 'From 200 AZN',
       priceNote: 'Per month, VAT excluded',
       body: 'Task dispatch and GPS or photo reporting for field teams.',
@@ -218,15 +219,15 @@
       href: href('/business/fleet-field-operations/team-management/')
     },
     {
-      category: 'iot',
-      name: 'My Business Fleet',
+      category: 'ict',
+      name: 'Fleet Management',
       price: 'Price on request',
       body: 'GPS telematics with harsh-braking, fuel-fraud and maintenance alerts.',
       href: href('/business/fleet-field-operations/fleet/')
     },
     {
-      category: 'iot',
-      name: 'Irrigation Control System',
+      category: 'ict',
+      name: 'Irrigation System Control',
       price: '30 AZN',
       priceNote: 'Per month',
       body: 'Remote irrigation monitoring and control with a dashboard and alerts.',
@@ -371,23 +372,23 @@
   var solutionsSection =
     render('sectionHead', {
       eyebrow: 'Business solutions',
-      title: 'Fixed, cloud and IoT in one place',
-      body: 'Everything beyond the mobile line — dedicated connectivity, cloud platforms, and connected-device solutions.',
-      action: { label: 'IoT solutions', href: href('/business/iot/') }
+      title: 'Fixed and ICT Solutions in one place',
+      body: 'Dedicated connectivity, unified communications, IoT, security, automation and cloud platforms.',
+      action: { label: 'Explore ICT Solutions', href: href('/business/ict-solutions/') }
     }) +
     '<div data-filter-scope>' +
       render('filterTabs', {
         groups: [
           { key: 'category', label: 'Solution type', options: [
             { value: 'all', label: 'All solutions' },
-            { value: 'fixed', label: 'Fixed & connectivity' },
-            { value: 'cloud', label: 'Cloud' },
-            { value: 'iot', label: 'IoT & automation' }
+            { value: 'fixed', label: 'Fixed' },
+            { value: 'mobile', label: 'Mobile' },
+            { value: 'ict', label: 'ICT Solutions' }
           ] }
         ]
       }) +
       render('carousel', {
-        label: 'Fixed, cloud and IoT',
+        label: 'Fixed, Mobile and ICT Solutions',
         filterable: true,
         content: solutions.map(function (s) {
           return render('offerCard', {
@@ -444,7 +445,7 @@
 
     section(
       render('sectionHead', {
-        eyebrow: 'Campaigns',
+        eyebrow: 'Mobile · Campaigns',
         title: 'Current business campaigns',
         body: 'Active offers for corporate customers.',
         action: { label: 'All campaigns', href: href('/business/campaigns/') }

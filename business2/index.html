@@ -79,7 +79,7 @@
       body: 'Bring mobile, workplace connectivity and digital operations together with solutions that scale from a growing team to a nationwide enterprise.',
       media: 'Azercell Business solutions',
       actions: [
-        { label: 'Explore business solutions', href: href('/planned/?path=/business/digital-solutions/'), variant: 'primary' },
+        { label: 'Explore ICT Solutions', href: href('/business/ict-solutions/'), variant: 'primary' },
         { label: 'Talk to sales', href: 'mailto:business@azercell.com' },
         { label: 'View My Business tariff plans', href: href('/business/mobile/tariffs/') },
         { label: 'Log in to Azercell Biznes', href: BIZNES }
@@ -87,16 +87,17 @@
     }]
   }) + '</div>';
 
-  var digitalSolutions = marked(render('acquisitionBlock', {
-    title: 'Digital solutions',
+  var ictSolutions = render('acquisitionBlock', {
+    title: 'ICT Solutions',
     variant: 'solutions',
     items: [
+      { label: 'Unified Communications', body: 'Bring business voice, calling and IP telephony together', href: href('/business/ict-solutions/unified-communications/') },
       { label: 'IoT & M2M', body: 'Connect devices and automate data exchange', href: href('/business/iot/') },
-      { label: 'Fleet & field operations', body: 'Track vehicles, teams and field work', href: href('/business/fleet-field-operations/') },
-      { label: 'Automation & management', body: 'Streamline workflows and manage devices', href: href('/business/automation-management/') },
-      { label: 'Customer engagement', body: 'Reach customers across every channel', href: href('/business/customer-engagement/') }
+      { label: 'Security', body: 'Protect networks, systems, data and users', href: href('/business/ict-solutions/security/') },
+      { label: 'Automation & Management', body: 'Streamline workflows, teams and devices', href: href('/business/automation-management/') },
+      { label: 'Cloud & Digital Platforms', body: 'Connect customer communications and digital self-service', href: href('/business/ict-solutions/cloud-digital-platforms/') }
     ]
-  }), 'deck');
+  });
 
   var quickActions = section(
     marked(render('sectionHead', {
@@ -106,7 +107,7 @@
     marked('<div class="grid grid--4">' +
       markedCard({ title: 'Manage company numbers', body: 'View numbers, billing and packages in Azercell Biznes.', linkLabel: 'Open Azercell Biznes', href: BIZNES }) +
       markedCard({ title: 'Choose a mobile plan', body: 'Compare My Business tariffs for different roles, data needs and team sizes.', linkLabel: 'Compare tariff plans', href: href('/business/mobile/tariffs/') }) +
-      markedCard({ title: 'Connect an office or branch', body: 'Explore dedicated internet and wireless workplace connectivity.', linkLabel: 'Explore connectivity', href: href('/business/connectivity/') }) +
+      markedCard({ title: 'Connect an office or branch', body: 'Explore Internet Leased Line, MPLS / VPN, fixed connectivity and managed Wi-Fi.', linkLabel: 'Explore Fixed', href: href('/business/fixed/') }) +
       markedCard({ title: 'Build a tailored solution', body: 'Tell us about the challenge and let a business consultant recommend the next step.', linkLabel: 'Talk to sales', href: 'mailto:business@azercell.com' }) +
     '</div>', 'dummy')
   );
@@ -156,20 +157,20 @@
     '</div>'
   );
 
-  var connectivity = section(
+  var fixed = section(
     '<div class="grid grid--2">' +
       '<article class="cmp-card cmp-card--quiet">' +
         '<div class="cmp-card__body">' +
-          '<p class="t-label business2-source--deck">Connectivity</p>' +
+          '<p class="t-label">Fixed</p>' +
           '<h2 class="t-h2 business2-source--deck">Connect every workplace</h2>' +
           '<p class="t-body business2-source--dummy">Keep offices, branches and remote sites online with dedicated or wireless business connectivity.</p>' +
           '<ul class="stack">' +
-            '<li class="t-body">My Business Internet Leased Line — dedicated business connectivity.</li>' +
-            '<li class="t-body business2-source--deck">MPLS and Fiber Internet leased line — subject to final public IA and commercial availability.</li>' +
-            '<li class="t-body">My Business Wi-Fi — portable and fixed wireless options.</li>' +
+            '<li class="t-body">Internet Leased Line — dedicated, symmetrical business connectivity.</li>' +
+            '<li class="t-body">MPLS / VPN and Fixed connectivity — secure branch and fixed-network options.</li>' +
+            '<li class="t-body">Managed Wi-Fi — deployment, monitoring and ongoing management.</li>' +
           '</ul>' +
         '</div>' +
-        '<div class="cmp-card__foot"><a class="btn business2-source--deck" href="' + href('/business/connectivity/') + '">Explore business connectivity</a></div>' +
+        '<div class="cmp-card__foot"><a class="btn" href="' + href('/business/fixed/') + '">Explore Fixed</a></div>' +
       '</article>' +
       '<article class="cmp-card cmp-card--quiet">' +
         '<div class="cmp-card__body">' +
@@ -232,10 +233,10 @@
       title: 'A business partner built for growth'
     }), 'dummy') +
     marked('<div class="grid grid--4">' +
-      markedCard({ title: 'One partner, fewer hand-offs', body: 'Bring mobile, connectivity and digital solutions together with one business relationship.', linkLabel: 'Why Azercell Business', href: href('/business/campaigns/why-azercell-business/') }) +
+      markedCard({ title: 'One partner, fewer hand-offs', body: 'Bring Mobile, Fixed and ICT Solutions together with one business relationship.', linkLabel: 'Why Azercell Business', href: href('/business/campaigns/why-azercell-business/') }) +
       markedCard({ title: 'Nationwide business connectivity', body: 'Support employees and operations wherever the company works.', linkLabel: 'Explore mobile services', href: href('/business/mobile/') }) +
       markedCard({ title: 'Clearer account control', body: 'Use business billing, per-line visibility and self-service tools to stay in control.', linkLabel: 'Open Azercell Biznes', href: BIZNES }) +
-      markedCard({ title: 'Solutions beyond the SIM', body: 'Add fleet, automation, device and customer-engagement capabilities as needs grow.', linkLabel: 'Explore digital solutions', href: href('/business/digital-solutions/') }) +
+      markedCard({ title: 'Solutions beyond the SIM', body: 'Add unified communications, IoT, security, automation and cloud platforms as needs grow.', linkLabel: 'Explore ICT Solutions', href: href('/business/ict-solutions/') }) +
     '</div>', 'dummy')
   );
 
@@ -246,20 +247,21 @@
       body: 'Choose a support route for account, service and billing questions.'
     }), 'dummy') +
     '<div class="grid grid--4">' +
-      markedCard({ title: 'Talk to Support', body: 'Call the Azercell Business support line.', linkLabel: 'Call *6050', href: 'tel:*6050', bodySource: 'dummy' }) +
-      markedCard({ title: 'Browse all FAQs', body: 'Find answers about business services, billing and activation.', linkLabel: 'Open FAQs', href: href('/business/support/faq/'), titleSource: 'deck', bodySource: 'dummy', linkSource: 'deck' }) +
-      markedCard({ title: 'Find a location', body: 'Choose a convenient service point for in-person support.', linkLabel: 'View locations', href: href('/business/support/locations/'), titleSource: 'deck', bodySource: 'dummy', linkSource: 'deck' }) +
+      markedCard({ title: 'FAQ', body: 'Find answers about business services, billing and activation.', linkLabel: 'Open FAQ', href: href('/business/support/faq/'), bodySource: 'dummy' }) +
+      markedCard({ title: 'Live Chat', body: 'Get help choosing or using an Azercell Business service.', linkLabel: 'Open Live Chat', href: href('/business/support/live-chat/'), bodySource: 'dummy' }) +
+      markedCard({ title: 'Contact Us', body: 'Reach the Corporate Contact Center and Business support team.', linkLabel: 'Contact Azercell Business', href: href('/business/support/contact-us/'), bodySource: 'dummy' }) +
+      markedCard({ title: 'Locations', body: 'Choose a convenient service point for in-person support.', linkLabel: 'View locations', href: href('/business/support/locations/'), bodySource: 'dummy' }) +
       markedCard({ title: 'Online Itemized Bill', body: 'Review a per-number breakdown for the corporate account.', linkLabel: 'View itemized bill', href: ITEMIZED_BILL, bodySource: 'dummy' }) +
     '</div>'
   );
 
   Components.mount('#page-main', [
     hero,
-    digitalSolutions,
+    ictSolutions,
     quickActions,
     mobileOffers,
     internet,
-    connectivity,
+    fixed,
     activeCampaigns,
     biznes,
     whyAzercell,

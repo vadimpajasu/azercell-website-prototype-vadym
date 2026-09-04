@@ -2,6 +2,8 @@
 
 Reference doc for the interactive prototype / wireframe work on the website revamp. Use these lines as the messaging hook for each card, section, or hero moment in the wireframes. Each item links to its live page on azercell.com (or the relevant external domain).
 
+**IA note (4 September 2026):** thematic headings below are content groupings, not menu labels. The approved navigation uses Mobile, Fixed, ICT Solutions, Partnerships, Support and Company.
+
 **Assumption (labeled):** value propositions below are synthesized from the sitemap catalogue and observed site content (Sections 1–5 of `Azercell_Sitemap.docx`), not copy-audited verbatim from every page. Where the current site's own tagline was directly observed, it's quoted; everything else is a concise, source-grounded value statement for prototype/wireframe use — treat as a first draft for copywriting, not final UX copy.
 
 ---

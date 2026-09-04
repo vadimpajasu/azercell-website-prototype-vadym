@@ -2,6 +2,8 @@
 
 Source: B2B Workshop Transcript (The Gradient + Azercell B2B core/solutions team). Note: transcript is a cleaned Otter.ai consolidation with some speaker labels and a few product names marked [unclear] in the source — flagged below where relevant.
 
+**IA decision note (4 September 2026):** this file preserves workshop requirements and historical proposals. Where a navigation item below conflicts with the approved menu, use the approved hierarchy recorded in Azercell_Sitemap.md and decisions/2026-09-04-approved-business-menu-ia.md. For example, Roaming is under Mobile rather than top-level.
+
 **Legend**
 - Unmarked = discussed as in-scope for the revamp (verify priority against the requirements backlog)
 - 🔮 = explicitly deprioritized / future-facing, not committed for MVP

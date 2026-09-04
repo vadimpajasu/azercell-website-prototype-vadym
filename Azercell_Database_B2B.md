@@ -2,6 +2,8 @@
 
 Working database for the interactive prototype: every product/tariff/service name, price, billing period, and short description available on azercell.com's Business section, with a source link back to the live page. All prices in AZN and VAT-inclusive unless stated otherwise.
 
+**IA note (4 September 2026):** headings in this file group source content; they are not the approved menu. The current navigation taxonomy is Mobile, Fixed, ICT Solutions, Partnerships, Support and Company. In particular, My Business Wi-Fi and Managed Wi-Fi are distinct, and My Business Loyalty is distinct from My Business Club.
+
 **Assumption (labeled):** many enterprise-grade products (IoT, Cloud, some Fixed items) have no published price on the site — they're gated behind "contact us." Those are marked explicitly rather than guessed. Where a page lists per-country roaming rates for 100+ countries, only the pricing structure plus representative examples are captured — not every row. Prices reflect the site as fetched on 28 July 2026.
 
 ---
