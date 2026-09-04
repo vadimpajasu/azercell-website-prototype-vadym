@@ -674,5 +674,242 @@
       copy('Deactivation', ['Submit a written request to the company’s Azercell Account Manager.'], 'site')
     ], ['https://www.azercell.com/en/corporate/mobile-communications/special-services/online-itemized-bill.html']);
 
+  /* -----------------------------------------------------------------------
+     Official-site detail restored after the 4 September content audit.
+     Insert every block before the shared contact block so the page keeps the
+     same information architecture and ends with one consistent next step.
+     ----------------------------------------------------------------------- */
+
+  function addOfficial(path, blocks) {
+    var entry = P[path];
+    if (!entry) throw new Error('Unknown Business page: ' + path);
+    entry.sections.splice.apply(entry.sections, [entry.sections.length - 1, 0].concat(blocks));
+  }
+
+  addOfficial('/business/mobile/tariffs/', [
+    table('Baseline plan details', [
+      { label: 'My Business 2', value: '2 AZN/month · unlimited corporate calls · countrywide calls 0.10 AZN/min · SMS 0.10 AZN · internet 0.30 AZN/MB' },
+      { label: 'My Business Region', value: '2 AZN/month · calls within the same company 0 AZN/min · countrywide calls 0.10 AZN/min · SMS 0.10 AZN' }
+    ]),
+    copy('Package priority and balance', [], 'site', [
+      'Send a blank SMS to 650 to check the remaining discounted services balance, excluding internet.',
+      'An activated monthly internet pack has priority over data included in a My Business tariff. Special switching rules apply when 55GB or archived GigaMax packs are used together with My Business 60GB.',
+      'Unused tariff allowances do not roll over. Night data on eligible plans is available from 00:00 to 08:00.'
+    ]),
+    copy('After included allowances are used', [], 'site', [
+      'On My Business 60GB, mobile internet continues at up to 64 kbps until the tariff validity period ends.',
+      'On other plans, internet access is suspended if no other data pack is available. The subscriber can buy a pack or continue at the applicable out-of-pack rate of 0.05 AZN/MB.',
+      'Domestic calls then cost 0.10 AZN/min, international calls 0.50 AZN/min, domestic SMS 0.10 AZN and international SMS 0.25 AZN.',
+      'My Business 100GB includes 10,000 domestic minutes under the Fair Usage Policy; subsequent domestic calls cost 0.05 AZN/min.'
+    ]),
+    copy('Billing and usage rules', [], 'site', [
+      'Calls are billed in 10-second intervals on My Business plans; My Business 2 uses 60-second billing.',
+      'Bonus SMS applies only to local on-net messages. Bonus minutes do not cover roaming, special coded destinations or short numbers.',
+      'Non-recurrent data packs can be activated after the tariff or monthly-pack data is used. Usage recorded after 23:00 may appear on the next invoice.',
+      'The plans are intended for ordinary business use and may not be used for mass unsolicited messaging, Simbox/Fix GSM or unlawful telecommunications activity.'
+    ])
+  ]);
+
+  addOfficial('/business/mobile/internet/monthly/', [
+    copy('How multiple packs work', [], 'site', [
+      'A larger monthly pack can be ordered at any time. Existing packs remain active, and the pack with the smallest data volume is used first.',
+      'Only the most recently activated monthly pack renews automatically. Other active packs and their remaining traffic expire on their own renewal date.',
+      'A smaller or identical pack can be ordered only after at least 95% of the current pack has been used. Reactivating the same pack deletes its previous remainder.'
+    ]),
+    copy('Renewal controls', [], 'site', [
+      'Send AVTO to 2525 to enable automatic renewal. The recurring pack renews every 30 days and may also renew when its data volume is exhausted.',
+      'The 2GB, 7GB and 14GB non-recurrent packs are valid for 30 days and deactivate when their data is exhausted or the validity period ends.'
+    ])
+  ]);
+
+  addOfficial('/business/mobile/internet/short-term/', [
+    copy('Activation options', [], 'site', [
+      'Activate the 1-hour pack by sending S to 2525; activate the 3-hour pack by sending 3S to 2525.',
+      'Activation can also be completed through Azercell Kabinetim. The service is activated within 15 minutes.',
+      'SMS is free for prepaid subscribers and costs 0.01 AZN for postpaid subscribers.'
+    ])
+  ]);
+
+  addOfficial('/business/mobile/internet/social/', [
+    copy('Supported applications', [], 'site', [
+      'My Business Chat is designed for WhatsApp, Facebook Messenger and Viber.',
+      'My Business Social includes supported social and messaging applications.',
+      'My Business Media covers supported social and messaging applications and YouTube video use.'
+    ]),
+    copy('Usage and renewal rules', [], 'site', [
+      'Traffic may be used only through supported mobile applications. Other traffic follows the active tariff or another internet pack.',
+      'Unused traffic expires after 30 days and cannot be rolled over. Only one My Business Social Networks pack can be active on a number at a time.',
+      'The selected pack renews every 30 days. Send STOP B to 2525 to deactivate it immediately; remaining traffic expires and is not refunded. Send B- to 2525 to cancel automatic renewal.',
+      'If a device connected by hotspot orders a pack, the fee is charged to and the pack is activated on the number sharing the connection.'
+    ])
+  ]);
+
+  addOfficial('/business/mobile/azercell-biznes/', [
+    copy('Account, number and service controls', [], 'site', [
+      'Review the company account, debt, advance balance, invoices for the last 12 months, payment history, recent actions and financial information for deactivated numbers.',
+      'Search, filter and group active, closed and inactive numbers; open or close voice and data lines; review tariff, pack and bonus balances.',
+      'Activate or deactivate internet and roaming packs, roaming and international access, a second line, Simurq, e-invoice and advertising-message settings.',
+      'Review credit limits, PUK codes, SIM serial numbers and activation dates.'
+    ]),
+    copy('Business tools in the platform', [], 'site', [
+      'Electronically sign documents, manage Asan Imza details and prolongation, synchronize the phonebook and use company-name SMS, Web SMS and bulk messaging for up to 10 messages.',
+      'Manage third-party service blocking, Paycell history, call forwarding, Gizlicell and Gizlatcell, notifications, language and dark mode; find sales and service centres and contact support by online chat.',
+      'The IoT & M2M area shows device status and traffic in real time, monitors pooled data balances and helps optimize connected-device costs.'
+    ])
+  ]);
+
+  addOfficial('/business/mobile/mobile-marketing/', [
+    copy('Why mobile marketing', [], 'site', [
+      'Mobile marketing is a direct, multichannel communication method designed to strengthen brand value and demand.',
+      'It supports segmented audiences, detailed target-group analysis and a high feedback rate.',
+      'The portfolio includes Bulk & Profile SMS, Content Services, and loyalty offers based on talking minutes and internet packages.'
+    ])
+  ]);
+
+  addOfficial('/business/customer-engagement/bulk-sms/', [
+    copy('Sending options', [], 'site', [
+      'Schedule the date and time of a broadcast and display the company name as the sender.',
+      'Profile SMS focuses delivery on a selected audience so the message reaches relevant potential customers.'
+    ]),
+    copy('Official service partners', [], 'site', [
+      'DSC: (012) 404 31 30; MSM: (012) 441 55 11; LSIM: (012) 598 88 44; Smile: (012) 505 48 38.',
+      'Ata Technology / MOBIS: (012) 598 99 00; Figensoft Azerbaijan: (012) 597 48 72; ATL SMS LLC: (012) 210 00 99.'
+    ])
+  ]);
+
+  addOfficial('/business/customer-engagement/content-services/', [
+    copy('Signature controls and limitations', [], 'site', [
+      'The signature is currently displayed only to supported Azercell and Azerfon-Nar mobile numbers in Azerbaijan.',
+      'Send imza to 5111 to check the current signature, infoimza to 5111 for service information, and stopimza to 5111 to unsubscribe.',
+      'A signature can contain up to 100 characters. The subscriber is responsible for its content.',
+      'An unlimited number of unique signatures can be created, including different signatures for different called numbers.'
+    ])
+  ]);
+
+  addOfficial('/business/fixed/', [
+    copy('End-to-end connectivity', [
+      'The official fixed-service portfolio provides network-wide, building-to-building and internet connectivity across Azerbaijan, supporting changing needs for bandwidth, flexibility and access.'
+    ], 'site')
+  ]);
+
+  addOfficial('/business/fixed/internet-leased-line/', [
+    copy('Order and installation process', [], 'site', [
+      'Choose the required speed, provide contact details and company documentation, then wait for technical approval and installation.',
+      'The one-time installation fee is 500 AZN for each connected point. Prices exclude VAT.',
+      'The subscriber obtains all required building permissions and supplies internal equipment such as the router. Equipment installed by Azercell remains Azercell property and is provided only for use with the service.',
+      'One public static IP address is available per connected point on request. Installation and monthly charges are billed through the subscriber number; technical support is provided by Azeronline.',
+      'The service uses a wireless connection and provides a guaranteed uptime level of 99.50%.'
+    ])
+  ]);
+
+  addOfficial('/business/iot/', [
+    copy('Why IoT matters', [
+      'IoT can create new revenue streams, improve employee efficiency and customer experience, and provide visibility across supply chains, assets and operations. Azercell helps customers select and manage the right connectivity, devices and software.'
+    ], 'site')
+  ]);
+
+  addOfficial('/business/iot/m2m/', [
+    cards('Advantages of M2M technology', [
+      card('Automated connectivity', 'Devices communicate without human intervention, simplifying repeatable business processes.', '', 'site'),
+      card('High-level security', 'The platform supports privacy and secure data transmission across IoT networks.', '', 'site'),
+      card('24/7 support', 'Continuous customer support is available for connected operations.', '', 'site')
+    ])
+  ]);
+
+  addOfficial('/business/fleet-field-operations/yoldash-360/', [
+    copy('Service benefits', [], 'site', [
+      'Flexible subscriptions scale from a small number of vehicles to large enterprise fleets.',
+      'Secure cloud storage provides access to live and recorded footage at any time and from any location.',
+      'The solution protects corporate property, improves driver safety and preserves video evidence of incidents.'
+    ])
+  ]);
+
+  addOfficial('/business/fleet-field-operations/fleet/', [
+    cards('Product benefits', [
+      card('Real-time control', 'Monitor vehicles, change routes and respond to operational events as they happen.', '', 'site'),
+      card('Lower fleet costs', 'Use fuel, route and maintenance information to reduce total ownership costs.', '', 'site'),
+      card('Operational reporting', 'Review vehicle maintenance, driver behaviour and delivery information.', '', 'site'),
+      card('Preventive maintenance', 'Plan maintenance using vehicle type, mileage, operating conditions and weather.', '', 'site'),
+      card('Continuous service', 'Support connected fleet operations locally and while vehicles travel abroad.', '', 'site')
+    ])
+  ]);
+
+  addOfficial('/business/fleet-field-operations/irrigation/', [
+    cards('Service benefits', [
+      card('Unified billing', 'Service charges appear on the Azercell invoice.', '', 'site'),
+      card('Continuous support', 'The solution supports local and roaming operation with 24/7 assistance.', '', 'site'),
+      card('Real-time management', 'Control irrigation remotely through web and mobile applications.', '', 'site'),
+      card('Resource savings', 'Reduce time, operating costs and water use through more precise control.', '', 'site')
+    ])
+  ]);
+
+  addOfficial('/business/automation-management/rpa/', [
+    cards('Benefits of automation', [
+      card('Productivity', 'Move repetitive work to software robots so employees can focus on higher-value tasks.', '', 'site'),
+      card('Cost efficiency', 'Reduce manual effort in repeatable, rules-based processes.', '', 'site'),
+      card('Accuracy and compliance', 'Apply consistent steps and reduce avoidable human error.', '', 'site'),
+      card('Scalability', 'Expand automated capacity as transaction volumes grow.', '', 'site')
+    ]),
+    copy('Delivery stages', [], 'site', [
+      'Process assessment and analysis; custom bot development; implementation and deployment; ongoing monitoring and optimization.',
+      'Typical use cases include payroll and HR, customer support, financial reporting and compliance workflows.'
+    ])
+  ]);
+
+  addOfficial('/business/fleet-field-operations/team-management/', [
+    copy('Unique benefits', [], 'site', [
+      'Flexible terms configured around the organisation’s field-work requirements.',
+      '24/7 technical support.',
+      'On-demand access to resources and schedules with optimized workforce allocation.',
+      'Automated planning, dispatch and route optimization.',
+      'Mobile access to staff and operations from any location.',
+      'Real-time communication between field workers, the office and team members.'
+    ])
+  ]);
+
+  addOfficial('/business/automation-management/device-management/', [
+    copy('Security and productivity controls', [], 'site', [
+      'Deploy updates and corporate resources securely, automate device management, reduce IT support effort and help prevent data loss.',
+      'Administrators can delete corporate data or block access to it remotely with one action.',
+      'The platform can provide a controlled company app store and help identify vulnerabilities and plan device upgrades.'
+    ]),
+    copy('Three device-management models', [], 'site', [
+      'Company-owned, single profile: full control over device and software functions.',
+      'Company-owned, two profiles: separate corporate and personal environments with different policies.',
+      'User-owned, two profiles (BYOD): the company controls the corporate profile but cannot monitor or access the personal profile and data.'
+    ])
+  ]);
+
+  addOfficial('/business/customer-engagement/infohub/', [
+    copy('Customer-service outcomes', [], 'site', [
+      'Improve customer experience and product knowledge, reduce service-resolution time, support cross-selling and up-selling, strengthen brand perception and adapt to customer feedback.',
+      'The shared knowledge environment helps service agents provide consistent and reliable information while shortening calls.'
+    ])
+  ]);
+
+  addOfficial('/business/customer-engagement/cpaas/', [
+    copy('Unified engagement', [], 'site', [
+      'Publish updates, campaigns and news across several channels at once and use intelligent chatbots for initial 24/7 support.',
+      'Centralize communication, integrate CRM context and use customer data to personalize service and offers.',
+      'The secure cloud platform supports office and remote teams and scales with the business.'
+    ])
+  ]);
+
+  addOfficial('/business/support/contact-us/', [
+    copy('Outside working hours', [], 'site', [
+      'Calls outside Corporate Contact Center working hours are forwarded to the general Call Center.',
+      'Support-portal requests submitted after 16:00 on Saturday are processed from 09:00 on Monday.'
+    ]),
+    copy('Contact form fields', [], 'site', [
+      'First name and last name; email; phone number; company name; TAX ID; region or city; preferred contact method (call or email).'
+    ])
+  ]);
+
+  addOfficial('/business/support/live-chat/', [
+    copy('Saturday requests', [
+      'Requests submitted after 16:00 on Saturday are processed from 09:00 on Monday.'
+    ], 'site')
+  ]);
+
   global.BusinessPagesData = P;
 })(window);
