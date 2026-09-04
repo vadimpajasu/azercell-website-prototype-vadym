@@ -21,7 +21,7 @@
   --c-inverse-bg: #111111;
   --c-inverse-ink: #ffffff;
 
-  /* Content provenance colours requested for the Campaigns prototype. */
+  /* Content provenance colours requested for Business prototypes. */
   --c-source-deck: #f0f;
   --c-source-dummy: #8000FF80;
 
@@ -4901,6 +4901,60 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-2);
+}
+
+/* --------------------------------------------------------------------------
+   Business content pages
+   -------------------------------------------------------------------------- */
+
+.cmp-business-section {
+  padding-block: var(--sp-8);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.cmp-business-section--compact { padding-block: var(--sp-5); }
+
+.cmp-business-content .cmp-campaign-legend .campaign-source--deck,
+.cmp-business-content .cmp-campaign-legend .campaign-source--dummy {
+  padding: var(--sp-1) var(--sp-2);
+  color: var(--c-ink);
+}
+
+.cmp-business-content .cmp-campaign-legend .campaign-source--deck { background: #f0f; }
+.cmp-business-content .cmp-campaign-legend .campaign-source--dummy { background: #8000FF80; }
+
+.cmp-business-content .cmp-campaign-card.campaign-source--deck,
+.cmp-business-content .cmp-campaign-copy.campaign-source--deck,
+.cmp-business-content .cmp-campaign-step.campaign-source--deck,
+.cmp-business-content .cmp-campaign-faq__item.campaign-source--deck,
+.cmp-business-content .cmp-campaign-table tr.campaign-source--deck {
+  background: #f0f;
+  color: var(--c-ink);
+}
+
+.cmp-business-content .cmp-campaign-card.campaign-source--dummy,
+.cmp-business-content .cmp-campaign-copy.campaign-source--dummy,
+.cmp-business-content .cmp-campaign-step.campaign-source--dummy,
+.cmp-business-content .cmp-campaign-faq__item.campaign-source--dummy,
+.cmp-business-content .cmp-campaign-table tr.campaign-source--dummy {
+  background: #8000FF80;
+  color: var(--c-ink);
+}
+
+.cmp-business-content .cmp-campaign-copy.campaign-source--deck,
+.cmp-business-content .cmp-campaign-copy.campaign-source--dummy {
+  max-width: none;
+  padding: var(--sp-5);
+}
+
+.cmp-business-content .cmp-campaign-faq__item.campaign-source--deck,
+.cmp-business-content .cmp-campaign-faq__item.campaign-source--dummy {
+  padding-inline: var(--sp-4);
+}
+
+@media (min-width: 768px) {
+  .cmp-business-section { padding-block: var(--sp-9); }
+  .cmp-business-section--compact { padding-block: var(--sp-6); }
 }
 
 @media (min-width: 768px) {

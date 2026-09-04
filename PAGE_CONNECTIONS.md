@@ -302,16 +302,16 @@ Same layout pattern as DigiMax (pack carousel + FAQ + cross-links). Each has `?t
 
 | Connection | Target | Status |
 |----------------|--------|--------|
-| Tariff carousel → Plan details | `/business/mobile/tariffs/` | PLANNED |
-| Internet packs, solutions, IoT sections | New canonical `/business/…` IA routes | PLANNED |
+| Tariff carousel → Plan details | `/business/mobile/tariffs/` | CONNECTED |
+| Internet packs, solutions, IoT sections | New canonical `/business/…` IA routes | CONNECTED |
 | Lead form handoff | Contact / *6050 | CONNECTED |
 | Announcement bar | Personal `SITE_CHROME.announcements` | CONNECTED |
-| Header nav | `SITE_CHROME.businessNav`; Business audience tab active | PLANNED destinations via working placeholders |
-| ICT Solutions block below hero | Five approved ICT Solutions category landings | PLANNED via working placeholders |
+| Header nav | `SITE_CHROME.businessNav`; Business audience tab active | CONNECTED for the 53-page content slice; Company remains PLANNED |
+| ICT Solutions block below hero | Five approved ICT Solutions category landings | CONNECTED |
 | Campaigns section → All campaigns | `/business/campaigns/` | CONNECTED |
 | Campaign cards → My Business Wi-Fi; Devices & financing | Built Campaigns routes | CONNECTED |
 | Floating bar | `SITE_CHROME.businessFloatingBar` | Mixed (see Floating bar section) |
-| Footer | `SITE_CHROME.businessFooter` | Mixed: external/legal connected; B2B destinations planned |
+| Footer | `SITE_CHROME.businessFooter` | CONNECTED for the 53-page content slice; Company/legal destinations remain PLANNED |
 
 ### Business header (`SITE_CHROME.businessNav`)
 
@@ -321,11 +321,11 @@ Business uses the approved top-level order: Mobile, Fixed, ICT Solutions, Partne
 
 | Category | Landing / children | Status |
 |----------|--------------------|--------|
-| Mobile | Tariffs, Internet Packs, Roaming, Mobile Marketing, My Business Wi-Fi, Campaigns, Archive | Roaming, Wi-Fi and Campaigns CONNECTED; other destinations PLANNED |
-| Fixed | Internet Leased Line, MPLS / VPN, Fixed connectivity, Managed Wi-Fi | PLANNED |
-| ICT Solutions | Unified Communications, IoT & M2M, Security, Automation & Management, Cloud & Digital Platforms | PLANNED |
-| Partnerships | `/business/partnerships/` | PLANNED |
-| Support | FAQ, Live Chat, Contact Us, Locations, Online Itemized Bill | PLANNED |
+| Mobile | Tariffs, Internet Packs, Roaming, Mobile Marketing, My Business Wi-Fi, Campaigns, Archive | CONNECTED |
+| Fixed | Internet Leased Line, MPLS / VPN, Fixed connectivity, Managed Wi-Fi | CONNECTED |
+| ICT Solutions | Unified Communications, IoT & M2M, Security, Automation & Management, Cloud & Digital Platforms | CONNECTED |
+| Partnerships | `/business/partnerships/` | CONNECTED |
+| Support | FAQ, Live Chat, Contact Us, Locations, Online Itemized Bill | CONNECTED |
 | Company | About Us, Media & Press, Careers, Azercell Academy, Azercell Life, My Business Loyalty | Shared/external destinations mixed with PLANNED |
 | Header → Log in | `/business/login/` | PLANNED; final destination pending |
 | Header → Contact manager | biznes.azercell.com | CONNECTED (external) |
@@ -337,6 +337,29 @@ Uses the responsive Personal footer shell with the same six approved Business gr
 Every built Business page also renders its opening hero in the inverse dark theme with light typography, controls and divider lines.
 
 The Business footer connects Campaigns and My Business Wi-Fi under Mobile. Deeper campaign pages remain discoverable from the Campaigns hub instead of the global footer.
+
+---
+
+## B2B content-page slice — 53-page connection audit
+
+All 53 generated content routes have a built HTML file, a `built` registry entry and at least one public inbound link. Every page links back to its approved parent, to `/business/support/contact-us/`, to `tel:*6050`, and to any route-specific cards/actions and cited Azercell source URLs listed in `business-pages-data.js`. Across the 53 pages, all 254 unique per-page outbound destinations resolve to built internal pages, working protocol links or external URLs; none resolve to `/planned/` and none are missing.
+
+| Route group | Routes audited | Inbound | Route-specific outbound | Status |
+|-------------|----------------|---------|-------------------------|--------|
+| Mobile landing and tariffs | `/business/mobile/`; `/business/mobile/tariffs/`; `/business/mobile/tariffs/archive/` | Header/footer/floating bar, Business home and parent cards as applicable | Mobile children; internet; tariff archive; official tariff sources | CONNECTED |
+| Mobile internet | `/business/mobile/internet/`; `/monthly/`; `/short-term/`; `/social/`; `/archive/` under that route | Header/footer/floating bar, both Business home concepts and parent cards as applicable | Four pack categories; official pack and archive sources | CONNECTED |
+| Mobile services | `/business/mobile/azercell-biznes/`; `/business/mobile/mobile-marketing/`; `/business/mobile/archive/` | Header/footer, Business home and parent cards | Biznes portal; Bulk SMS; Content Services; tariff/internet/campaign archives; official sources | CONNECTED |
+| Fixed | `/business/fixed/`; `/internet-leased-line/`; `/mpls-vpn/`; `/fixed-connectivity/`; `/managed-wifi/` under that route | Header/footer, Business home and Fixed cards | Four Fixed children and official Fixed sources | CONNECTED |
+| ICT and Unified Communications | `/business/ict-solutions/`; `/unified-communications/`; `/business-voip/`; `/calls-manager/`; `/sip-ip-telephony/` | Header/footer, both Business home concepts and parent cards | Five ICT families; three Unified Communications children; official source | CONNECTED |
+| IoT | `/business/iot/`; `/tariff-plans/`; `/roaming-packs/`; `/pool-packages/`; `/m2m/`; `/apn-pdp/` | Header/footer, Business home and IoT cards | Eight IoT children and official IoT sources | CONNECTED |
+| Fleet and field operations | `/business/fleet-field-operations/yoldash-360/`; `/fleet/`; `/irrigation/`; `/team-management/` | Header/footer, Business home and IoT/Automation parent cards | Approved parent, official sources where present | CONNECTED |
+| Automation | `/business/automation-management/`; `/rpa/`; `/device-management/` under that route | Header/footer, both Business home concepts and parent cards | RPA, Team Management, Device Management and official sources | CONNECTED |
+| Security | `/business/ict-solutions/security/`; `/cybersecurity-solutions/`; `/audits-consulting/`; `/managed-security/`; `/dns-security/`; `/fraud-protection/` | Header/footer, both Business home concepts and parent cards | Five Security children | CONNECTED |
+| Cloud and engagement | `/business/ict-solutions/cloud-digital-platforms/`; `/free-dpi/`; `/business/customer-engagement/infohub/`; `/cpaas/`; `/bulk-sms/`; `/content-services/` | Header/footer, Business home and Cloud/Mobile Marketing parent cards | Four Cloud children and official sources where present | CONNECTED |
+| Partnerships | `/business/partnerships/` | Header and footer | Approved parent and standard contact handoff | CONNECTED |
+| Support | `/business/support/`; `/faq/`; `/live-chat/`; `/contact-us/`; `/locations/`; `/itemized-bill/` | Header/footer, both Business home concepts, floating bar and Support cards as applicable | Five Support children, support portal, email, location finder and official sources | CONNECTED |
+
+Shared Business chrome still intentionally contains planned placeholders outside this build scope: Company and its internal destinations, header login, floating-bar search and top-up, and legal/About routes. These are PLANNED rather than broken links. No ambiguous or missing connection was found in the 53-page slice.
 
 ---
 
@@ -665,15 +688,15 @@ This route is an unlinked review concept based on `Azercell_Business_Homepage_Co
 
 | Section / link | Target | Status |
 |----------------|--------|--------|
-| Hero → Explore ICT Solutions | `/business/ict-solutions/` | PLANNED |
+| Hero → Explore ICT Solutions | `/business/ict-solutions/` | CONNECTED |
 | Hero / quick action → Talk to sales | `mailto:business@azercell.com` | CONNECTED (external) |
-| ICT Solutions cards | Unified Communications, IoT & M2M, Security, Automation & Management, Cloud & Digital Platforms | PLANNED |
-| Tariffs, internet and Fixed gateways | Registered B2B routes | PLANNED |
+| ICT Solutions cards | Unified Communications, IoT & M2M, Security, Automation & Management, Cloud & Digital Platforms | CONNECTED |
+| Tariffs, internet and Fixed gateways | Registered B2B routes | CONNECTED |
 | Roaming gateways | Built B2B roaming routes | CONNECTED |
 | Active campaigns | Featured My Business Wi-Fi; Why Azercell Business + My Business Club on the second row; additional active cards append below | CONNECTED |
 | Azercell Biznes | biznes.azercell.com | CONNECTED (external) |
 | Online Itemized Bill | Current Azercell corporate page | CONNECTED (external) |
-| Support shortcuts | FAQ, Live Chat, Contact Us, Locations, itemized bill | Mixed |
+| Support shortcuts | FAQ, Live Chat, Contact Us, Locations, itemized bill | CONNECTED |
 
 **Inbound:** Direct review URL only. It is intentionally absent from shared navigation.
 
@@ -692,6 +715,7 @@ This route is an unlinked review concept based on `Azercell_Business_Homepage_Co
 
 | Date | Change |
 |------|--------|
+| 2026-09-04 | Completed the separate connection audit for all 53 newly built B2B content pages: confirmed public inbound coverage and 254 connected per-page outbound destinations, synchronized hub registry links, corrected component `usedOn` coverage and page comments, and replaced stale planned statuses in the Business connection map. No missing connection remains in this slice. |
 | 2026-09-04 | Expanded the B2B footer to mirror the complete approved ICT Solutions hierarchy, kept the five ICT families visually grouped on desktop and mobile, and aligned the Partnerships link label with the approved map. |
 | 2026-09-04 | Applied the approved Business IA to the registry, header, footer and both Business homepage concepts; preserved built Campaigns/Roaming URLs and registered planned destinations for new sections. |
 | 2026-09-01 | Refined `/business2/`: removed the source legend and lead form; accepted the hero as white-on-dark; reorganized campaigns into one full-width feature plus a two-card row with an extensible overflow grid; kept Azercell Biznes primary CTA white. |

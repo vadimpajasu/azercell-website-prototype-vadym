@@ -81,8 +81,8 @@
   }
 
   function campaignSourceClass(source) {
-    if (source === 'deck') return 'campaign-source--deck';
-    if (source === 'dummy') return 'campaign-source--dummy';
+    if (source === 'deck' || source === 'file') return 'campaign-source--deck';
+    if (source === 'dummy' || source === 'authored') return 'campaign-source--dummy';
     return '';
   }
 
@@ -2594,6 +2594,28 @@
       '</div>'
     );
   };
+
+  /* --------------------------------------------------------------------
+     Business content pages
+     Reuse the source-aware campaign primitives so provenance behaviour is
+     identical across every Business prototype page.
+     -------------------------------------------------------------------- */
+
+  C.businessSection = function (props) {
+    return (
+      '<section class="section cmp-business-section' + (props.compact ? ' cmp-business-section--compact' : '') + '">' +
+        '<div class="wrap">' + (props.content || '') + '</div>' +
+      '</section>'
+    );
+  };
+
+  C.businessHero = function (props) { return C.campaignHero(props); };
+  C.businessSourceLegend = function (props) { return C.campaignSourceLegend(props); };
+  C.businessCardGrid = function (props) { return C.campaignCardGrid(props); };
+  C.businessCopyBlock = function (props) { return C.campaignCopyBlock(props); };
+  C.businessInfoTable = function (props) { return C.campaignInfoTable(props); };
+  C.businessSteps = function (props) { return C.campaignSteps(props); };
+  C.businessFaq = function (props) { return C.campaignFaq(props); };
 
   /* --------------------------------------------------------------------
      Public API

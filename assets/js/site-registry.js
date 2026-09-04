@@ -186,14 +186,20 @@
               '/business/campaigns/',
               '/business/campaigns/why-azercell-business/', '/business/campaigns/my-business-wifi/',
               '/business/mobile/roaming/', 'https://biznes.azercell.com'] },
-    { path: '/business/mobile/', title: 'Mobile', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/tariffs/', title: 'My Business Tariff Plans', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/tariffs/archive/', title: 'Tariffs archive', parent: '/business/mobile/tariffs/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/internet/', title: 'My Business Internet Packs', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/internet/monthly/', title: 'Monthly internet packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/internet/short-term/', title: 'Short-term packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/internet/social/', title: 'Social network packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/internet/archive/', title: 'Internet packs Archive', parent: '/business/mobile/internet/', branch: 'b2b', status: 'planned' },
+    { path: '/business/mobile/', title: 'Mobile', parent: '/business/', branch: 'b2b', status: 'built',
+      links: ['/business/mobile/tariffs/', '/business/mobile/internet/', '/business/mobile/roaming/',
+              '/business/mobile/mobile-marketing/', '/business/campaigns/my-business-wifi/',
+              '/business/campaigns/', '/business/mobile/archive/'] },
+    { path: '/business/mobile/tariffs/', title: 'My Business Tariff Plans', parent: '/business/mobile/', branch: 'b2b', status: 'built',
+      links: ['/business/mobile/internet/', '/business/mobile/tariffs/archive/'] },
+    { path: '/business/mobile/tariffs/archive/', title: 'Tariffs archive', parent: '/business/mobile/tariffs/', branch: 'b2b', status: 'built' },
+    { path: '/business/mobile/internet/', title: 'My Business Internet Packs', parent: '/business/mobile/', branch: 'b2b', status: 'built',
+      links: ['/business/mobile/internet/monthly/', '/business/mobile/internet/short-term/',
+              '/business/mobile/internet/social/', '/business/mobile/internet/archive/'] },
+    { path: '/business/mobile/internet/monthly/', title: 'Monthly internet packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'built' },
+    { path: '/business/mobile/internet/short-term/', title: 'Short-term packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'built' },
+    { path: '/business/mobile/internet/social/', title: 'Social network packs', parent: '/business/mobile/internet/', branch: 'b2b', status: 'built' },
+    { path: '/business/mobile/internet/archive/', title: 'Internet packs Archive', parent: '/business/mobile/internet/', branch: 'b2b', status: 'built' },
     { path: '/business/mobile/roaming/', title: 'Roaming', parent: '/business/mobile/', branch: 'b2b', status: 'built',
       links: ['/business/mobile/roaming/countries-and-prices/', '/business/mobile/roaming/countries-and-prices/turkiye/',
               '/business/mobile/roaming/countries-and-prices/georgia/', '/business/mobile/roaming/countries-and-prices/germany/',
@@ -212,53 +218,74 @@
     { path: '/business/mobile/roaming/internet-packs/', title: 'Roaming internet packs', parent: '/business/mobile/roaming/', branch: 'b2b', status: 'built',
       links: ['https://kabinetim.azercell.com/',
               'https://www.azercell.com/en/corporate/mobile-communications/roaming/roaming-data-packages.html'] },
-    { path: '/business/mobile/azercell-biznes/', title: 'Azercell Biznes Platform', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned',
+    { path: '/business/mobile/azercell-biznes/', title: 'Azercell Biznes Platform', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'built',
       links: ['https://biznes.azercell.com'] },
-    { path: '/business/mobile/mobile-marketing/', title: 'Mobile Marketing', parent: '/business/mobile/', branch: 'b2b', status: 'planned' },
-    { path: '/business/mobile/archive/', title: 'Archive', parent: '/business/mobile/', branch: 'b2b', status: 'planned',
+    { path: '/business/mobile/mobile-marketing/', title: 'Mobile Marketing', parent: '/business/mobile/', branch: 'b2b', status: 'built',
+      links: ['/business/customer-engagement/bulk-sms/', '/business/customer-engagement/content-services/'] },
+    { path: '/business/mobile/archive/', title: 'Archive', parent: '/business/mobile/', branch: 'b2b', status: 'built',
       links: ['/business/mobile/tariffs/archive/', '/business/mobile/internet/archive/', '/business/campaigns/archive/'] },
 
-    { path: '/business/fixed/', title: 'Fixed', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fixed/internet-leased-line/', title: 'Internet Leased Line', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fixed/mpls-vpn/', title: 'MPLS / VPN', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fixed/fixed-connectivity/', title: 'Fixed connectivity', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fixed/managed-wifi/', title: 'Managed Wi-Fi', parent: '/business/fixed/', branch: 'b2b', status: 'planned' },
+    { path: '/business/fixed/', title: 'Fixed', parent: '/business/', branch: 'b2b', status: 'built',
+      links: ['/business/fixed/internet-leased-line/', '/business/fixed/mpls-vpn/',
+              '/business/fixed/fixed-connectivity/', '/business/fixed/managed-wifi/'] },
+    { path: '/business/fixed/internet-leased-line/', title: 'Internet Leased Line', parent: '/business/fixed/', branch: 'b2b', status: 'built' },
+    { path: '/business/fixed/mpls-vpn/', title: 'MPLS / VPN', parent: '/business/fixed/', branch: 'b2b', status: 'built' },
+    { path: '/business/fixed/fixed-connectivity/', title: 'Fixed connectivity', parent: '/business/fixed/', branch: 'b2b', status: 'built' },
+    { path: '/business/fixed/managed-wifi/', title: 'Managed Wi-Fi', parent: '/business/fixed/', branch: 'b2b', status: 'built' },
 
-    { path: '/business/ict-solutions/', title: 'ICT Solutions', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/unified-communications/', title: 'Unified Communications', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/unified-communications/business-voip/', title: 'Business VoIP', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/unified-communications/calls-manager/', title: 'My Business Calls Manager', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/unified-communications/sip-ip-telephony/', title: 'SIP / IP Telephony', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/', title: 'IoT & M2M', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/tariff-plans/', title: 'My Business IoT Tariff Plans', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/roaming-packs/', title: 'IoT Roaming Packs', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/pool-packages/', title: 'IoT Pool Packages', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/', title: 'ICT Solutions', parent: '/business/', branch: 'b2b', status: 'built',
+      links: ['/business/ict-solutions/unified-communications/', '/business/iot/',
+              '/business/ict-solutions/security/', '/business/automation-management/',
+              '/business/ict-solutions/cloud-digital-platforms/'] },
+    { path: '/business/ict-solutions/unified-communications/', title: 'Unified Communications', parent: '/business/ict-solutions/', branch: 'b2b', status: 'built',
+      links: ['/business/ict-solutions/unified-communications/business-voip/',
+              '/business/ict-solutions/unified-communications/calls-manager/',
+              '/business/ict-solutions/unified-communications/sip-ip-telephony/'] },
+    { path: '/business/ict-solutions/unified-communications/business-voip/', title: 'Business VoIP', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/unified-communications/calls-manager/', title: 'My Business Calls Manager', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/unified-communications/sip-ip-telephony/', title: 'SIP / IP Telephony', parent: '/business/ict-solutions/unified-communications/', branch: 'b2b', status: 'built' },
+    { path: '/business/iot/', title: 'IoT & M2M', parent: '/business/ict-solutions/', branch: 'b2b', status: 'built',
+      links: ['/business/iot/tariff-plans/', '/business/iot/roaming-packs/', '/business/iot/pool-packages/',
+              '/business/fleet-field-operations/fleet/', '/business/fleet-field-operations/yoldash-360/',
+              '/business/iot/m2m/', '/business/iot/apn-pdp/', '/business/fleet-field-operations/irrigation/'] },
+    { path: '/business/iot/tariff-plans/', title: 'My Business IoT Tariff Plans', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/iot/roaming-packs/', title: 'IoT Roaming Packs', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/iot/pool-packages/', title: 'IoT Pool Packages', parent: '/business/iot/', branch: 'b2b', status: 'built' },
     { path: '/business/iot/overview/', title: 'IoT overview (legacy alias)', parent: null, branch: 'internal', status: 'planned' },
-    { path: '/business/iot/m2m/', title: 'M2M Service', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/iot/apn-pdp/', title: 'APN/PDP', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/yoldash-360/', title: 'YolDash', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/fleet/', title: 'Fleet Management', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/irrigation/', title: 'Irrigation System Control', parent: '/business/iot/', branch: 'b2b', status: 'planned' },
-    { path: '/business/automation-management/', title: 'Automation & Management', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/automation-management/rpa/', title: 'Robotic Automation', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
-    { path: '/business/fleet-field-operations/team-management/', title: 'Mobile Team Management', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
-    { path: '/business/automation-management/device-management/', title: 'Mobile Device Management', parent: '/business/automation-management/', branch: 'b2b', status: 'planned' },
+    { path: '/business/iot/m2m/', title: 'M2M Service', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/iot/apn-pdp/', title: 'APN/PDP', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/fleet-field-operations/yoldash-360/', title: 'YolDash', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/fleet-field-operations/fleet/', title: 'Fleet Management', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/fleet-field-operations/irrigation/', title: 'Irrigation System Control', parent: '/business/iot/', branch: 'b2b', status: 'built' },
+    { path: '/business/automation-management/', title: 'Automation & Management', parent: '/business/ict-solutions/', branch: 'b2b', status: 'built',
+      links: ['/business/automation-management/rpa/', '/business/fleet-field-operations/team-management/',
+              '/business/automation-management/device-management/'] },
+    { path: '/business/automation-management/rpa/', title: 'Robotic Automation', parent: '/business/automation-management/', branch: 'b2b', status: 'built' },
+    { path: '/business/fleet-field-operations/team-management/', title: 'Mobile Team Management', parent: '/business/automation-management/', branch: 'b2b', status: 'built' },
+    { path: '/business/automation-management/device-management/', title: 'Mobile Device Management', parent: '/business/automation-management/', branch: 'b2b', status: 'built' },
 
-    { path: '/business/ict-solutions/security/', title: 'Security', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/security/cybersecurity-solutions/', title: 'Cybersecurity Solutions', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/security/audits-consulting/', title: 'Security Audits & Consulting', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/security/managed-security/', title: 'Managed Security', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/security/dns-security/', title: 'DNS Security', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/security/fraud-protection/', title: 'Fraud Protection', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/security/', title: 'Security', parent: '/business/ict-solutions/', branch: 'b2b', status: 'built',
+      links: ['/business/ict-solutions/security/cybersecurity-solutions/',
+              '/business/ict-solutions/security/audits-consulting/',
+              '/business/ict-solutions/security/managed-security/',
+              '/business/ict-solutions/security/dns-security/',
+              '/business/ict-solutions/security/fraud-protection/'] },
+    { path: '/business/ict-solutions/security/cybersecurity-solutions/', title: 'Cybersecurity Solutions', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/security/audits-consulting/', title: 'Security Audits & Consulting', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/security/managed-security/', title: 'Managed Security', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/security/dns-security/', title: 'DNS Security', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/security/fraud-protection/', title: 'Fraud Protection', parent: '/business/ict-solutions/security/', branch: 'b2b', status: 'built' },
 
-    { path: '/business/ict-solutions/cloud-digital-platforms/', title: 'Cloud & Digital Platforms', parent: '/business/ict-solutions/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/infohub/', title: 'InfoHUB', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/cpaas/', title: 'CPaaS', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned' },
-    { path: '/business/ict-solutions/cloud-digital-platforms/free-dpi/', title: 'Free DPI', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/bulk-sms/', title: 'Bulk & Profile SMS', parent: '/business/mobile/mobile-marketing/', branch: 'b2b', status: 'planned' },
-    { path: '/business/customer-engagement/content-services/', title: 'Call Signature / Content Services', parent: '/business/mobile/mobile-marketing/', branch: 'b2b', status: 'planned' },
+    { path: '/business/ict-solutions/cloud-digital-platforms/', title: 'Cloud & Digital Platforms', parent: '/business/ict-solutions/', branch: 'b2b', status: 'built',
+      links: ['/business/customer-engagement/infohub/', '/business/customer-engagement/cpaas/',
+              '/business/mobile/azercell-biznes/', '/business/ict-solutions/cloud-digital-platforms/free-dpi/'] },
+    { path: '/business/customer-engagement/infohub/', title: 'InfoHUB', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'built' },
+    { path: '/business/customer-engagement/cpaas/', title: 'CPaaS', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'built' },
+    { path: '/business/ict-solutions/cloud-digital-platforms/free-dpi/', title: 'Free DPI', parent: '/business/ict-solutions/cloud-digital-platforms/', branch: 'b2b', status: 'built' },
+    { path: '/business/customer-engagement/bulk-sms/', title: 'Bulk & Profile SMS', parent: '/business/mobile/mobile-marketing/', branch: 'b2b', status: 'built' },
+    { path: '/business/customer-engagement/content-services/', title: 'Call Signature / Content Services', parent: '/business/mobile/mobile-marketing/', branch: 'b2b', status: 'built' },
 
-    { path: '/business/partnerships/', title: 'Partnerships', parent: '/business/', branch: 'b2b', status: 'planned' },
+    { path: '/business/partnerships/', title: 'Partnerships', parent: '/business/', branch: 'b2b', status: 'built' },
     { path: '/business/campaigns/', title: 'Campaigns', parent: '/business/mobile/', branch: 'b2b', status: 'built',
       links: ['/business/campaigns/why-azercell-business/', '/business/campaigns/my-business-wifi/',
               '/business/campaigns/acquisition-campaigns/', '/business/campaigns/devices-and-financing/',
@@ -302,12 +329,14 @@
               'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/biznesim-wifi.html',
               'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-gm.html',
               'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-lenovo.html'] },
-    { path: '/business/support/', title: 'Support', parent: '/business/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/faq/', title: 'FAQ', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/live-chat/', title: 'Live Chat', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/contact-us/', title: 'Contact Us', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/locations/', title: 'Locations', parent: '/business/support/', branch: 'b2b', status: 'planned' },
-    { path: '/business/support/itemized-bill/', title: 'Online Itemized Bill', parent: '/business/support/', branch: 'b2b', status: 'planned' },
+    { path: '/business/support/', title: 'Support', parent: '/business/', branch: 'b2b', status: 'built',
+      links: ['/business/support/faq/', '/business/support/live-chat/', '/business/support/contact-us/',
+              '/business/support/locations/', '/business/support/itemized-bill/'] },
+    { path: '/business/support/faq/', title: 'FAQ', parent: '/business/support/', branch: 'b2b', status: 'built' },
+    { path: '/business/support/live-chat/', title: 'Live Chat', parent: '/business/support/', branch: 'b2b', status: 'built' },
+    { path: '/business/support/contact-us/', title: 'Contact Us', parent: '/business/support/', branch: 'b2b', status: 'built' },
+    { path: '/business/support/locations/', title: 'Locations', parent: '/business/support/', branch: 'b2b', status: 'built' },
+    { path: '/business/support/itemized-bill/', title: 'Online Itemized Bill', parent: '/business/support/', branch: 'b2b', status: 'built' },
 
     { path: '/business/company/', title: 'Company', parent: '/business/', branch: 'b2b', status: 'planned',
       links: ['/about/', '/about/press/', '/about/academy/', '/business/company/my-business-loyalty/',
@@ -959,12 +988,52 @@
      Component registry — drives /components
      ====================================================================== */
 
+  var BUSINESS_CHROME_PATHS = PAGE_REGISTRY.filter(function (page) {
+    return page.branch === 'b2b' && page.status === 'built';
+  }).map(function (page) { return page.path; });
+
+  var B2B_CONTENT_PATHS = BUSINESS_CHROME_PATHS.filter(function (path) {
+    return path !== '/business/' && path !== '/business2/' &&
+      path.indexOf('/business/mobile/roaming/') !== 0 &&
+      path.indexOf('/business/campaigns/') !== 0 &&
+      path.indexOf('/business/company/') !== 0;
+  });
+
+  var B2B_CONTENT_CARD_PATHS = B2B_CONTENT_PATHS.filter(function (path) {
+    return [
+      '/business/mobile/internet/monthly/', '/business/mobile/internet/short-term/',
+      '/business/mobile/internet/social/', '/business/fixed/mpls-vpn/',
+      '/business/fixed/fixed-connectivity/', '/business/iot/tariff-plans/',
+      '/business/iot/roaming-packs/', '/business/iot/pool-packages/',
+      '/business/ict-solutions/cloud-digital-platforms/free-dpi/',
+      '/business/customer-engagement/content-services/', '/business/support/faq/',
+      '/business/support/live-chat/', '/business/support/contact-us/',
+      '/business/support/locations/', '/business/support/itemized-bill/'
+    ].indexOf(path) < 0;
+  });
+
+  var B2B_CONTENT_TABLE_PATHS = [
+    '/business/mobile/tariffs/', '/business/mobile/internet/monthly/',
+    '/business/mobile/internet/short-term/', '/business/mobile/internet/social/',
+    '/business/fixed/internet-leased-line/', '/business/fixed/mpls-vpn/',
+    '/business/fixed/fixed-connectivity/', '/business/iot/tariff-plans/',
+    '/business/iot/roaming-packs/', '/business/iot/pool-packages/',
+    '/business/fleet-field-operations/fleet/', '/business/fleet-field-operations/team-management/',
+    '/business/automation-management/device-management/', '/business/customer-engagement/infohub/',
+    '/business/customer-engagement/content-services/', '/business/support/contact-us/',
+    '/business/support/itemized-bill/'
+  ];
+
+  var B2B_CONTENT_FAQ_PATHS = [
+    '/business/customer-engagement/content-services/', '/business/support/faq/'
+  ];
+
   var COMPONENT_REGISTRY = [
     {
       id: 'announcementBar',
       name: 'Announcement bar',
       group: 'Global chrome',
-      usedOn: PERSONAL_CHROME_PATHS.concat(['/business/']).concat(B2B_ROAMING_PATHS).concat(B2B_CAMPAIGN_PATHS),
+      usedOn: PERSONAL_CHROME_PATHS.concat(BUSINESS_CHROME_PATHS),
       description: 'Rotating one-line notice above the header. CMS-managed messages.',
       props: { messages: SITE_CHROME.announcements }
     },
@@ -972,7 +1041,7 @@
       id: 'siteHeader',
       name: 'Site header',
       group: 'Global chrome',
-      usedOn: PERSONAL_CHROME_PATHS.concat(['/business/']).concat(B2B_ROAMING_PATHS).concat(B2B_CAMPAIGN_PATHS),
+      usedOn: PERSONAL_CHROME_PATHS.concat(BUSINESS_CHROME_PATHS),
       description: 'Shared responsive shell with audience-specific navigation. Business category labels navigate to landing pages; hover/focus or the adjacent chevron opens the mega menu. Mobile keeps separate link and expand controls.',
       props: {
         layout: 'personal',
@@ -991,7 +1060,7 @@
       id: 'floatingBar',
       name: 'Floating bar',
       group: 'Global chrome',
-      usedOn: PERSONAL_CHROME_PATHS.concat(['/business/']).concat(B2B_ROAMING_PATHS).concat(B2B_CAMPAIGN_PATHS),
+      usedOn: PERSONAL_CHROME_PATHS.concat(BUSINESS_CHROME_PATHS),
       description: 'Shortcut bar for Internet, Tariffs, Roaming and Kinon, shared with the Business homepage. On the transfer page it changes to a Start transfer action after the hero button scrolls away.',
       props: SITE_CHROME.floatingBar
     },
@@ -1112,10 +1181,74 @@
       props: { baseHref: '/business/campaigns/archive/', perPage: 6, page: 1, items: [{ title: 'Ended campaign', href: 'https://www.azercell.com/' }] }
     },
     {
+      id: 'businessSection',
+      name: 'Business page section',
+      group: 'Layout',
+      usedOn: B2B_CONTENT_PATHS.slice(),
+      description: 'Responsive full-width section wrapper for Business content pages.',
+      props: { content: '<p class="t-body">Business content section</p>' }
+    },
+    {
+      id: 'businessHero',
+      name: 'Business content hero',
+      group: 'Page openers',
+      usedOn: B2B_CONTENT_PATHS.slice(),
+      description: 'Source-aware Business page title, summary, parent link and contact action.',
+      props: { eyebrow: 'Azercell Business', title: 'Business service', body: 'Service summary.', source: 'site' }
+    },
+    {
+      id: 'businessSourceLegend',
+      name: 'Business content source legend',
+      group: 'Content',
+      usedOn: B2B_CONTENT_PATHS.slice(),
+      description: 'Explains official-site, attached-file and prototype-only content colours.',
+      props: { deckLabel: 'Attached files — #f0f', dummyLabel: 'Prototype-only copy — #8000FF80' }
+    },
+    {
+      id: 'businessCardGrid',
+      name: 'Business link and feature cards',
+      group: 'Products',
+      usedOn: B2B_CONTENT_CARD_PATHS.slice(),
+      description: 'Source-aware cards for category links, product benefits and use cases.',
+      props: { items: [{ title: 'Business service', body: 'Service summary.', source: 'site' }] }
+    },
+    {
+      id: 'businessCopyBlock',
+      name: 'Business copy block',
+      group: 'Content',
+      usedOn: B2B_CONTENT_PATHS.slice(),
+      description: 'Source-aware headings, paragraphs, lists and real handoff actions.',
+      props: { title: 'Service details', paragraphs: ['Business service information.'], source: 'site' }
+    },
+    {
+      id: 'businessInfoTable',
+      name: 'Business information table',
+      group: 'Products',
+      usedOn: B2B_CONTENT_TABLE_PATHS.slice(),
+      description: 'Responsive table for tariffs, packages, pricing and service conditions.',
+      props: { title: 'Offer details', rows: [{ label: 'Monthly fee', value: 'Price on request', source: 'site' }] }
+    },
+    {
+      id: 'businessSteps',
+      name: 'Business process steps',
+      group: 'Content',
+      usedOn: [],
+      description: 'Source-aware numbered steps for genuine application or setup flows.',
+      props: { title: 'How it works', items: [{ title: 'Contact us', body: 'Discuss the requirement with Azercell Business.', source: 'site' }] }
+    },
+    {
+      id: 'businessFaq',
+      name: 'Business FAQ',
+      group: 'Content',
+      usedOn: B2B_CONTENT_FAQ_PATHS.slice(),
+      description: 'Source-aware native details and summary FAQ for Business pages.',
+      props: { title: 'Questions and answers', items: [{ question: 'How do I get help?', answer: 'Contact the Corporate Contact Center.', source: 'site' }] }
+    },
+    {
       id: 'siteFooter',
       name: 'Site footer',
       group: 'Global chrome',
-      usedOn: PERSONAL_CHROME_PATHS.concat(['/business/']).concat(B2B_ROAMING_PATHS).concat(B2B_CAMPAIGN_PATHS),
+      usedOn: PERSONAL_CHROME_PATHS.concat(BUSINESS_CHROME_PATHS),
       description: 'Audience-specific footer in the shared responsive shell. Business adds its confirmed IA and the Azercell Biznes app banner.',
       props: SITE_CHROME.footer
     },
