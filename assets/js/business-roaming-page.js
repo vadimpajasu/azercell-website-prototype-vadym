@@ -74,6 +74,14 @@
     return global.Components.render('tariffFeatureList', { title: title, features: items, className: 'cmp-broam-feature-list' });
   }
 
+  function auditLegend(C) {
+    return section(C.render('campaignSourceLegend', {
+      deckLabel: false,
+      dummyLabel: false,
+      auditLabel: 'Added from azercell.com in this audit — #00F'
+    }), 'section--flush');
+  }
+
   function mountHub() {
     var C = global.Components;
     var href = hrefFn();
@@ -84,6 +92,7 @@
         title: 'Stay connected anywhere in the world',
         body: 'Azercell Business offers practical internet pack options and pay-as-you-go roaming information for employees travelling abroad.'
       })),
+      auditLegend(C),
       section(
         C.render('sectionHead', { eyebrow: 'Before travel', title: 'How to use Azercell roaming?' }) +
         C.render('businessRoamingSteps', {
@@ -152,6 +161,7 @@
 
   function mountCountries() {
     var C = global.Components;
+    var href = hrefFn();
 
     C.mount('#page-main', [
       section(C.render('sectionHead', {
@@ -159,6 +169,20 @@
         title: 'Countries and prices',
         body: 'Search a destination to view the available partner networks and pay-as-you-go rates for calls, mobile internet and SMS.'
       })),
+      auditLegend(C),
+      section(
+        C.render('sectionHead', {
+          eyebrow: 'Official country directory',
+          title: 'Search all roaming destinations',
+          body: 'Turkiye, Georgia and Germany open inside the prototype. Every other result opens the corresponding current Azercell country page.'
+        }) +
+        countrySearch(href, 'business-roaming-full-country-search', {
+          label: 'Enter country name',
+          hint: 'The original Azercell directory currently contains 184 unique destinations.',
+          hideDefaultResults: true
+        }),
+        'campaign-source--audit'
+      ),
       section(
         '<div id="roaming-catalog">' +
           C.render('sectionHead', {
@@ -220,6 +244,7 @@
         title: 'Roaming internet packs list',
         body: 'Choose the roaming internet pack that fits the trip duration and expected data use.'
       })),
+      auditLegend(C),
       section(
         '<div id="roaming-catalog">' +
           C.render('sectionHead', {

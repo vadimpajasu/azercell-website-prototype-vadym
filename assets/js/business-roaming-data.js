@@ -1,6 +1,7 @@
 /* ==========================================================================
    Azercell HTML Prototype — B2B roaming content
-   Source: Azercell_Business_Roaming_Content.docx (three-country scope)
+   Base source: Azercell_Business_Roaming_Content.docx (three-country detail)
+   Directory and pack coverage: current public Azercell Business site
    ========================================================================== */
 
 (function (global) {
@@ -11,6 +12,7 @@
   var ONLINE_PAYMENT = 'https://www.azercell.com/en/personal/payment-and-balance/online-payment.html';
   var SOURCE_ROAMING = 'https://www.azercell.com/en/corporate/mobile-communications/roaming.html';
   var SOURCE_PACKS = 'https://www.azercell.com/en/corporate/mobile-communications/roaming/roaming-data-packages.html';
+  var officialData = global.BusinessRoamingOfficialData || { countryDirectory: [], packOperators: [] };
 
   var routes = {
     hub: '/business/mobile/roaming/',
@@ -114,11 +116,27 @@
     ], germanyRates)
   ];
 
+  (officialData.countryDirectory || []).forEach(function (entry) {
+    var alreadyIncluded = countries.some(function (item) {
+      return item.name.toLowerCase() === entry.name.toLowerCase();
+    });
+    if (alreadyIncluded) return;
+    countries.push({
+      id: 'official-' + entry.id,
+      name: entry.name,
+      route: entry.url,
+      planLabel: 'Official Azercell roaming page',
+      consolidatedRates: null,
+      operators: [],
+      source: entry.source
+    });
+  });
+
   var packs = [
-    { id: '500mb', sort: 1, volume: '500MB', price: '10 AZN', priceNum: 10, validity: '3 days', keyword: '501', ussd: '*100*501#YES' },
-    { id: '2gb', sort: 2, volume: '2GB', price: '20 AZN', priceNum: 20, validity: '10 days', keyword: '2020', ussd: '*100*2020#YES' },
-    { id: '5gb', sort: 3, volume: '5GB', price: '50 AZN', priceNum: 50, validity: '30 days', keyword: '5001', ussd: '*100*5001#YES' },
-    { id: '10gb', sort: 4, volume: '10GB', price: '75 AZN', priceNum: 75, validity: '30 days', keyword: '10001', ussd: '*100*10001#YES' }
+    { id: '500mb', sort: 1, volume: '500MB', price: '10 AZN', priceNum: 10, validity: '3 days', keyword: '501', ussd: '*100*501#YES', detailsHref: '/business/mobile/roaming/internet-packs/500mb/' },
+    { id: '2gb', sort: 2, volume: '2GB', price: '25 AZN', priceNum: 25, validity: '10 days', keyword: '2020', ussd: '*100*2020#YES', detailsHref: '/business/mobile/roaming/internet-packs/2gb/' },
+    { id: '5gb', sort: 3, volume: '5GB', price: '50 AZN', priceNum: 50, validity: '30 days', keyword: '5001', ussd: '*100*5001#YES', detailsHref: '/business/mobile/roaming/internet-packs/5gb/' },
+    { id: '10gb', sort: 4, volume: '10GB', price: '75 AZN', priceNum: 75, validity: '30 days', keyword: '10001', ussd: '*100*10001#YES', detailsHref: '/business/mobile/roaming/internet-packs/10gb/' }
   ];
 
   var supportedOperators = [
@@ -133,6 +151,10 @@
     { country: 'Germany', operator: 'Vodafone (D2 GmbH)', displayName: 'Vodafone.de; Vodafone', networks: '2G / LTE' },
     { country: 'Germany', operator: 'Telefonica (O2 / E-Plus)', displayName: 'o2-de; Interkom; 26207', networks: '2G / LTE' }
   ];
+
+  if (officialData.packOperators && officialData.packOperators.length) {
+    supportedOperators = officialData.packOperators;
+  }
 
   var howToRoaming = [
     { step: '1', title: 'Get destination information', body: 'Search for the destination country and review the available operators and prices before travelling.' },
