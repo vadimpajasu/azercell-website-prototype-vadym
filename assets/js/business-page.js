@@ -57,8 +57,7 @@
     main.innerHTML = C.render('businessHero', hero) +
       section(C.render('businessSourceLegend', {
         deckLabel: 'Attached files — #f0f',
-        dummyLabel: 'Prototype-only copy — #8000FF80',
-        auditLabel: 'Added from azercell.com in this audit — #00F'
+        dummyLabel: 'Prototype-only copy — #8000FF80'
       }), true) +
       data.sections.map(renderBlock).join('') +
       (data.sourceUrls && data.sourceUrls.length

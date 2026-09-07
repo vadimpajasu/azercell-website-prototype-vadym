@@ -42,13 +42,13 @@
         { eyebrow: 'Loyalty', title: 'My Business Club', body: 'Privileges, academy discounts and corporate event invitations.', href: routes.club, source: 'site' }
       ],
       newCampaigns: [
-        { title: 'iPhone 16 and iPhone 17 Campaigns for Corporate Customers', body: 'Special device conditions for corporate customers.', href: '/business/campaigns/archive/iphone-16-and-17/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone 16 and iPhone 17 campaign', source: 'site-audit' }
+        { title: 'iPhone 16 and iPhone 17 Campaigns for Corporate Customers', body: 'Special device conditions for corporate customers.', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/korporativ-metrilr-ecen-yeni-iphone-16-kampaniyasi.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone 16 and iPhone 17 campaign', source: 'site' }
       ],
       endedTeasers: [
-        { title: '20GB 20 AZN (Ended campaign)', href: '/business/campaigns/archive/20gb-20-azn/', source: 'site-audit' },
-        { title: 'New company campaign - GM (Ended campaign)', href: '/business/campaigns/archive/new-company-general-mobile/', source: 'site-audit' },
-        { title: 'General Mobile (Ended campaign) Android One', href: '/business/campaigns/archive/general-mobile-android-one/', source: 'site-audit' },
-        { title: 'Lenovo (Ended campaign) A2016 (LTE)', href: '/business/campaigns/archive/lenovo-a2016-lte/', source: 'site-audit' }
+        { title: '20GB 20 AZN (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/20-gb-20-azn.html', source: 'site' },
+        { title: 'New company campaign - GM (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-gm.html', source: 'site' },
+        { title: 'General Mobile (Ended campaign) Android One', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/general-mobile-android-one.html', source: 'site' },
+        { title: 'Lenovo (Ended campaign) A2016 (LTE)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/lenovo-a2016-lte.html', source: 'site' }
       ],
       campaignGroups: [
         { title: 'Acquisition campaigns', body: 'MNP bundles with 60GB or 80GB and inclusive minutes.', href: routes.acquisition, source: 'deck' },
@@ -392,13 +392,13 @@
         source: 'site'
       },
       items: [
-        { title: 'Lenovo (Ended campaign) A2016 (LTE)', href: '/business/campaigns/archive/lenovo-a2016-lte/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/lenovo-1.png.webp', imageAlt: 'Lenovo A2016 LTE', linkLabel: 'View details', source: 'site-audit' },
-        { title: 'General Mobile (Ended campaign) Android One', href: '/business/campaigns/archive/general-mobile-android-one/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/general-mobile.png.webp', imageAlt: 'General Mobile Android One', linkLabel: 'View details', source: 'site-audit' },
-        { title: '20GB 20 AZN (Ended campaign)', href: '/business/campaigns/archive/20gb-20-azn/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/20-gb-20-azn.png.webp', imageAlt: '20GB for 20 AZN', linkLabel: 'View details', source: 'site-audit' },
-        { title: 'iPhone 16 and iPhone 17 Campaigns for Corporate Customers', href: '/business/campaigns/archive/iphone-16-and-17/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone campaign', linkLabel: 'View details', source: 'site-audit' },
-        { title: 'My Business Wi-Fi (Ended campaign)', href: '/business/campaigns/archive/my-business-wifi/', image: 'https://www.azercell.com/assets/cache/webpb2b/home-page/wifi/252x322_v1(1).png.webp', imageAlt: 'My Business Wi-Fi', linkLabel: 'View details', source: 'site-audit' },
-        { title: 'New company campaign - GM (Ended campaign)', href: '/business/campaigns/archive/new-company-general-mobile/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-gm.png.webp', imageAlt: 'New company campaign General Mobile', linkLabel: 'View details', source: 'site-audit' },
-        { title: 'New company campaign - Lenovo (Ended campaign)', href: '/business/campaigns/archive/new-company-lenovo/', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-lenovo.png.webp', imageAlt: 'New company campaign Lenovo', linkLabel: 'View details', source: 'site-audit' }
+        { title: 'Lenovo (Ended campaign) A2016 (LTE)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/lenovo-a2016-lte.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/lenovo-1.png.webp', imageAlt: 'Lenovo A2016 LTE', linkLabel: 'Original page', source: 'site' },
+        { title: 'General Mobile (Ended campaign) Android One', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/general-mobile-android-one.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/general-mobile.png.webp', imageAlt: 'General Mobile Android One', linkLabel: 'Original page', source: 'site' },
+        { title: '20GB 20 AZN (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/20-gb-20-azn.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/20-gb-20-azn.png.webp', imageAlt: '20GB for 20 AZN', linkLabel: 'Original page', source: 'site' },
+        { title: 'iPhone 16 and iPhone 17 Campaigns for Corporate Customers', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/korporativ-metrilr-ecen-yeni-iphone-16-kampaniyasi.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone campaign', linkLabel: 'Original page', source: 'site' },
+        { title: 'My Business Wi-Fi (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/biznesim-wifi.html', image: 'https://www.azercell.com/assets/cache/webpb2b/home-page/wifi/252x322_v1(1).png.webp', imageAlt: 'My Business Wi-Fi', linkLabel: 'Original page', source: 'site' },
+        { title: 'New company campaign - GM (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-gm.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-gm.png.webp', imageAlt: 'New company campaign General Mobile', linkLabel: 'Original page', source: 'site' },
+        { title: 'New company campaign - Lenovo (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-lenovo.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-lenovo.png.webp', imageAlt: 'New company campaign Lenovo', linkLabel: 'Original page', source: 'site' }
       ]
     }
   };

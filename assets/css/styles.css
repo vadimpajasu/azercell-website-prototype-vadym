@@ -4651,7 +4651,6 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 
 .campaign-source--deck { color: var(--c-source-deck); }
 .campaign-source--dummy { color: var(--c-source-dummy); }
-.campaign-source--audit { color: #00F; }
 
 .cmp-campaign-hero {
   border-bottom: 1px solid var(--c-line);
@@ -4667,11 +4666,6 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 .cmp-campaign-hero.campaign-source--dummy,
 .cmp-campaign-hero.campaign-source--dummy .btn--primary {
   color: var(--c-source-dummy) !important;
-}
-
-.cmp-campaign-hero.campaign-source--audit,
-.cmp-campaign-hero.campaign-source--audit .btn--primary {
-  color: #00F !important;
 }
 
 .cmp-campaign-hero__inner {
@@ -4775,12 +4769,6 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 .cmp-campaign-copy.campaign-source--dummy .btn {
   border-color: currentColor;
   color: var(--c-source-dummy);
-}
-
-.cmp-campaign-card.campaign-source--audit .btn,
-.cmp-campaign-copy.campaign-source--audit .btn {
-  border-color: currentColor;
-  color: #00F;
 }
 
 .cmp-campaign-card__meta,
@@ -4927,15 +4915,13 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 .cmp-business-section--compact { padding-block: var(--sp-5); }
 
 .cmp-business-content .cmp-campaign-legend .campaign-source--deck,
-.cmp-business-content .cmp-campaign-legend .campaign-source--dummy,
-.cmp-business-content .cmp-campaign-legend .campaign-source--audit {
+.cmp-business-content .cmp-campaign-legend .campaign-source--dummy {
   padding: var(--sp-1) var(--sp-2);
   color: var(--c-ink);
 }
 
 .cmp-business-content .cmp-campaign-legend .campaign-source--deck { background: #f0f; }
 .cmp-business-content .cmp-campaign-legend .campaign-source--dummy { background: #8000FF80; }
-.cmp-business-content .cmp-campaign-legend .campaign-source--audit { background: #00F; color: #fff; }
 
 .cmp-business-content .cmp-campaign-card.campaign-source--deck,
 .cmp-business-content .cmp-campaign-copy.campaign-source--deck,
@@ -4955,35 +4941,15 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
   color: var(--c-ink);
 }
 
-.cmp-business-content .cmp-campaign-card.campaign-source--audit,
-.cmp-business-content .cmp-campaign-copy.campaign-source--audit,
-.cmp-business-content .cmp-campaign-step.campaign-source--audit,
-.cmp-business-content .cmp-campaign-faq__item.campaign-source--audit,
-.cmp-business-content .cmp-campaign-table tr.campaign-source--audit,
-.cmp-broam-coverage__table tr.campaign-source--audit,
-.cmp-roam-results__country.campaign-source--audit {
-  background: #00F;
-  color: #fff;
-}
-
 .cmp-business-content .cmp-campaign-copy.campaign-source--deck,
-.cmp-business-content .cmp-campaign-copy.campaign-source--dummy,
-.cmp-business-content .cmp-campaign-copy.campaign-source--audit {
+.cmp-business-content .cmp-campaign-copy.campaign-source--dummy {
   max-width: none;
   padding: var(--sp-5);
 }
 
 .cmp-business-content .cmp-campaign-faq__item.campaign-source--deck,
-.cmp-business-content .cmp-campaign-faq__item.campaign-source--dummy,
-.cmp-business-content .cmp-campaign-faq__item.campaign-source--audit {
+.cmp-business-content .cmp-campaign-faq__item.campaign-source--dummy {
   padding-inline: var(--sp-4);
-}
-
-.cmp-broam-coverage__table tr.campaign-source--audit a,
-.cmp-roam-results__country.campaign-source--audit a,
-.cmp-broam-coverage__table tr.campaign-source--audit .t-muted,
-.cmp-roam-results__country.campaign-source--audit .t-muted {
-  color: inherit;
 }
 
 @media (min-width: 768px) {

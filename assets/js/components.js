@@ -83,7 +83,6 @@
   function campaignSourceClass(source) {
     if (source === 'deck' || source === 'file') return 'campaign-source--deck';
     if (source === 'dummy' || source === 'authored') return 'campaign-source--dummy';
-    if (source === 'site-audit') return 'campaign-source--audit';
     return '';
   }
 
@@ -2030,7 +2029,7 @@
     return (
       '<div class="cmp-roam-results">' + countries.map(function (country) {
         return (
-          '<article class="cmp-roam-results__country ' + campaignSourceClass(country.source) + '">' +
+          '<article class="cmp-roam-results__country">' +
             '<div class="cmp-broam-search-result__head">' +
               '<div><p class="t-label">' + esc(country.planLabel || (props.planType === 'postpaid' ? 'Postpaid' : 'Prepaid')) + '</p><h3 class="t-h2">' + esc(country.name) + '</h3></div>' +
               (country.route ? '<a class="btn btn--small" href="' + esc(registryHref(country.route)) + '">Open country page</a>' : '') +
@@ -2184,7 +2183,6 @@
         '<p class="t-body t-muted">Valid for ' + esc(pack.validity) + '</p>' +
         (props.subscribe
           ? '<div class="cmp-ipack-card__actions">' +
-              (pack.detailsHref ? '<a class="btn btn--small campaign-source--audit" href="' + esc(registryHref(pack.detailsHref)) + '">View details</a>' : '') +
               '<button class="btn btn--primary btn--small btn--block" type="button" data-broam-subscribe="' + esc(pack.id) + '">Subscribe</button>' +
             '</div>'
           : '') +
@@ -2296,7 +2294,7 @@
             '<thead><tr><th class="t-label" scope="col">Country</th><th class="t-label" scope="col">Operator</th><th class="t-label" scope="col">Display name</th><th class="t-label" scope="col">Supported networks</th></tr></thead>' +
             '<tbody>' + (props.rows || []).map(function (row) {
               var searchText = [row.country, row.operator, row.displayName, row.networks].join(' ').toLowerCase();
-              return '<tr class="' + campaignSourceClass(row.source) + '" data-broam-coverage-row data-search-text="' + esc(searchText) + '"><td class="t-body">' + esc(row.country) + '</td><th class="t-body" scope="row">' + esc(row.operator) + '</th><td class="t-body">' + esc(row.displayName || '—') + '</td><td class="t-body">' + esc(row.networks) + '</td></tr>';
+              return '<tr data-broam-coverage-row data-search-text="' + esc(searchText) + '"><td class="t-body">' + esc(row.country) + '</td><th class="t-body" scope="row">' + esc(row.operator) + '</th><td class="t-body">' + esc(row.displayName || '—') + '</td><td class="t-body">' + esc(row.networks) + '</td></tr>';
             }).join('') + '</tbody>' +
           '</table>' +
         '</div>' +
@@ -2433,16 +2431,13 @@
   };
 
   C.campaignSourceLegend = function (props) {
-    var deckLabel = props.deckLabel === false ? '' : (props.deckLabel || 'Presentation / spreadsheet');
-    var dummyLabel = props.dummyLabel === false ? '' : (props.dummyLabel || 'Dummy content for prototype');
     return (
       '<aside class="cmp-campaign-legend" aria-label="Content source legend">' +
         '<p class="t-label">Content source</p>' +
         '<div class="cmp-campaign-legend__items">' +
           '<span class="t-small">Original Azercell website</span>' +
-          (deckLabel ? '<span class="t-small campaign-source--deck">' + esc(deckLabel) + '</span>' : '') +
-          (dummyLabel ? '<span class="t-small campaign-source--dummy">' + esc(dummyLabel) + '</span>' : '') +
-          (props.auditLabel ? '<span class="t-small campaign-source--audit">' + esc(props.auditLabel) + '</span>' : '') +
+          '<span class="t-small campaign-source--deck">' + esc(props.deckLabel || 'Presentation / spreadsheet') + '</span>' +
+          '<span class="t-small campaign-source--dummy">' + esc(props.dummyLabel || 'Dummy content for prototype') + '</span>' +
         '</div>' +
       '</aside>'
     );
