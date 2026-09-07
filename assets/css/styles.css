@@ -4952,6 +4952,43 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
   padding-inline: var(--sp-4);
 }
 
+.cmp-business-offers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.cmp-business-offers__grid > .cmp-ipack-card {
+  min-width: 0;
+}
+
+.cmp-business-offers .cmp-plan.campaign-source--deck,
+.cmp-business-offers .cmp-ipack-card.campaign-source--deck {
+  background: #f0f;
+  color: var(--c-ink);
+}
+
+.cmp-business-offers .cmp-plan.campaign-source--dummy,
+.cmp-business-offers .cmp-ipack-card.campaign-source--dummy {
+  background: #8000FF80;
+  color: var(--c-ink);
+}
+
+.cmp-business-offers__note {
+  max-width: 72ch;
+  margin: 0;
+}
+
+.cmp-business-offers__note.campaign-source--deck,
+.cmp-business-offers__note.campaign-source--dummy {
+  width: fit-content;
+  padding: var(--sp-2) var(--sp-3);
+  color: var(--c-ink);
+}
+
+.cmp-business-offers__note.campaign-source--deck { background: #f0f; }
+.cmp-business-offers__note.campaign-source--dummy { background: #8000FF80; }
+
 @media (min-width: 768px) {
   .cmp-business-section { padding-block: var(--sp-9); }
   .cmp-business-section--compact { padding-block: var(--sp-6); }

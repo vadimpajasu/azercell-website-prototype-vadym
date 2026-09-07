@@ -1069,7 +1069,7 @@
     var specs = props.specs || [];
     var compareHref = props.compareHref;
     return (
-      '<article class="cmp-plan cmp-plan--pack"' + attr('data-tier-id', props.tierId) + '>' +
+      '<article class="cmp-plan cmp-plan--pack' + (props.className ? ' ' + esc(props.className) : '') + '"' + attr('data-tier-id', props.tierId) + '>' +
         '<div class="cmp-card__head">' +
           '<div class="stack">' +
             '<h3 class="t-h3">' + esc(props.name) + '</h3>' +
@@ -1928,11 +1928,11 @@
     }
     if (props.action) cardActions.push(props.action);
     return (
-      '<article class="cmp-ipack-card"' +
+      '<article class="cmp-ipack-card' + (props.className ? ' ' + esc(props.className) : '') + '"' +
         attr('data-ipack-price', props.priceNum == null ? 0 : props.priceNum) +
         attr('data-ipack-sort', props.sort == null ? 0 : props.sort) + '>' +
         '<div class="cmp-ipack-card__head">' +
-          '<div><p class="t-label">Internet pack</p><h3 class="t-h3">' + esc(props.name || props.data) + '</h3></div>' +
+          '<div><p class="t-label">' + esc(props.eyebrow || 'Internet pack') + '</p><h3 class="t-h3">' + esc(props.name || props.data) + '</h3></div>' +
           '<p class="t-h3">' + esc(props.price) + '</p>' +
         '</div>' +
         (props.data ? '<p class="t-h1 cmp-ipack-card__data">' + esc(props.data) + '</p>' : '') +
@@ -2613,6 +2613,92 @@
   C.businessSourceLegend = function (props) { return C.campaignSourceLegend(props); };
   C.businessCardGrid = function (props) { return C.campaignCardGrid(props); };
   C.businessCopyBlock = function (props) { return C.campaignCopyBlock(props); };
+
+  function businessOfferSegments(value) {
+    return String(value || '').split(/\s*·\s*/).filter(Boolean);
+  }
+
+  function businessOfferTake(segments, matcher) {
+    var index = segments.findIndex(matcher);
+    return index < 0 ? '' : segments.splice(index, 1)[0];
+  }
+
+  function businessOfferSpecLabel(value) {
+    if (/sms/i.test(value)) return 'SMS';
+    if (/\b(?:gb|mb|tb)\b/i.test(value)) return 'Internet';
+    if (/\bmin(?:ute)?s?\b/i.test(value)) return 'Minutes';
+    if (/calls?/i.test(value)) return 'Calls';
+    if (/users?/i.test(value)) return 'Users';
+    if (/connection/i.test(value)) return 'Connection';
+    return 'Included';
+  }
+
+  function businessOfferEyebrow(path) {
+    if (/\/mobile\/internet\//.test(path)) return 'Internet pack';
+    if (/\/fixed\//.test(path)) return 'Business connectivity';
+    if (/\/iot\//.test(path)) return 'IoT package';
+    if (/\/fleet-field-operations\//.test(path)) return 'Service package';
+    return 'Business offer';
+  }
+
+  C.businessOfferGrid = function (props) {
+    var rows = props.rows || [];
+    var isPlan = props.variant === 'plan';
+    var cards = rows.map(function (row) {
+      var segments = businessOfferSegments(row.value);
+      var sourceClass = campaignSourceClass(row.source || props.source);
+      var price = businessOfferTake(segments, function (part) { return /(?:AZN|USD|₼|\$)/i.test(part); });
+
+      if (isPlan) {
+        return C.tariffPackCard({
+          className: sourceClass,
+          name: row.label,
+          type: props.archived ? 'Archived business mobile plan' : 'Business mobile plan',
+          price: price,
+          specs: segments.map(function (part) {
+            return { value: part, label: businessOfferSpecLabel(part) };
+          })
+        });
+      }
+
+      var data = businessOfferTake(segments, function (part) {
+        return /(?:\b\d+(?:[.,]\d+)?\s*(?:gb|mb|tb|kb\/s|mb\/s|gb\/s)\b|\bunlimited\b)/i.test(part);
+      });
+      var validity = businessOfferTake(segments, function (part) {
+        return /\b(?:day|days|hour|hours|weekend|night)\b/i.test(part);
+      });
+      var labelLooksLikeData = /^(?:\d+(?:[.,]\d+)?\s*(?:gb|mb|tb|kb\/s|mb\/s|gb\/s)|unlimited)$/i.test(row.label || '');
+
+      return C.internetPackCard({
+        className: sourceClass,
+        eyebrow: businessOfferEyebrow(props.path || ''),
+        name: labelLooksLikeData ? (props.itemLabel || 'Package option') : row.label,
+        data: data || (labelLooksLikeData ? row.label : ''),
+        price: price,
+        priceNum: parseFloat(String(price).replace(',', '.')) || 0,
+        validity: validity,
+        details: segments.join(' · ')
+      });
+    }).join('');
+
+    var note = props.note
+      ? '<p class="t-small cmp-business-offers__note ' + campaignSourceClass(props.noteSource || props.source) + '">' + esc(props.note) + '</p>'
+      : '';
+
+    if (isPlan) {
+      return '<div class="cmp-business-offers cmp-business-offers--plans">' +
+        C.carousel({ label: props.title || 'Business mobile plans', content: cards }) + note +
+      '</div>';
+    }
+
+    return '<div class="cmp-business-offers cmp-business-offers--packs">' +
+      (props.title ? '<h2 class="t-h2">' + esc(props.title) + '</h2>' : '') +
+      (props.body ? '<p class="t-body t-muted">' + esc(props.body) + '</p>' : '') +
+      '<div class="grid grid--2 cmp-ipack-grid cmp-business-offers__grid">' + cards + '</div>' +
+      note +
+    '</div>';
+  };
+
   C.businessInfoTable = function (props) { return C.campaignInfoTable(props); };
   C.businessSteps = function (props) { return C.campaignSteps(props); };
   C.businessFaq = function (props) { return C.campaignFaq(props); };

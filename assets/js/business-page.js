@@ -9,7 +9,21 @@
     return C.render('businessSection', { content: content, compact: compact });
   }
 
-  function renderBlock(block) {
+  var INFORMATION_TABLES = {
+    'Contact channels': true,
+    'Working hours': true,
+    'Partner contacts': true
+  };
+
+  var MOBILE_PLAN_TABLES = {
+    'Current offers': true,
+    'Baseline plan details': true,
+    'Archived offers': true,
+    'Business Bundles': true,
+    'Old packages': true
+  };
+
+  function renderBlock(block, path) {
     if (block.type === 'cards') {
       return section(
         C.render('sectionHead', { title: block.title, body: block.body }) +
@@ -17,6 +31,13 @@
       );
     }
     if (block.type === 'table') {
+      if (!INFORMATION_TABLES[block.title]) {
+        return section(C.render('businessOfferGrid', Object.assign({}, block, {
+          path: path,
+          variant: MOBILE_PLAN_TABLES[block.title] ? 'plan' : 'pack',
+          archived: /\/archive\//.test(path)
+        })));
+      }
       return section(C.render('businessInfoTable', block));
     }
     if (block.type === 'faq') {
@@ -59,7 +80,7 @@
         deckLabel: 'Attached files — #f0f',
         dummyLabel: 'Prototype-only copy — #8000FF80'
       }), true) +
-      data.sections.map(renderBlock).join('') +
+      data.sections.map(function (block) { return renderBlock(block, path); }).join('') +
       (data.sourceUrls && data.sourceUrls.length
         ? section(C.render('businessCopyBlock', {
             eyebrow: 'References',

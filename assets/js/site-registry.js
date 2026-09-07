@@ -1275,6 +1275,14 @@
       props: { title: 'Offer details', rows: [{ label: 'Monthly fee', value: 'Price on request', source: 'site' }] }
     },
     {
+      id: 'businessOfferGrid',
+      name: 'Business offer cards',
+      group: 'Products',
+      usedOn: B2B_CONTENT_TABLE_PATHS.slice(),
+      description: 'Source-aware mobile-plan carousel and package-card grid for Business product choices.',
+      props: { title: 'Current offers', path: '/business/mobile/tariffs/', variant: 'plan', rows: [{ label: 'My Business 4GB', value: '15 AZN/month · 4GB · 700 cross-net min', source: 'site' }] }
+    },
+    {
       id: 'businessSteps',
       name: 'Business process steps',
       group: 'Content',
