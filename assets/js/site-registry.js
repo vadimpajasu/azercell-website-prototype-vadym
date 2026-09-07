@@ -1152,14 +1152,6 @@
       }
     },
     {
-      id: 'campaignSourceLegend',
-      name: 'Campaign content source legend',
-      group: 'Content',
-      usedOn: B2B_CAMPAIGN_PATHS.slice(),
-      description: 'Explains the original-site, presentation/spreadsheet and dummy prototype colours.',
-      props: { deckLabel: 'Presentation / spreadsheet content', dummyLabel: 'Dummy content for prototype' }
-    },
-    {
       id: 'campaignCardGrid',
       name: 'Campaign card grid',
       group: 'Products',
@@ -1241,14 +1233,6 @@
       usedOn: B2B_CONTENT_PATHS.slice(),
       description: 'Source-aware Business page title, summary, parent link and contact action.',
       props: { eyebrow: 'Azercell Business', title: 'Business service', body: 'Service summary.', source: 'site' }
-    },
-    {
-      id: 'businessSourceLegend',
-      name: 'Business content source legend',
-      group: 'Content',
-      usedOn: B2B_CONTENT_PATHS.slice(),
-      description: 'Explains official-site, attached-file and prototype-only content colours.',
-      props: { deckLabel: 'Attached files — #f0f', dummyLabel: 'Prototype-only copy — #8000FF80' }
     },
     {
       id: 'businessCardGrid',
@@ -2057,7 +2041,7 @@
       props: {
         id: 'demo-lead-form',
         eyebrow: 'Contact us',
-        title: 'Need a digital solution?',
+        title: 'Talk to Azercell Business',
         body: 'Tell us about the company and a sales agent will get in touch.',
         submitLabel: 'Send request',
         note: 'Fields marked with * are required.',

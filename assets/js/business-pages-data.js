@@ -7,7 +7,6 @@
 (function (global) {
   'use strict';
 
-  var CONTACT = '/business/support/contact-us/';
   var BIZNES = 'https://biznes.azercell.com/';
   var SUPPORT = 'https://support.azercell.com/';
 
@@ -31,22 +30,13 @@
     return { type: 'faq', title: title, items: items };
   }
 
-  function contactBlock() {
-    return copy('Need a digital solution?', [
-      'Contact Azercell Business for a solution tailored to your company or choose from the available packages.'
-    ], 'site', [], [
-      { label: 'Contact us', href: CONTACT, variant: 'primary' },
-      { label: 'Call *6050', href: 'tel:*6050' }
-    ]);
-  }
-
   function page(path, title, parent, body, source, sections, sourceUrls) {
     return {
       path: path,
       title: title,
       parent: parent,
       hero: { eyebrow: 'Azercell Business', title: title, body: body, source: source || 'site' },
-      sections: (sections || []).concat([contactBlock()]),
+      sections: sections || [],
       sourceUrls: sourceUrls || []
     };
   }
@@ -56,13 +46,24 @@
   P['/business/mobile/'] = page('/business/mobile/', 'Mobile', '/business/',
     'Discover the ways Azercell’s mobile network can support and connect your business.', 'site', [
       cards('Mobile products and services', [
-        card('My Business Tariff Plans', 'Flexible corporate plans with data, calls, SMS and unlimited calls within the company.', '/business/mobile/tariffs/', 'site'),
-        card('My Business Internet Packs', 'Monthly, short-term and social network data options for corporate lines.', '/business/mobile/internet/', 'site'),
-        card('Roaming', 'Voice, SMS and internet abroad for corporate subscribers.', '/business/mobile/roaming/', 'site'),
-        card('Mobile Marketing', 'Reach segmented customer groups through mobile channels.', '/business/mobile/mobile-marketing/', 'site'),
-        card('My Business Wi-Fi', 'Portable and fixed 4G Wi-Fi offers for business teams.', '/business/campaigns/my-business-wifi/', 'site'),
-        card('Campaigns', 'Current business offers and promotions.', '/business/campaigns/', 'site'),
-        card('Archive', 'Previous tariffs, internet packs and campaigns.', '/business/mobile/archive/', 'file')
+        card('My Business Tariff Plans', 'Compare corporate plans with data, calls, SMS and unlimited calls within the company.', '/business/mobile/tariffs/', 'prompt'),
+        card('My Business Internet Packs', 'Choose recurring, short-term or social-network data for corporate lines.', '/business/mobile/internet/', 'prompt'),
+        card('Roaming', 'Prepare company lines for calls, messaging and mobile internet abroad.', '/business/mobile/roaming/', 'prompt')
+      ]),
+      cards('Mobile Marketing', [
+        card('Mobile Marketing overview', 'Review mobile communication and loyalty services for business customer engagement.', '/business/mobile/mobile-marketing/', 'prompt'),
+        card('Bulk & Profile SMS', 'Send information to a large customer audience in a short time.', '/business/customer-engagement/bulk-sms/', 'prompt'),
+        card('Call Signature / Content Services', 'Add a business signature to outgoing calls.', '/business/customer-engagement/content-services/', 'prompt'),
+        card('Talking minutes and internet packages', 'Use an Azercell loyalty service to reward customers with on-net minutes or internet packages.', '/business/mobile/mobile-marketing/talking-minutes-and-internet-packages/', 'prompt')
+      ]),
+      cards('Campaigns', [
+        card('Business campaigns', 'Browse current corporate offers, device financing and loyalty benefits.', '/business/campaigns/', 'prompt'),
+        card('My Business Wi-Fi', 'Compare portable Mi-Fi and fixed WTTx internet offers for business teams.', '/business/campaigns/my-business-wifi/', 'prompt')
+      ]),
+      cards('Archive', [
+        card('Tariffs archive', 'Previous corporate tariff plans and conditions.', '/business/mobile/tariffs/archive/', 'prompt'),
+        card('Internet packs archive', 'Previous business data packages and their conditions.', '/business/mobile/internet/archive/', 'prompt'),
+        card('Campaigns archive', 'Ended business campaigns and offers.', '/business/campaigns/archive/', 'prompt')
       ])
     ], ['https://www.azercell.com/en/corporate/mobile-communications.html']);
 
@@ -76,13 +77,7 @@
         { label: 'My Business 60GB', value: '56 AZN/month · 60GB · 7,000 cross-net min · 3,000 SMS · 30 international min' },
         { label: 'My Business 100GB', value: '80 AZN/month · 100GB · 10,000 cross-net min under FUP · 1,000 SMS · 100 international min' }
       ], 'Prices include VAT. Extra night data on 8GB, 12GB and 20GB plans is available from 00:00 to 08:00.'),
-      copy('Baseline plans', [
-        'My Business 2 has a 2 AZN monthly fee and pay-as-you-go usage. My Business Region has a 2 AZN monthly fee with regional call rates.'
-      ], 'site'),
-      cards('Related pages', [
-        card('Internet packs', 'Add more data to an eligible corporate line.', '/business/mobile/internet/', 'site'),
-        card('Tariffs archive', 'Terms for previous corporate tariffs.', '/business/mobile/tariffs/archive/', 'site')
-      ])
+
     ], ['https://www.azercell.com/en/corporate/mobile-communications/business-tariffs.html']);
 
   P['/business/mobile/tariffs/archive/'] = page('/business/mobile/tariffs/archive/', 'Tariffs archive', '/business/mobile/tariffs/',
@@ -99,20 +94,22 @@
       cards('Internet pack categories', [
         card('Monthly internet packs', '2GB, 7GB, 14GB, 35GB and 55GB packages valid for 30 days.', '/business/mobile/internet/monthly/', 'site'),
         card('Short-term packs', 'Unlimited 1-hour and 3-hour access.', '/business/mobile/internet/short-term/', 'site'),
-        card('Social network packs', 'Dedicated data for messaging, social media and video.', '/business/mobile/internet/social/', 'site'),
-        card('Internet packs archive', 'Previous GigaMax and other archived offers.', '/business/mobile/internet/archive/', 'site')
+        card('Social network packs', 'Dedicated data for messaging, social media and video.', '/business/mobile/internet/social/', 'site')
+      ]),
+      cards('Internet packs archive', [
+        card('Browse archived internet packs', 'Review previous GigaMax, daily, weekend and other corporate data offers.', '/business/mobile/internet/archive/', 'prompt')
       ])
     ], ['https://www.azercell.com/en/corporate/mobile-communications/internet/monthly.html']);
 
   P['/business/mobile/internet/monthly/'] = page('/business/mobile/internet/monthly/', 'Monthly internet packs', '/business/mobile/internet/',
     'Data packages for recurring business use, valid for 30 days.', 'site', [
       table('Monthly packs', [
-        { label: '2GB', value: '6 AZN · SMS 2000 to 2525' },
-        { label: '7GB', value: '10 AZN · SMS 7000 to 2525' },
-        { label: '14GB', value: '15 AZN · SMS 14000 to 2525' },
-        { label: '35GB', value: '25 AZN · SMS 35000 to 2525' },
-        { label: '55GB', value: '30 AZN · SMS 55000 to 2525' }
-      ], 'Each pack is valid for 30 days. SMS to 2525 costs 0.01 AZN.'),
+        { label: '2GB', value: '6 AZN · 30 days · SMS 2000 to 2525', href: '/business/mobile/internet/monthly/2gb/' },
+        { label: '7GB', value: '10 AZN · 30 days · SMS 7000 to 2525', href: '/business/mobile/internet/monthly/7gb/' },
+        { label: '14GB', value: '15 AZN · 30 days · SMS 14000 to 2525', href: '/business/mobile/internet/monthly/14gb/' },
+        { label: '35GB', value: '25 AZN · 30 days · SMS 35000 to 2525', href: '/business/mobile/internet/monthly/35gb/' },
+        { label: '55GB', value: '30 AZN · 30 days · SMS 55000 to 2525', href: '/business/mobile/internet/monthly/55gb/' }
+      ], 'Each pack is valid for 30 days. SMS to 2525 costs 0.01 AZN.', 'prompt'),
       table('Non-recurrent packs', [
         { label: '2GB', value: '6 AZN · SMS +2GB to 2525' },
         { label: '7GB', value: '10 AZN · SMS +7GB to 2525' },
@@ -123,28 +120,35 @@
   P['/business/mobile/internet/short-term/'] = page('/business/mobile/internet/short-term/', 'Short-term packs', '/business/mobile/internet/',
     'Unlimited internet for a short business task or temporary need.', 'site', [
       table('Available packs', [
-        { label: 'Unlimited 1 hour', value: '0.99 AZN · SMS S to 2525' },
-        { label: 'Unlimited 3 hours', value: '1.99 AZN · SMS 3S to 2525' }
-      ], 'The service is activated within 15 minutes. Each SMS to 2525 costs 0.01 AZN.'),
+        { label: 'Unlimited 1 hour', value: '0.99 AZN · Up to 1 hour · SMS S to 2525', href: '/business/mobile/internet/short-term/unlimited-1-hour/' },
+        { label: 'Unlimited 3 hours', value: '1.99 AZN · 3 hours · SMS 3S to 2525', href: '/business/mobile/internet/short-term/unlimited-3-hours/' }
+      ], 'The service is activated within 15 minutes. Each SMS to 2525 costs 0.01 AZN.', 'prompt'),
       copy('After the pack ends', ['Internet access returns to the conditions of the active tariff or other available data pack.'], 'site')
     ], ['https://www.azercell.com/en/corporate/mobile-communications/internet/short-term-packs.html']);
 
   P['/business/mobile/internet/social/'] = page('/business/mobile/internet/social/', 'Social network packs', '/business/mobile/internet/',
     'Dedicated data packages for messaging, social networks and video platforms.', 'site', [
       table('My Business Social Networks', [
-        { label: 'My Business Chat', value: '5GB · 4 AZN · SMS B1 to 2525' },
-        { label: 'My Business Social', value: '10GB · 7 AZN · SMS B2 to 2525' },
-        { label: 'My Business Media', value: '30GB · 16 AZN · SMS B3 to 2525' }
-      ], 'Each pack is valid for 30 days and may be used through supported mobile applications.'),
+        { label: 'My Business Chat', value: '5GB · 4 AZN · 30 days · SMS B1 to 2525', href: '/business/mobile/internet/social/my-business-chat/' },
+        { label: 'My Business Social', value: '10GB · 7 AZN · 30 days · SMS B2 to 2525', href: '/business/mobile/internet/social/my-business-social/' },
+        { label: 'My Business Media', value: '30GB · 16 AZN · 30 days · SMS B3 to 2525', href: '/business/mobile/internet/social/my-business-media/' }
+      ], 'Each pack is valid for 30 days and may be used through supported mobile applications.', 'prompt'),
       copy('Eligibility', ['Available to subscribers with an active eligible auto-renewing monthly business internet pack or My Business tariff plan.'], 'site')
     ], ['https://www.azercell.com/en/corporate/mobile-communications/internet/my-business-social-packs.html']);
 
   P['/business/mobile/internet/archive/'] = page('/business/mobile/internet/archive/', 'Internet packs Archive', '/business/mobile/internet/',
     'Previous business internet packs and conditions retained for existing subscribers.', 'site', [
-      cards('Archived packs', [
-        card('GigaMax', '60GB under FUP, then up to 256 kb/s. Closed to new subscriptions from 1 December 2025.', '/business/mobile/internet/archive/gigamax/', 'site'),
-        card('GigaMax Plus', '80GB under FUP, then up to 256 kb/s. Closed to new subscriptions from 1 December 2025.', '/business/mobile/internet/archive/gigamax-plus/', 'site'),
-        card('500MB', 'Archived 30-day pack for eligible business broadband lines.', '/business/mobile/internet/archive/500mb-monthly/', 'site')
+      cards('Archived internet packs', [
+        card('GigaMax Pro', 'Archived unlimited GigaMax Pro terms and eligibility.', '/business/mobile/internet/archive/gigamax-pro/', 'prompt'),
+        card('GigaMax Plus', '80GB under FUP, then up to 256 kb/s. Closed to new subscriptions from 1 December 2025.', '/business/mobile/internet/archive/gigamax-plus/', 'prompt'),
+        card('GigaMax', '60GB under FUP, then up to 256 kb/s. Closed to new subscriptions from 1 December 2025.', '/business/mobile/internet/archive/gigamax/', 'prompt'),
+        card('Unlimited Weekend', 'Archived short-term unlimited weekend internet offer.', '/business/mobile/internet/archive/unlimited-weekend/', 'prompt'),
+        card('Unlimited Night', 'Archived unlimited night internet offer.', '/business/mobile/internet/archive/unlimited-night/', 'prompt'),
+        card('500MB · 30 days', 'Previous recurring 500MB pack.', '/business/mobile/internet/archive/500mb-monthly/', 'prompt'),
+        card('500MB · 24 hours', 'Earlier daily 500MB pack.', '/business/mobile/internet/archive/500mb-daily/', 'prompt'),
+        card('500+MB', 'Archived bonus-volume internet pack.', '/business/mobile/internet/archive/500-plus-mb/', 'prompt'),
+        card('50MB', 'Archived 50MB corporate internet pack.', '/business/mobile/internet/archive/50mb/', 'prompt'),
+        card('60MB', 'Archived 60MB corporate internet pack.', '/business/mobile/internet/archive/60mb/', 'prompt')
       ])
     ], ['https://www.azercell.com/en/corporate/mobile-communications/internet/b2b-internet-packs-archive/gigamax-plus.html']);
 
@@ -166,7 +170,8 @@
       copy('Direct mobile communication', ['Mobile Marketing supports targeted communication and analysis of customer groups through mobile channels.'], 'site'),
       cards('Available services', [
         card('Bulk & Profile SMS', 'Send information to a large number of customers in a short time.', '/business/customer-engagement/bulk-sms/', 'site'),
-        card('Call Signature / Content Services', 'Add a business signature to outgoing calls.', '/business/customer-engagement/content-services/', 'site')
+        card('Call Signature / Content Services', 'Add a business signature to outgoing calls.', '/business/customer-engagement/content-services/', 'site'),
+        card('Talking minutes and internet packages', 'Loyalty service: reward customers with on-net calling minutes or internet packages credited directly to their balances.', '/business/mobile/mobile-marketing/talking-minutes-and-internet-packages/', 'prompt')
       ])
     ], ['https://www.azercell.com/en/corporate/mobile-communications/special-services/mobile-marketing.html']);
 
@@ -249,11 +254,11 @@
   P['/business/ict-solutions/'] = page('/business/ict-solutions/', 'ICT Solutions', '/business/',
     'Business technology services for communications, connected devices, security, automation and digital platforms.', 'authored', [
       cards('Solution areas', [
-        card('Unified Communications', 'Business voice, calling management and IP telephony.', '/business/ict-solutions/unified-communications/', 'file'),
-        card('IoT & M2M', 'Connect devices, vehicles, sensors and field operations.', '/business/iot/', 'site'),
-        card('Security', 'Protect networks, systems, applications, data and users.', '/business/ict-solutions/security/', 'file'),
-        card('Automation & Management', 'Automate routine work and manage teams and devices.', '/business/automation-management/', 'site'),
-        card('Cloud & Digital Platforms', 'Customer communication, knowledge and corporate self-service platforms.', '/business/ict-solutions/cloud-digital-platforms/', 'file')
+        card('Unified Communications', 'Business voice, call management and IP telephony for office, branch and remote teams.', '/business/ict-solutions/unified-communications/', 'prompt', ['Business VoIP', 'Calls Manager', 'SIP / IP Telephony']),
+        card('IoT & M2M', 'Connect devices, vehicles and sensors with domestic, roaming and pooled data options.', '/business/iot/', 'prompt', ['IoT tariffs and pool packages', 'Fleet and field operations', 'Private APN connectivity']),
+        card('Security', 'Protect networks, applications, data and users with prevention, audit and managed-security services.', '/business/ict-solutions/security/', 'prompt', ['Cybersecurity solutions', 'Security audits', 'DNS and fraud protection']),
+        card('Automation & Management', 'Automate routine work and manage field teams or company devices from central platforms.', '/business/automation-management/', 'prompt', ['Robotic automation', 'Mobile team management', 'Device management']),
+        card('Cloud & Digital Platforms', 'Support customer communication, internal knowledge and corporate self-service.', '/business/ict-solutions/cloud-digital-platforms/', 'prompt', ['InfoHUB', 'CPaaS', 'Azercell Biznes Platform'])
       ])
     ]);
 
@@ -428,7 +433,7 @@
         card('Reporting', 'Generate recurring reports from defined data sources.', '', 'site')
       ]),
       copy('Service model', ['Azercell assesses workflows, identifies automation opportunities, develops bots, deploys them and supports ongoing optimization.'], 'site'),
-      copy('Licensing referenced in the offer deck', ['Autonomous Robot and Automation Developer licences are offered for a 12-month period. Robot configuration and programming are separate services.'], 'file')
+      copy('RPA licence options in the supplied offer', ['The supplied commercial presentation lists two annual licensing units: an Autonomous Robot licence for one software robot and an Automation Developer licence for one user. Configuration and programming by local RPA specialists are separate implementation services.'], 'prompt')
     ], ['https://www.azercell.com/en/corporate/iot/rpa.html']);
 
   P['/business/fleet-field-operations/team-management/'] = page('/business/fleet-field-operations/team-management/', 'Mobile Team Management', '/business/automation-management/',
@@ -524,8 +529,10 @@
       cards('Platforms', [
         card('InfoHUB', 'Centralized knowledge and FAQ response management for service teams.', '/business/customer-engagement/infohub/', 'site'),
         card('CPaaS', 'Bring calls, video, messaging, chatbots, SMS, email and social media into one cloud platform.', '/business/customer-engagement/cpaas/', 'site'),
-        card('Azercell Biznes Platform', 'Manage corporate numbers, services, invoices and documents.', '/business/mobile/azercell-biznes/', 'site'),
         card('Free DPI', 'Access selected business services without using mobile data allowance.', '/business/ict-solutions/cloud-digital-platforms/free-dpi/', 'file')
+      ]),
+      cards('Azercell Biznes Platform', [
+        card('Manage corporate services in one place', 'Review numbers, balances, invoices, payments, packages, documents and support requests through the web and mobile platform.', '/business/mobile/azercell-biznes/', 'prompt', ['Corporate number management', 'Billing and payment history', 'Packages, documents and online support'])
       ])
     ]);
 
@@ -542,7 +549,7 @@
         { label: '101–300 users', value: '1,250 AZN' }, { label: '301–500 users', value: '1,667 AZN' },
         { label: '501–1,000 users', value: '2,500 AZN' }, { label: '1,001–2,000 users', value: '3,333 AZN' },
         { label: '2,001–5,000 users', value: '3,750 AZN' }
-      ], 'Prices include VAT and come from the supplied commercial offer deck.', 'file')
+      ], 'Prices include VAT and come from the supplied commercial offer deck.', 'prompt')
     ], ['https://www.azercell.com/en/corporate/cloud-services/infohub.html']);
 
   P['/business/customer-engagement/cpaas/'] = page('/business/customer-engagement/cpaas/', 'CPaaS', '/business/ict-solutions/cloud-digital-platforms/',
@@ -928,48 +935,11 @@
     ])
   ]);
 
-  addOfficial('/business/mobile/internet/monthly/', [
-    cards('Pack details', [
-      card('2GB', '6 AZN · 30 days', '/business/mobile/internet/monthly/2gb/', 'site'),
-      card('7GB', '10 AZN · 30 days', '/business/mobile/internet/monthly/7gb/', 'site'),
-      card('14GB', '15 AZN · 30 days', '/business/mobile/internet/monthly/14gb/', 'site'),
-      card('35GB', '25 AZN · 30 days', '/business/mobile/internet/monthly/35gb/', 'site'),
-      card('55GB', '30 AZN · 30 days', '/business/mobile/internet/monthly/55gb/', 'site')
-    ])
-  ]);
-
-  addOfficial('/business/mobile/internet/short-term/', [
-    cards('Pack details', [
-      card('Unlimited 1 hour', '0.99 AZN · unlimited for up to one hour', '/business/mobile/internet/short-term/unlimited-1-hour/', 'site'),
-      card('Unlimited 3 hours', '1.99 AZN · unlimited for three hours', '/business/mobile/internet/short-term/unlimited-3-hours/', 'site')
-    ])
-  ]);
-
   addOfficial('/business/mobile/internet/social/', [
     copy('Social media use for business', [
       'The packs help corporate customers use supported messaging, social-network and video applications without consuming the traffic of the main internet pack. Social media can support a digital marketing strategy for businesses of any size.',
       'There are no additional content or correspondence restrictions beyond applicable law: subscribers may exchange files, audio and video messages through the supported applications.'
-    ], 'site'),
-    cards('Pack details', [
-      card('My Business Chat', '5GB for supported messaging apps.', '/business/mobile/internet/social/my-business-chat/', 'site'),
-      card('My Business Social', '10GB for messaging and social-network apps.', '/business/mobile/internet/social/my-business-social/', 'site'),
-      card('My Business Media', '30GB for chat, social and video apps.', '/business/mobile/internet/social/my-business-media/', 'site')
-    ])
-  ]);
-
-  addOfficial('/business/mobile/internet/archive/', [
-    cards('More archived internet packs', [
-      card('GigaMax Pro', 'Archived GigaMax Pro terms and eligibility.', '/business/mobile/internet/archive/gigamax-pro/', 'site'),
-      card('Unlimited Weekend', 'Archived short-term unlimited weekend internet offer.', '/business/mobile/internet/archive/unlimited-weekend/', 'site'),
-      card('500MB · 30 days', 'Previous recurring 500MB pack.', '/business/mobile/internet/archive/500mb-monthly/', 'site'),
-      card('500MB · 24 hours', 'Earlier daily 500MB pack.', '/business/mobile/internet/archive/500mb-daily/', 'site'),
-      card('50MB', 'Archived 50MB corporate internet pack.', '/business/mobile/internet/archive/50mb/', 'site'),
-      card('60MB', 'Archived 60MB corporate internet pack.', '/business/mobile/internet/archive/60mb/', 'site'),
-      card('500+MB', 'Archived bonus-volume internet pack.', '/business/mobile/internet/archive/500-plus-mb/', 'site'),
-      card('GigaMax Plus', 'Archived 80GB FUP pack.', '/business/mobile/internet/archive/gigamax-plus/', 'site'),
-      card('GigaMax', 'Archived 60GB FUP pack.', '/business/mobile/internet/archive/gigamax/', 'site'),
-      card('Unlimited Night', 'Archived unlimited night internet offer.', '/business/mobile/internet/archive/unlimited-night/', 'site')
-    ])
+    ], 'site')
   ]);
 
   addOfficial('/business/mobile/azercell-biznes/', [
@@ -984,10 +954,7 @@
   addOfficial('/business/mobile/mobile-marketing/', [
     copy('Business-development partnership', [
       'Azercell’s professional team can work with a company on suitable communication solutions and new business opportunities in the market.'
-    ], 'site'),
-    cards('Additional loyalty service', [
-      card('Talking minutes and internet packages', 'Reward customers with on-net calling minutes and internet packages.', '/business/mobile/mobile-marketing/talking-minutes-and-internet-packages/', 'site')
-    ])
+    ], 'site')
   ]);
 
   addOfficial('/business/fleet-field-operations/fleet/', [

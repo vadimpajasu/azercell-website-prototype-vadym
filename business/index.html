@@ -11,7 +11,7 @@
 <body>
 
 <div id="page-top"></div>
-<main id="page-main"></main>
+<main id="page-main" class="cmp-business-content"></main>
 <div id="page-bottom"></div>
 <div id="page-chat"></div>
 
@@ -489,20 +489,24 @@
     ),
 
     section(
-      render('sectionHead', {
-        eyebrow: 'Help',
-        title: 'Questions we get most often',
-        body: 'What this site can do, who can log in, and how pricing works.'
-      }) +
-      render('accordion', { items: take(faqs, 4) })
+      render('campaignCopyBlock', {
+        title: 'Prepare for a faster business consultation',
+        paragraphs: ['Share the number of employees or devices, the locations that need service and the business result you want to achieve. This helps the Azercell team recommend relevant connectivity, mobile and digital solutions.'],
+        items: ['List current services and any coverage or capacity issues.', 'Note the preferred launch date, security needs and decision-makers.'],
+        source: 'authored',
+        actions: [
+          { label: 'Start a consultation', href: '#contact-sales', variant: 'primary' },
+          { label: 'Call *6050', href: 'tel:*6050' }
+        ]
+      })
     ),
 
     section(
-      '<div id="contact-sales">' +
+      '<div id="contact-sales" class="campaign-source--prompt">' +
         render('leadForm', {
           id: 'contact-sales-form',
           eyebrow: 'Contact us',
-          title: 'Need a digital solution? Azercell Business can help',
+          title: 'Talk to Azercell Business',
           body: 'Tell us about the company and a sales agent will get in touch with a tailored offer.',
           submitLabel: 'Send request',
           note: 'Fields marked with * are required. TAX ID helps us route genuine business enquiries.',
@@ -526,6 +530,15 @@
           }
         }) +
       '</div>'
+    ),
+
+    section(
+      render('sectionHead', {
+        title: 'Questions we get most often',
+        body: 'What this site can do, who can log in, and how pricing works.'
+      }) +
+      render('accordion', { items: take(faqs, 4) }),
+      'campaign-source--prompt'
     )
   ]);
 

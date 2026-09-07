@@ -38,7 +38,7 @@
   }
 
   function legend() {
-    return section(render('campaignSourceLegend', D.sourceLegend), 'section--flush');
+    return '';
   }
 
   function copy(props) {
@@ -79,7 +79,6 @@
       section(copy({ eyebrow: 'How we work', title: 'Built around business customers', source: 'site' }) + cards(page.reasons, 3)),
       section(table('Presentation proof points', page.proofPoints, { source: 'deck' })),
       section(copy({ eyebrow: 'Our partners', title: 'More than 4000 companies trust us their businesses.', paragraphs: ['Web pages, sections and articles creation, control over all photo content and pages’ look when they are available on the social network and other features'], image: 'https://www.azercell.com/assets/images/b2b/why-azercell-business/logos1.png', imageAlt: 'Companies that work with Azercell Business', source: 'site', actions: [{ label: 'Contact us', href: 'mailto:business@azercell.com', variant: 'primary' }] }) + copy({ title: 'Partner logo wall from the presentation', items: page.partnerNames, source: 'deck' })),
-      section(copy({ eyebrow: 'Need a digital solution?', title: 'Azercell Business can help!', paragraphs: ['Contact us for a personalised solution for your specific needs or pick a readymade offers. The possibilities are endless.'], source: 'site', actions: [{ label: 'Contact us', href: 'mailto:business@azercell.com', variant: 'primary' }] })),
       section(copy({ title: 'Fair use and security conditions', paragraphs: page.fairUse, source: 'site' }))
     ];
   }
@@ -90,17 +89,17 @@
       hero('wifi'),
       legend(),
       section(copy({ eyebrow: 'General information', title: 'Internet without fixed infrastructure', paragraphs: page.intro, source: 'site' }) + cards(page.benefits, 3)),
-      section(copy({ eyebrow: 'Devices', title: 'Choose the connection format', source: 'site' }) + cards(page.deviceDescriptions, 2)),
       section(
+        copy({ title: 'Choose the connection format and monthly pack', source: 'prompt' }) +
+        cards(page.deviceDescriptions.map(function (item) { return Object.assign({}, item, { source: 'prompt' }); }), 2) +
         '<div class="grid grid--2">' +
-          table('Mi-Fi', page.mifi, { labelHeading: 'Internet volume', valueHeading: 'Monthly fee, AZN', source: 'site' }) +
-          table('WTTx', page.wttx, { labelHeading: 'Internet volume', valueHeading: 'Monthly fee, AZN', source: 'site' }) +
+          render('businessOfferGrid', { title: 'Mi-Fi', rows: page.mifi, source: 'prompt', path: '/business/campaigns/my-business-wifi/' }) +
+          render('businessOfferGrid', { title: 'WTTx', rows: page.wttx, source: 'prompt', path: '/business/campaigns/my-business-wifi/' }) +
         '</div>' +
-        copy({ paragraphs: [page.note], source: 'site', actions: [{ label: 'Contact us', href: 'mailto:business@azercell.com', variant: 'primary' }] })
+        copy({ paragraphs: [page.note], source: 'prompt', actions: [{ label: 'Contact us', href: 'mailto:business@azercell.com', variant: 'primary' }] }) +
+        copy({ title: 'Device availability notice', paragraphs: [page.suspensionNotice], source: 'prompt', compact: true })
       ),
       section(copy({ eyebrow: 'Presentation conditions', title: 'Commercial terms from the offer deck', items: page.deckConditions, source: 'deck' })),
-      section(copy({ eyebrow: 'Need technical support?', title: 'We’re here to help!', paragraphs: ['Not sure about a ready-made solution or require a customised one? Our professional customer care consultants have all the answers.'], source: 'site', actions: [{ label: 'Contact us', href: 'mailto:business@azercell.com', variant: 'primary' }] })),
-      section(copy({ title: 'To the attention of Azercell corporate subscribers!', paragraphs: [page.suspensionNotice], source: 'site' })),
       section(render('campaignFaq', { title: 'Additional information', items: page.faq }))
     ];
   }
@@ -181,7 +180,7 @@
       legend(),
       section(copy({ eyebrow: 'General information', title: 'A business loyalty ecosystem', paragraphs: page.intro, source: 'site' })),
       section(copy({ eyebrow: 'Member benefits', title: 'More value from the relationship', source: 'site' }) + cards(page.cards, 2)),
-      section(copy({ eyebrow: 'Need a digital solution?', title: 'Azercell Business can help!', paragraphs: ['Contact us for a personalised solution for your specific needs or pick a readymade offers. The possibilities are endless.'], source: 'site', actions: [{ label: 'Contact us', href: 'mailto:business@azercell.com', variant: 'primary' }] }))
+
     ];
   }
 
@@ -211,6 +210,40 @@
     ];
   }
 
+  function customerGuide(key) {
+    var page = D.pages[key] || D.pages.hub;
+    return section(copy({
+      title: 'Discuss the right offer for your company',
+      paragraphs: ['Share the number of business lines, expected usage and preferred contract period. An Azercell Business specialist can confirm campaign eligibility, current availability and the documents required.'],
+      items: ['Ask which employees or numbers qualify.', 'Confirm the final monthly fee, commitment period and early-cancellation conditions.'],
+      source: 'dummy',
+      actions: [
+        { label: 'Talk to a business specialist', href: 'mailto:business@azercell.com', variant: 'primary' },
+        { label: 'Call *6050', href: 'tel:*6050' }
+      ]
+    }));
+  }
+
+  function fallbackFaq(key) {
+    return section(render('campaignFaq', {
+      title: 'Frequently asked questions',
+      source: 'dummy',
+      items: [
+        { question: 'Who can use this offer?', answer: 'Eligibility depends on the company account, number type and the current campaign conditions. Azercell Business confirms eligibility before activation.', source: 'dummy' },
+        { question: 'How can my company apply?', answer: 'Contact the business team by email or call *6050. A specialist will explain the required company and subscriber documents.', source: 'dummy' },
+        { question: 'Are the terms on this prototype final?', answer: 'Confirm current prices, campaign dates, stock and contract terms with Azercell Business before ordering.', source: 'dummy' }
+      ]
+    }));
+  }
+
+  function finalise(blocks, key) {
+    var faqBlocks = blocks.filter(function (block) { return block && block.indexOf('cmp-campaign-faq') !== -1; });
+    var contentBlocks = blocks.filter(function (block) { return block && block.indexOf('cmp-campaign-faq') === -1; });
+    contentBlocks.push(customerGuide(key));
+    contentBlocks.push(faqBlocks.length ? faqBlocks.join('') : fallbackFaq(key));
+    return contentBlocks;
+  }
+
   function build(key) {
     if (key === 'hub') return buildHub();
     if (key === 'why') return buildWhy();
@@ -237,7 +270,9 @@
     ]);
     global.Components.mount('#page-bottom', [['siteFooter', chrome.businessFooter]]);
     global.Components.mount('#page-chat', [['floatingBar', chrome.businessFloatingBar]]);
-    global.Components.mount('#page-main', build(key));
+    var main = document.querySelector('#page-main');
+    main.className = 'cmp-business-content';
+    global.Components.mount('#page-main', finalise(build(key), key));
   }
 
   global.BusinessCampaignsPage = { mount: mount };

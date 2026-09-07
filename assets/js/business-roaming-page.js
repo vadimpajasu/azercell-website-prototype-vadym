@@ -74,13 +74,44 @@
     return global.Components.render('tariffFeatureList', { title: title, features: items, className: 'cmp-broam-feature-list' });
   }
 
+  function mountPage(C, blocks) {
+    var faqBlocks = blocks.filter(function (block) { return block && (block.indexOf('cmp-accordion') !== -1 || block.indexOf('cmp-campaign-faq') !== -1); });
+    var contentBlocks = blocks.filter(function (block) { return block && block.indexOf('cmp-accordion') === -1 && block.indexOf('cmp-campaign-faq') === -1; });
+
+    contentBlocks.push(section(C.render('campaignCopyBlock', {
+      title: 'Prepare company lines before travel',
+      paragraphs: ['Share the destination countries, trip duration and expected data use with Azercell Business. A specialist can confirm compatible operators, pack availability and activation steps for each employee.'],
+      items: ['Activate roaming before departure.', 'Check pack coverage and out-of-bundle rates for every destination.'],
+      source: 'authored',
+      actions: [
+        { label: 'Talk to a business specialist', href: '/business/support/contact-us/', variant: 'primary' },
+        { label: 'Call *6050', href: 'tel:*6050' }
+      ]
+    })));
+
+    contentBlocks.push(faqBlocks.length ? faqBlocks.join('') : section(C.render('businessFaq', {
+      title: 'Frequently asked questions',
+      source: 'authored',
+      items: [
+        { question: 'When should roaming be activated?', answer: 'Activate roaming before the employee leaves Azerbaijan and confirm that the required pack supports the destination country.', source: 'authored' },
+        { question: 'How can a company check current rates?', answer: 'Search the destination and partner operator, then confirm current pack and pay-as-you-go conditions with Azercell Business.', source: 'authored' },
+        { question: 'Where can employees get help abroad?', answer: 'Use Azercell online support or contact the company account manager for activation and network-selection assistance.', source: 'authored' }
+      ]
+    })));
+
+    var main = document.querySelector('#page-main');
+    main.className = 'cmp-business-content';
+    C.mount('#page-main', contentBlocks);
+  }
+
   function mountHub() {
     var C = global.Components;
     var href = hrefFn();
 
-    C.mount('#page-main', [
+    mountPage(C, [
       section(C.render('sectionHead', {
         eyebrow: 'Roaming',
+        hero: true,
         title: 'Stay connected anywhere in the world',
         body: 'Azercell Business offers practical internet pack options and pay-as-you-go roaming information for employees travelling abroad.'
       })),
@@ -153,9 +184,10 @@
   function mountCountries() {
     var C = global.Components;
 
-    C.mount('#page-main', [
+    mountPage(C, [
       section(C.render('sectionHead', {
         eyebrow: 'Roaming',
+        hero: true,
         title: 'Countries and prices',
         body: 'Search a destination to view the available partner networks and pay-as-you-go rates for calls, mobile internet and SMS.'
       })),
@@ -187,9 +219,10 @@
         }) +
         C.render('businessRoamingRateTable', { country: country }));
 
-    C.mount('#page-main', [
+    mountPage(C, [
       section(C.render('sectionHead', {
         eyebrow: 'Roaming · Countries and prices',
+        hero: true,
         title: country.name,
         body: usesOperatorTabs ? '' : 'Postpaid | Available operators'
       })),
@@ -214,9 +247,10 @@
   function mountPacks() {
     var C = global.Components;
 
-    C.mount('#page-main', [
+    mountPage(C, [
       section(C.render('sectionHead', {
         eyebrow: 'Roaming',
+        hero: true,
         title: 'Roaming internet packs list',
         body: 'Choose the roaming internet pack that fits the trip duration and expected data use.'
       })),

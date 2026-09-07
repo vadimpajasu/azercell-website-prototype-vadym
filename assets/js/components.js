@@ -83,7 +83,41 @@
   function campaignSourceClass(source) {
     if (source === 'deck' || source === 'file') return 'campaign-source--deck';
     if (source === 'dummy' || source === 'authored') return 'campaign-source--dummy';
+    if (source === 'prompt' || source === 'changed') return 'campaign-source--prompt';
     return '';
+  }
+
+  function isBusinessPage() {
+    return !!(global.location && /^\/business(?:\/|$)/.test(global.location.pathname || ''));
+  }
+
+  function businessBreadcrumbs(title) {
+    if (!isBusinessPage()) return '';
+    var R = global.SiteRegistry;
+    var path = global.location.pathname || '/business/';
+    var chain = [];
+    var current = R && R.get ? R.get(path) : null;
+    var guard = 0;
+
+    while (current && guard < 12) {
+      chain.unshift(current);
+      current = current.parent && R.get ? R.get(current.parent) : null;
+      guard += 1;
+    }
+
+    if (!chain.length || chain[chain.length - 1].path !== path) {
+      chain = [{ path: '/business/', title: 'Business' }, { path: path, title: title || 'Current page' }];
+    }
+
+    return '<nav class="cmp-business-breadcrumbs campaign-source--prompt" aria-label="Breadcrumb"><ol>' +
+      '<li><a href="/">Home</a></li>' +
+      chain.map(function (item, index) {
+        var isCurrent = index === chain.length - 1;
+        return '<li>' + (isCurrent
+          ? '<span aria-current="page">' + esc(item.title || title) + '</span>'
+          : '<a href="' + esc(registryHref(item.path)) + '">' + esc(item.title) + '</a>') + '</li>';
+      }).join('') +
+    '</ol></nav>';
   }
 
   var C = {};
@@ -865,10 +899,11 @@
      -------------------------------------------------------------------- */
 
   function heroSlide(slide, index) {
+    var business = isBusinessPage();
     return (
       '<div class="cmp-hero__grid" data-hero-slide="' + index + '"' + (index === 0 ? '' : ' hidden') + '>' +
         '<div class="cmp-hero__body">' +
-          (slide.eyebrow ? '<p class="t-label">' + esc(slide.eyebrow) + '</p>' : '') +
+          (business ? businessBreadcrumbs(slide.title) : (slide.eyebrow ? '<p class="t-label">' + esc(slide.eyebrow) + '</p>' : '')) +
           '<div class="cmp-hero__copy">' +
             '<h1 class="t-display">' + esc(slide.title) + '</h1>' +
           '</div>' +
@@ -895,7 +930,7 @@
   C.heroBanner = function (props) {
     var slides = props.slides || [];
     return (
-      '<section class="cmp-hero" data-hero aria-label="Featured offers">' +
+      '<section class="cmp-hero' + (isBusinessPage() ? ' cmp-hero--business' : '') + '" data-hero aria-label="Featured offers">' +
         '<div class="wrap">' +
           slides.map(heroSlide).join('') +
           (slides.length > 1
@@ -941,10 +976,14 @@
      -------------------------------------------------------------------- */
 
   C.sectionHead = function (props) {
+    var business = isBusinessPage();
+    var headingTag = props.hero ? 'h1' : 'h2';
+    var headingClass = props.hero ? 't-display' : 't-h1';
     var head =
-      '<div class="section__title-group">' +
-        (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
-        '<h2 class="t-h1">' + esc(props.title) + '</h2>' +
+      '<div class="section__title-group' + (props.hero ? ' section__title-group--hero' : '') + '">' +
+        (props.hero && business ? businessBreadcrumbs(props.title) : '') +
+        (!business && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+        '<' + headingTag + ' class="' + headingClass + '">' + esc(props.title) + '</' + headingTag + '>' +
         (props.body ? '<p class="t-lead t-muted">' + esc(props.body) + '</p>' : '') +
       '</div>';
 
@@ -1115,7 +1154,7 @@
       '<article class="cmp-card">' +
         (props.media ? placeholder(props.media, 'ph--wide') : '') +
         '<div class="cmp-card__body">' +
-          (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+          (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
           '<h3 class="t-h3">' + esc(props.title) + '</h3>' +
           (props.body ? '<p class="t-body t-muted">' + esc(props.body) + '</p>' : '') +
         '</div>' +
@@ -1137,7 +1176,7 @@
     return (
       '<aside class="cmp-callout' + (inverse ? ' cmp-callout--inverse' : '') + '">' +
         '<div class="cmp-callout__copy">' +
-          (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+          (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
           '<h3 class="t-h3">' + esc(props.title) + '</h3>' +
           (props.body ? '<p class="t-body' + (inverse ? '' : ' t-muted') + '">' + esc(props.body) + '</p>' : '') +
         '</div>' +
@@ -1350,7 +1389,7 @@
       '<section class="' + cls + '">' +
         '<div class="cmp-split__body">' +
           '<div class="cmp-split__copy">' +
-            (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+            (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
             '<h2 class="t-h1">' + esc(props.title) + '</h2>' +
             (props.body ? '<p class="t-lead' + (props.inverse ? '' : ' t-muted') + '">' + esc(props.body) + '</p>' : '') +
           '</div>' +
@@ -1419,7 +1458,7 @@
       '<section class="cmp-split">' +
         '<div class="cmp-split__body">' +
           '<div class="cmp-split__copy">' +
-            (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+            (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
             '<h2 class="t-h1">' + esc(props.title) + '</h2>' +
             (props.body ? '<p class="t-lead t-muted">' + esc(props.body) + '</p>' : '') +
           '</div>' +
@@ -1527,7 +1566,7 @@
       '<form class="cmp-form" id="' + esc(formId) + '" data-lead-form novalidate>' +
         (props.title
           ? '<div class="section__title-group">' +
-              (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+              (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
               '<h2 class="t-h2">' + esc(props.title) + '</h2>' +
               (props.body ? '<p class="t-body t-muted">' + esc(props.body) + '</p>' : '') +
             '</div>'
@@ -1601,7 +1640,7 @@
       '<section class="cmp-tdetail-hero">' +
         '<div class="cmp-tdetail-hero__grid">' +
           '<div class="cmp-tdetail-hero__copy">' +
-            (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+            (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
             '<div class="cmp-tdetail-hero__title-row">' +
               '<h1 class="t-display">' + esc(props.title) + '</h1>' +
               (props.badge ? '<span class="badge">' + esc(props.badge) + '</span>' : '') +
@@ -1922,6 +1961,14 @@
     var hints = props.usageHints || [];
     var validity = packValidity(props.validity);
     var hasDetails = !!(props.details || props.ussd || hints.length);
+    var detailsBody =
+      (props.details ? '<p class="t-body t-muted">' + esc(props.details) + '</p>' : '') +
+      (props.ussd ? '<p class="t-body">USSD: <strong>' + esc(props.ussd) + '</strong></p>' : '') +
+      (hints.length
+        ? '<ul class="cmp-ipack-card__hints">' + hints.map(function (hint) {
+            return '<li class="t-small"><strong>' + esc(hint.activity) + '</strong> — ' + esc(hint.duration) + '</li>';
+          }).join('') + '</ul>'
+        : '');
     var cardActions = [];
     if (props.kabinetimHref) {
       cardActions.push({ label: props.ctaLabel || 'Activate in Kabinetim', href: props.kabinetimHref, variant: 'primary' });
@@ -1932,7 +1979,8 @@
         attr('data-ipack-price', props.priceNum == null ? 0 : props.priceNum) +
         attr('data-ipack-sort', props.sort == null ? 0 : props.sort) + '>' +
         '<div class="cmp-ipack-card__head">' +
-          '<div><p class="t-label">' + esc(props.eyebrow || 'Internet pack') + '</p><h3 class="t-h3">' + esc(props.name || props.data) + '</h3></div>' +
+          '<div>' + (props.eyebrow === false || isBusinessPage() ? '' : '<p class="t-label">' + esc(props.eyebrow || 'Internet pack') + '</p>') +
+            '<h3 class="t-h3">' + esc(props.name || props.data) + '</h3></div>' +
           '<p class="t-h3">' + esc(props.price) + '</p>' +
         '</div>' +
         (props.data ? '<p class="t-h1 cmp-ipack-card__data">' + esc(props.data) + '</p>' : '') +
@@ -1942,18 +1990,12 @@
           : '') +
         (cardActions.length ? '<div class="cmp-ipack-card__actions">' + actions(cardActions, 'btn--small btn--block') + '</div>' : '') +
         (hasDetails
-          ? '<details class="cmp-ipack-card__details">' +
-              '<summary class="cmp-ipack-card__summary"><span class="t-label">Pack details</span><span class="cmp-ipack-card__summary-icon" aria-hidden="true">↓</span></summary>' +
-              '<div class="cmp-ipack-card__details-body">' +
-                (props.details ? '<p class="t-body t-muted">' + esc(props.details) + '</p>' : '') +
-                (props.ussd ? '<p class="t-body">USSD: <strong>' + esc(props.ussd) + '</strong></p>' : '') +
-                (hints.length
-                  ? '<ul class="cmp-ipack-card__hints">' + hints.map(function (hint) {
-                      return '<li class="t-small"><strong>' + esc(hint.activity) + '</strong> — ' + esc(hint.duration) + '</li>';
-                    }).join('') + '</ul>'
-                  : '') +
-              '</div>' +
-            '</details>'
+          ? (props.expanded
+              ? '<div class="cmp-ipack-card__details cmp-ipack-card__details--expanded"><p class="t-label">Pack details</p><div class="cmp-ipack-card__details-body">' + detailsBody + '</div></div>'
+              : '<details class="cmp-ipack-card__details">' +
+                  '<summary class="cmp-ipack-card__summary"><span class="t-label">Pack details</span><span class="cmp-ipack-card__summary-icon" aria-hidden="true">↓</span></summary>' +
+                  '<div class="cmp-ipack-card__details-body">' + detailsBody + '</div>' +
+                '</details>')
           : '') +
       '</article>'
     );
@@ -1963,7 +2005,7 @@
     return (
       '<section class="cmp-ipack-upgrade">' +
         '<div class="cmp-ipack-upgrade__copy">' +
-          (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+          (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
           '<h2 class="t-h2">' + esc(props.title) + '</h2>' +
           (props.body ? '<p class="t-body t-muted">' + esc(props.body) + '</p>' : '') +
           actions(props.actions || []) +
@@ -2031,7 +2073,7 @@
         return (
           '<article class="cmp-roam-results__country">' +
             '<div class="cmp-broam-search-result__head">' +
-              '<div><p class="t-label">' + esc(country.planLabel || (props.planType === 'postpaid' ? 'Postpaid' : 'Prepaid')) + '</p><h3 class="t-h2">' + esc(country.name) + '</h3></div>' +
+              '<div>' + (!isBusinessPage() ? '<p class="t-label">' + esc(country.planLabel || (props.planType === 'postpaid' ? 'Postpaid' : 'Prepaid')) + '</p>' : '') + '<h3 class="t-h2">' + esc(country.name) + '</h3></div>' +
               (country.route ? '<a class="btn btn--small" href="' + esc(registryHref(country.route)) + '">Open country page</a>' : '') +
             '</div>' +
             (country.consolidatedRates
@@ -2090,10 +2132,7 @@
     return (
       '<article class="cmp-broam-country">' +
         '<div class="cmp-broam-country__head">' +
-          '<div>' +
-            '<p class="t-label">Corporate roaming</p>' +
-            '<h3 class="t-h2">' + esc(country.name) + '</h3>' +
-          '</div>' +
+          '<div><h3 class="t-h2">' + esc(country.name) + '</h3></div>' +
           '<span class="badge">' + esc(operators.length) + ' operators</span>' +
         '</div>' +
         '<dl class="cmp-broam-summary">' +
@@ -2177,7 +2216,7 @@
     return (
       '<article class="cmp-ipack-card"' + attr('data-ipack-price', pack.priceNum || 0) + attr('data-ipack-sort', pack.sort || 0) + '>' +
         '<div class="cmp-ipack-card__head">' +
-          '<div><p class="t-label">Roaming internet pack</p><h3 class="t-h2">' + esc(pack.volume) + '</h3></div>' +
+          '<div><h3 class="t-h2">' + esc(pack.volume) + '</h3></div>' +
           '<p class="t-h3">' + esc(pack.price) + '</p>' +
         '</div>' +
         '<p class="t-body t-muted">Valid for ' + esc(pack.validity) + '</p>' +
@@ -2242,17 +2281,14 @@
         '<h3 class="t-h2">How to activate Internet Packs</h3>' +
         '<div class="grid grid--3 cmp-broam-activation__grid">' +
           '<article class="cmp-broam-activation__card">' +
-            '<p class="t-label">Directly on the website</p>' +
             '<h4 class="t-h3">Choose a pack and enter the number</h4>' +
             '<p class="t-body t-muted">Select Subscribe on the preferred pack, enter the Azercell mobile number and confirm the one-time code. The pack is activated within 15 minutes.</p>' +
           '</article>' +
           '<article class="cmp-broam-activation__card">' +
-            '<p class="t-label">USSD or SMS</p>' +
             '<h4 class="t-h3">Use the pack activation code</h4>' +
             '<p class="t-body t-muted">Dial *100*internet pack code#YES or send the corresponding pack code by SMS to 2525.</p>' +
           '</article>' +
           '<article class="cmp-broam-activation__card">' +
-            '<p class="t-label">Azercell Kabinetim</p>' +
             '<h4 class="t-h3">Activate in the application</h4>' +
             '<p class="t-body t-muted">Open the Internet section, choose Roaming and activate the appropriate internet pack.</p>' +
             '<a class="btn btn--small" href="' + esc(props.kabinetimHref || 'https://kabinetim.azercell.com/') + '" target="_blank" rel="noopener">Open Azercell Kabinetim</a>' +
@@ -2267,7 +2303,6 @@
       '<div class="cmp-roam-steps' + (props.firstStepContent ? ' cmp-roam-steps--with-search' : '') + '">' + (props.items || []).map(function (item, index) {
         return (
           '<article class="cmp-roam-step">' +
-            '<p class="t-label">Step ' + esc(item.step) + '</p>' +
             '<h3 class="t-h3">' + esc(item.title) + '</h3>' +
             '<p class="t-body t-muted">' + esc(item.body) + '</p>' +
             (index === 0 && props.firstStepContent ? '<div class="cmp-roam-step__search">' + props.firstStepContent + '</div>' : '') +
@@ -2405,14 +2440,15 @@
 
   C.campaignHero = function (props) {
     var sourceClass = campaignSourceClass(props.source);
+    var business = isBusinessPage();
     return (
-      '<section class="cmp-campaign-hero ' + sourceClass + '" aria-labelledby="campaign-page-title">' +
+      '<section class="cmp-campaign-hero ' + (business ? 'cmp-campaign-hero--business ' : '') + sourceClass + '" aria-labelledby="campaign-page-title">' +
         '<div class="wrap cmp-campaign-hero__inner">' +
           '<div class="stack">' +
-            (props.backHref
+            (business ? businessBreadcrumbs(props.title) : (props.backHref
               ? '<a class="t-label cmp-campaign-hero__back" href="' + esc(registryHref(props.backHref)) + '">&#8592; ' + esc(props.backLabel || 'All campaigns') + '</a>'
-              : '') +
-            (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+              : '')) +
+            (!business && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
             '<h1 id="campaign-page-title" class="t-display">' + esc(props.title) + '</h1>' +
             (props.body ? '<p class="t-lead cmp-campaign-hero__body">' + esc(props.body) + '</p>' : '') +
             actions(props.actions) +
@@ -2430,21 +2466,9 @@
     );
   };
 
-  C.campaignSourceLegend = function (props) {
-    return (
-      '<aside class="cmp-campaign-legend" aria-label="Content source legend">' +
-        '<p class="t-label">Content source</p>' +
-        '<div class="cmp-campaign-legend__items">' +
-          '<span class="t-small">Original Azercell website</span>' +
-          '<span class="t-small campaign-source--deck">' + esc(props.deckLabel || 'Presentation / spreadsheet') + '</span>' +
-          '<span class="t-small campaign-source--dummy">' + esc(props.dummyLabel || 'Dummy content for prototype') + '</span>' +
-        '</div>' +
-      '</aside>'
-    );
-  };
-
   C.campaignCardGrid = function (props) {
     var items = props.items || [];
+    var business = isBusinessPage();
     return (
       '<div class="cmp-campaign-cards grid ' + (props.columns === 2 ? 'grid--2' : 'grid--3') + '">' +
         items.map(function (item) {
@@ -2454,7 +2478,7 @@
           var inner =
             (item.image ? '<img class="cmp-campaign-card__image" src="' + esc(item.image) + '" alt="' + esc(item.imageAlt || '') + '" loading="lazy">' : '') +
             '<div class="stack">' +
-              (item.eyebrow ? '<p class="t-label">' + esc(item.eyebrow) + '</p>' : '') +
+              (!business && item.eyebrow ? '<p class="t-label">' + esc(item.eyebrow) + '</p>' : '') +
               '<h3 class="t-h2">' + esc(item.title) + '</h3>' +
               (item.body ? '<p class="t-body">' + esc(item.body) + '</p>' : '') +
               (item.meta && item.meta.length
@@ -2476,10 +2500,12 @@
   C.campaignCopyBlock = function (props) {
     var sourceClass = campaignSourceClass(props.source);
     return (
-      '<div class="cmp-campaign-copy ' + sourceClass + '">' +
+      '<div class="cmp-campaign-copy' + (props.compact ? ' cmp-campaign-copy--compact' : '') + ' ' + sourceClass + '">' +
         (props.image ? '<img class="cmp-campaign-copy__image" src="' + esc(props.image) + '" alt="' + esc(props.imageAlt || '') + '" loading="lazy">' : '') +
-        (props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
-        (props.title ? '<h2 class="t-h1">' + esc(props.title) + '</h2>' : '') +
+        (!isBusinessPage() && props.eyebrow ? '<p class="t-label">' + esc(props.eyebrow) + '</p>' : '') +
+        (props.title ? (props.compact
+          ? '<h3 class="t-h3">' + esc(props.title) + '</h3>'
+          : '<h2 class="t-h1">' + esc(props.title) + '</h2>') : '') +
         (props.subtitle ? '<h3 class="t-h2">' + esc(props.subtitle) + '</h3>' : '') +
         (props.paragraphs || []).map(function (paragraph) {
           return '<p class="t-body">' + esc(paragraph) + '</p>';
@@ -2610,7 +2636,6 @@
   };
 
   C.businessHero = function (props) { return C.campaignHero(props); };
-  C.businessSourceLegend = function (props) { return C.campaignSourceLegend(props); };
   C.businessCardGrid = function (props) { return C.campaignCardGrid(props); };
   C.businessCopyBlock = function (props) { return C.campaignCopyBlock(props); };
 
@@ -2631,14 +2656,6 @@
     if (/users?/i.test(value)) return 'Users';
     if (/connection/i.test(value)) return 'Connection';
     return 'Included';
-  }
-
-  function businessOfferEyebrow(path) {
-    if (/\/mobile\/internet\//.test(path)) return 'Internet pack';
-    if (/\/fixed\//.test(path)) return 'Business connectivity';
-    if (/\/iot\//.test(path)) return 'IoT package';
-    if (/\/fleet-field-operations\//.test(path)) return 'Service package';
-    return 'Business offer';
   }
 
   C.businessOfferGrid = function (props) {
@@ -2671,13 +2688,15 @@
 
       return C.internetPackCard({
         className: sourceClass,
-        eyebrow: businessOfferEyebrow(props.path || ''),
+        eyebrow: false,
         name: labelLooksLikeData ? (props.itemLabel || 'Package option') : row.label,
         data: data || (labelLooksLikeData ? row.label : ''),
         price: price,
         priceNum: parseFloat(String(price).replace(',', '.')) || 0,
         validity: validity,
-        details: segments.join(' · ')
+        details: segments.join(' · '),
+        expanded: true,
+        action: row.href ? { label: row.linkLabel || 'View details', href: registryHref(row.href) } : null
       });
     }).join('');
 
