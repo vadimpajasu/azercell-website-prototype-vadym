@@ -5103,6 +5103,93 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 
 .cmp-business-detail-card__note { margin-top: var(--sp-4); }
 
+/* Mobile discovery concept 2: confirmed changes versus the existing Mobile pages. */
+.cmp-mobile2-change,
+.cmp-mobile2-change :is(h2, h3, h4, p, li, dt, dd, label, strong, .t-muted) {
+  color: #f00;
+}
+
+.cmp-mobile2-change :is(.cmp-campaign-card, .cmp-plan, .cmp-ipack-card, .cmp-business-detail-card) {
+  border-color: #f00;
+}
+
+.cmp-mobile2-change .btn {
+  color: #f00;
+  border-color: #f00;
+  background: var(--c-surface);
+}
+
+.cmp-mobile2-change .btn--primary {
+  color: var(--c-inverse-ink);
+  border-color: #f00;
+  background: #f00;
+}
+
+.cmp-mobile2-service-list,
+.cmp-mobile2-offer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-7);
+}
+
+.cmp-mobile2-service-list .cmp-campaign-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cmp-mobile2-archive-links .cmp-campaign-grid {
+  gap: var(--sp-3);
+}
+
+.cmp-mobile2-search {
+  position: relative;
+  max-width: 44rem;
+}
+
+.cmp-mobile2-search__input {
+  width: 100%;
+  margin-top: var(--sp-3);
+}
+
+.cmp-mobile2-search__results {
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  right: 0;
+  left: 0;
+  border: 1px solid #f00;
+  background: var(--c-surface);
+}
+
+.cmp-mobile2-search__results[hidden] { display: none; }
+
+.cmp-mobile2-search__result {
+  display: block;
+  padding: var(--sp-3) var(--sp-4);
+  color: #f00;
+  text-decoration: none;
+}
+
+.cmp-mobile2-search__result + .cmp-mobile2-search__result {
+  border-top: 1px solid #f00;
+}
+
+.cmp-mobile2-search__result:focus-visible,
+.cmp-mobile2-search__result:hover {
+  color: var(--c-inverse-ink);
+  background: #f00;
+}
+
+.cmp-mobile2-search__status { margin-top: var(--sp-2); }
+
+.cmp-mobile2-popular {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+}
+
+.cmp-mobile2-compact-action { margin-top: var(--sp-5); }
+
 .cmp-campaign-hero--business .cmp-campaign-hero__inner {
   grid-template-columns: minmax(0, 1fr);
   justify-items: center;

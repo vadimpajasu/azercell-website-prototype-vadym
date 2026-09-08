@@ -38,7 +38,7 @@ const jsFiles = files.filter((f) => extname(f) === '.js');
 // Negative lookbehind skips HTML numeric entities such as &#8594;
 const HEX = /(?<!&)#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/g;
 const COLOUR_FN = /\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\s*\(/g;
-const ALLOWED_SOURCE_COLOURS = new Set(['#f0f', '#8000ff80']);
+const ALLOWED_SOURCE_COLOURS = new Set(['#f0f', '#f00', '#8000ff80']);
 
 function isGrey(hex) {
   const body = hex.slice(1);
