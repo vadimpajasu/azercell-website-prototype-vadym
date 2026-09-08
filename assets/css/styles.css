@@ -4651,7 +4651,7 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 
 .campaign-source--deck { color: var(--c-source-deck); }
 .campaign-source--dummy { color: var(--c-source-dummy); }
-.campaign-source--prompt { color: #00f; }
+.campaign-source--prompt { color: var(--c-ink); }
 
 .cmp-campaign-hero {
   border-bottom: 1px solid var(--c-line);
@@ -4954,7 +4954,7 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 .cmp-business-content .cmp-campaign-step.campaign-source--prompt,
 .cmp-business-content .cmp-campaign-faq__item.campaign-source--prompt,
 .cmp-business-content .cmp-campaign-table tr.campaign-source--prompt {
-  color: #00f;
+  color: var(--c-ink);
 }
 
 .cmp-business-content .cmp-campaign-copy.campaign-source--deck,
@@ -4992,7 +4992,7 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 
 .cmp-business-offers .cmp-plan.campaign-source--prompt,
 .cmp-business-offers .cmp-ipack-card.campaign-source--prompt {
-  color: #00f;
+  color: var(--c-ink);
   border-color: currentColor;
 }
 
@@ -5040,6 +5040,68 @@ body:has(.cmp-nav__footer--inverse) #page-main > :first-child :focus-visible,
 
 .cmp-business-breadcrumbs li + li::before { content: '/'; }
 .cmp-business-breadcrumbs a { color: inherit; }
+
+.cmp-campaign-hero--business .cmp-business-breadcrumbs {
+  color: var(--c-inverse-ink);
+}
+
+.cmp-business-offers--plans .cmp-plan__specs {
+  display: flex;
+  flex-direction: column;
+}
+
+.cmp-business-offers--plans .cmp-plan__spec {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.cmp-business-offers--plans .cmp-plan__spec + .cmp-plan__spec {
+  border-top: 1px solid var(--c-line);
+  border-left: 0;
+}
+
+.cmp-business-offers--plans .cmp-plan__spec .t-small {
+  order: -1;
+}
+
+.cmp-business-offer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.cmp-business-detail-card {
+  max-width: 58rem;
+  padding: var(--sp-5);
+  border: 1px solid var(--c-line);
+  background: var(--c-surface);
+}
+
+.cmp-business-detail-card__rows {
+  display: flex;
+  flex-direction: column;
+  margin: var(--sp-4) 0 0;
+  border: 1px solid var(--c-line);
+}
+
+.cmp-business-detail-card__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+.cmp-business-detail-card__row + .cmp-business-detail-card__row {
+  border-top: 1px solid var(--c-line);
+}
+
+.cmp-business-detail-card__row dt,
+.cmp-business-detail-card__row dd { margin: 0; }
+
+.cmp-business-detail-card__note { margin-top: var(--sp-4); }
 
 .cmp-campaign-hero--business .cmp-campaign-hero__inner {
   grid-template-columns: minmax(0, 1fr);

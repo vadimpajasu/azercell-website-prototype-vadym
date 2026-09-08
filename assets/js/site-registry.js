@@ -50,7 +50,14 @@
     '/business/campaigns/my-business-tariff-discounts/',
     '/business/campaigns/my-business-club/',
     '/business/campaigns/my-business-club/virtual-wallet/',
-    '/business/campaigns/archive/'
+    '/business/campaigns/archive/',
+    '/business/campaigns/archive/lenovo-a2016-lte/',
+    '/business/campaigns/archive/general-mobile-android-one/',
+    '/business/campaigns/archive/20gb-20-azn/',
+    '/business/campaigns/archive/iphone-16-17-corporate/',
+    '/business/campaigns/archive/my-business-wifi/',
+    '/business/campaigns/archive/new-company-gm/',
+    '/business/campaigns/archive/new-company-lenovo/'
   ];
 
   var PERSONAL_CHROME_PATHS = [
@@ -367,14 +374,17 @@
     { path: '/business/campaigns/my-business-club/virtual-wallet/', title: 'Virtual Wallet', parent: '/business/campaigns/my-business-club/', branch: 'b2b', status: 'built',
       links: ['/business/campaigns/my-business-club/', 'mailto:business@azercell.com'] },
     { path: '/business/campaigns/archive/', title: 'Campaigns archive', parent: '/business/campaigns/', branch: 'b2b', status: 'built',
-      links: ['/business/campaigns/',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/lenovo-a2016-lte.html',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/general-mobile-android-one.html',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/20-gb-20-azn.html',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/korporativ-metrilr-ecen-yeni-iphone-16-kampaniyasi.html',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/biznesim-wifi.html',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-gm.html',
-              'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-lenovo.html'] },
+      links: ['/business/campaigns/', '/business/campaigns/archive/lenovo-a2016-lte/',
+              '/business/campaigns/archive/general-mobile-android-one/', '/business/campaigns/archive/20gb-20-azn/',
+              '/business/campaigns/archive/iphone-16-17-corporate/', '/business/campaigns/archive/my-business-wifi/',
+              '/business/campaigns/archive/new-company-gm/', '/business/campaigns/archive/new-company-lenovo/'] },
+    { path: '/business/campaigns/archive/lenovo-a2016-lte/', title: 'Lenovo A2016 (LTE)', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
+    { path: '/business/campaigns/archive/general-mobile-android-one/', title: 'General Mobile Android One', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
+    { path: '/business/campaigns/archive/20gb-20-azn/', title: '20GB for 20 AZN', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
+    { path: '/business/campaigns/archive/iphone-16-17-corporate/', title: 'iPhone 16 and iPhone 17 for corporate customers', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
+    { path: '/business/campaigns/archive/my-business-wifi/', title: 'My Business Wi-Fi — ended campaign', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
+    { path: '/business/campaigns/archive/new-company-gm/', title: 'New company campaign — GM', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
+    { path: '/business/campaigns/archive/new-company-lenovo/', title: 'New company campaign — Lenovo', parent: '/business/campaigns/archive/', branch: 'b2b', status: 'built' },
     { path: '/business/support/', title: 'Support', parent: '/business/', branch: 'b2b', status: 'built',
       links: ['/business/support/faq/', '/business/support/live-chat/', '/business/support/contact-us/',
               '/business/support/locations/', '/business/support/itemized-bill/'] },
@@ -1215,8 +1225,8 @@
       name: 'Campaign archive',
       group: 'Products',
       usedOn: ['/business/campaigns/archive/'],
-      description: 'Shareable archive pagination with functional 6, 12 and 24 item page-size controls.',
-      props: { baseHref: '/business/campaigns/archive/', perPage: 6, page: 1, items: [{ title: 'Ended campaign', href: 'https://www.azercell.com/' }] }
+      description: 'Archive card collection for ended Business campaigns.',
+      props: { items: [{ title: 'Ended campaign', href: '/business/campaigns/archive/ended-campaign/' }] }
     },
     {
       id: 'businessSection',
@@ -1265,6 +1275,14 @@
       usedOn: B2B_CONTENT_TABLE_PATHS.slice(),
       description: 'Source-aware mobile-plan carousel and package-card grid for Business product choices.',
       props: { title: 'Current offers', path: '/business/mobile/tariffs/', variant: 'plan', rows: [{ label: 'My Business 4GB', value: '15 AZN/month · 4GB · 700 cross-net min', source: 'site' }] }
+    },
+    {
+      id: 'businessDetailCard',
+      name: 'Business single-offer details',
+      group: 'Products',
+      usedOn: B2B_CONTENT_TABLE_PATHS.slice(),
+      description: 'One full-width card with vertically stacked facts for a single tariff or pack.',
+      props: { title: 'Package information', rows: [{ label: 'Internet', value: '10GB', source: 'site' }, { label: 'Validity', value: '30 days', source: 'site' }] }
     },
     {
       id: 'businessSteps',

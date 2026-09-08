@@ -23,7 +23,14 @@
     discounts: '/business/campaigns/my-business-tariff-discounts/',
     club: '/business/campaigns/my-business-club/',
     wallet: '/business/campaigns/my-business-club/virtual-wallet/',
-    archive: '/business/campaigns/archive/'
+    archive: '/business/campaigns/archive/',
+    archiveLenovo: '/business/campaigns/archive/lenovo-a2016-lte/',
+    archiveGeneralMobile: '/business/campaigns/archive/general-mobile-android-one/',
+    archive20gb: '/business/campaigns/archive/20gb-20-azn/',
+    archiveIphone: '/business/campaigns/archive/iphone-16-17-corporate/',
+    archiveWifi: '/business/campaigns/archive/my-business-wifi/',
+    archiveNewCompanyGm: '/business/campaigns/archive/new-company-gm/',
+    archiveNewCompanyLenovo: '/business/campaigns/archive/new-company-lenovo/'
   };
 
   var pages = {
@@ -392,14 +399,78 @@
         source: 'site'
       },
       items: [
-        { title: 'Lenovo (Ended campaign) A2016 (LTE)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/lenovo-a2016-lte.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/lenovo-1.png.webp', imageAlt: 'Lenovo A2016 LTE', linkLabel: 'Original page', source: 'site' },
-        { title: 'General Mobile (Ended campaign) Android One', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/general-mobile-android-one.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/general-mobile.png.webp', imageAlt: 'General Mobile Android One', linkLabel: 'Original page', source: 'site' },
-        { title: '20GB 20 AZN (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/20-gb-20-azn.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/20-gb-20-azn.png.webp', imageAlt: '20GB for 20 AZN', linkLabel: 'Original page', source: 'site' },
-        { title: 'iPhone 16 and iPhone 17 Campaigns for Corporate Customers', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/korporativ-metrilr-ecen-yeni-iphone-16-kampaniyasi.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone campaign', linkLabel: 'Original page', source: 'site' },
-        { title: 'My Business Wi-Fi (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/biznesim-wifi.html', image: 'https://www.azercell.com/assets/cache/webpb2b/home-page/wifi/252x322_v1(1).png.webp', imageAlt: 'My Business Wi-Fi', linkLabel: 'Original page', source: 'site' },
-        { title: 'New company campaign - GM (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-gm.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-gm.png.webp', imageAlt: 'New company campaign General Mobile', linkLabel: 'Original page', source: 'site' },
-        { title: 'New company campaign - Lenovo (Ended campaign)', href: 'https://www.azercell.com/en/corporate/mobile-communications/campaigns/ended-campaigns/campaign-new-company-lenovo.html', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-lenovo.png.webp', imageAlt: 'New company campaign Lenovo', linkLabel: 'Original page', source: 'site' }
+        { title: 'Lenovo (Ended campaign) A2016 (LTE)', href: routes.archiveLenovo, image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/lenovo-1.png.webp', imageAlt: 'Lenovo A2016 LTE', source: 'site' },
+        { title: 'General Mobile (Ended campaign) Android One', href: routes.archiveGeneralMobile, image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/general-mobile.png.webp', imageAlt: 'General Mobile Android One', source: 'site' },
+        { title: '20GB 20 AZN (Ended campaign)', href: routes.archive20gb, image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/20-gb-20-azn.png.webp', imageAlt: '20GB for 20 AZN', source: 'site' },
+        { title: 'iPhone 16 and iPhone 17 Campaigns for Corporate Customers', href: routes.archiveIphone, image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone campaign', source: 'site' },
+        { title: 'My Business Wi-Fi (Ended campaign)', href: routes.archiveWifi, image: 'https://www.azercell.com/assets/cache/webpb2b/home-page/wifi/252x322_v1(1).png.webp', imageAlt: 'My Business Wi-Fi', source: 'site' },
+        { title: 'New company campaign - GM (Ended campaign)', href: routes.archiveNewCompanyGm, image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-gm.png.webp', imageAlt: 'New company campaign General Mobile', source: 'site' },
+        { title: 'New company campaign - Lenovo (Ended campaign)', href: routes.archiveNewCompanyLenovo, image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-lenovo.png.webp', imageAlt: 'New company campaign Lenovo', source: 'site' }
       ]
+    },
+
+    archiveLenovo: {
+      hero: { title: 'Lenovo A2016 (LTE)', body: 'Ended corporate campaign for a 4G-capable Lenovo A2016 smartphone.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/lenovo-1.png.webp', imageAlt: 'Lenovo A2016 LTE' },
+      intro: ['The campaign offered corporate subscribers a Lenovo A2016 (LTE) smartphone on instalment terms together with a communication bundle.'],
+      tables: [
+        { title: 'Device price', rows: [{ label: 'Lenovo A2016 · 12 months', value: '25 AZN/month' }] },
+        { title: 'Included bundle', rows: [{ label: 'On-net calls', value: '100 minutes' }, { label: 'Off-net calls', value: '100 minutes' }, { label: 'Mobile internet', value: '2GB' }] }
+      ],
+      conditions: ['Only corporate subscribers could join.', 'Ending the contract early could result in a penalty.', 'Unused bundle allowances did not roll over to the next billing period.', 'Included minutes could not be used for short-number calls or roaming.']
+    },
+
+    archiveGeneralMobile: {
+      hero: { title: 'General Mobile Android One', body: 'Ended corporate smartphone campaign with a 12-month payment period.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/general-mobile.png.webp', imageAlt: 'General Mobile Android One' },
+      intro: ['Corporate subscribers could receive a 4G-capable General Mobile Android One smartphone with an included communication bundle.'],
+      tables: [
+        { title: 'Device price', rows: [{ label: 'GM Android One · 12 months', value: '35 AZN/month' }] },
+        { title: 'Included bundle', rows: [{ label: 'On-net calls', value: '100 minutes' }, { label: 'Off-net calls', value: '100 minutes' }, { label: 'Mobile internet', value: '2GB' }] }
+      ],
+      conditions: ['Only corporate subscribers could join.', 'Ending the contract early could result in a penalty.', 'Unused allowances did not transfer to the next billing period.', 'After the bundle was exhausted, calls followed the main tariff and an internet pack was required to continue data use.']
+    },
+
+    archive20gb: {
+      hero: { title: '20GB for 20 AZN', body: 'Ended Mi-Fi campaign with a minimum 10-month usage commitment.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/20-gb-20-azn.png.webp', imageAlt: '20GB for 20 AZN' },
+      intro: ['Subscribers paid 20 AZN including VAT for 20GB during each billing period and committed to use the package for at least 10 months. A Mi-Fi device was provided at no additional cost under the campaign conditions.'],
+      tables: [{ title: 'Campaign package', rows: [{ label: 'Monthly internet', value: '20GB' }, { label: 'Standard monthly fee', value: '20 AZN' }, { label: 'From the second invoice', value: '16 AZN after a 20% discount' }, { label: 'Minimum use', value: '10 months' }] }],
+      conditions: ['The first invoice charged 10 AZN; the 20% discount did not apply to that invoice.', 'Additional data cost 0.003 AZN/MB, or 0.0015 AZN/MB in Nakhchivan.', 'The balance was checked by sending an empty SMS to 2525.', 'Another mobile internet package could not be ordered during the credit term.']
+    },
+
+    archiveIphone: {
+      hero: { title: 'iPhone 16 and iPhone 17 for corporate customers', body: 'Ended corporate device campaign with zero initial payment and interest-free instalments.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/b2b_iphone17_450x240.jpg.webp', imageAlt: 'iPhone 16 and iPhone 17 campaign' },
+      intro: ['The campaign combined iPhone devices, reliable connectivity and My Business tariff options. Subscribers could obtain eligible devices with zero initial payment and interest-free monthly instalments.'],
+      tables: [{ title: 'Campaign options', rows: [{ label: 'Eligible devices', value: 'iPhone 16 family, iPhone 17 family and iPhone Air' }, { label: 'Eligible tariffs', value: 'My Business 12GB, 20GB, 60GB or 100GB' }, { label: 'Contract period', value: '12 or 24 months' }] }],
+      conditions: ['Internet and voice allowances depended on the selected My Business tariff.', 'The campaign was designed for corporate customers and is now retained for reference.']
+    },
+
+    archiveWifi: {
+      hero: { title: 'My Business Wi-Fi — ended campaign', body: 'Archived Mi-Fi and WTTx offers for sharing mobile internet without fixed infrastructure.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/home-page/wifi/252x322_v1(1).png.webp', imageAlt: 'My Business Wi-Fi' },
+      intro: ['The archived offer provided portable Mi-Fi connectivity for up to 10 devices and WTTx connectivity for up to 32 devices. The selected device was supplied without pre-payment with an eligible internet package.'],
+      tables: [
+        { title: 'Mi-Fi packages', rows: [{ label: '50GB', value: '30 AZN' }, { label: '100GB', value: '40 AZN' }, { label: '200GB', value: '60 AZN' }] },
+        { title: 'WTTx packages', rows: [{ label: '100GB', value: '40 AZN' }, { label: '200GB', value: '60 AZN' }] }
+      ],
+      conditions: ['The selected internet package could be changed during the following 12 months.', 'Mi-Fi operated autonomously and could share Wi-Fi with up to 10 devices.', 'WTTx used plug-and-play installation and could share Wi-Fi with up to 32 devices.']
+    },
+
+    archiveNewCompanyGm: {
+      hero: { title: 'New company campaign — GM', body: 'Ended offer for new corporate subscribers using the Optimist Danışıq package.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-gm.png.webp', imageAlt: 'New company campaign General Mobile' },
+      intro: ['New corporate subscribers could receive a 4G-capable General Mobile smartphone free of charge when the Optimist Danışıq package was used continuously for 12 months.'],
+      tables: [
+        { title: 'Included package', rows: [{ label: 'Corporate calls', value: 'Free' }, { label: 'On-net calls', value: '3,000 minutes' }, { label: 'Off-net calls', value: '300 minutes' }, { label: 'International calls', value: '30 minutes' }, { label: 'SMS', value: '300' }, { label: 'Internet', value: '3GB' }] },
+        { title: 'Out-of-package use', rows: [{ label: 'Corporate calls', value: 'Free' }, { label: 'On-net / off-net calls', value: '0.05 AZN/min' }, { label: 'International calls', value: '0.32 AZN/min' }, { label: 'SMS', value: '0.02 AZN' }, { label: 'Internet', value: '0.40 AZN' }] }
+      ],
+      conditions: ['The campaign was only for new postpaid corporate subscribers and new companies.', 'A company needed at least seven active numbers and at least one package activation.', 'The maximum number of package-plus-smartphone activations was nine.', 'Early cancellation or transfer could result in a one-time 300 AZN charge.']
+    },
+
+    archiveNewCompanyLenovo: {
+      hero: { title: 'New company campaign — Lenovo', body: 'Ended offer for new corporate subscribers using the Minimalist package.', source: 'site', image: 'https://www.azercell.com/assets/cache/webpb2b/ended-campaigns/new-company-lenovo.png.webp', imageAlt: 'New company campaign Lenovo' },
+      intro: ['New corporate subscribers could receive a Lenovo A2016 smartphone free of charge when the 19 AZN Minimalist package was used continuously for 12 months.'],
+      tables: [
+        { title: 'Minimalist package', rows: [{ label: 'Monthly fee', value: '19 AZN' }, { label: 'Corporate calls', value: 'Free' }, { label: 'On-net calls', value: '1,000 minutes' }, { label: 'Off-net calls', value: '100 minutes' }, { label: 'SMS', value: '100' }, { label: 'Internet', value: '1GB' }] },
+        { title: 'Out-of-package use', rows: [{ label: 'Corporate calls', value: 'Free' }, { label: 'On-net / off-net calls', value: '0.05 AZN/min' }, { label: 'SMS', value: '0.02 AZN' }, { label: 'Internet', value: '0.40 AZN' }] }
+      ],
+      conditions: ['The campaign was only for new postpaid corporate subscribers and new companies.', 'A company needed at least seven active numbers and at least one package activation.', 'The maximum number of package-plus-smartphone activations was nine.', 'Early cancellation or transfer could result in a one-time 200 AZN charge.']
     }
   };
 

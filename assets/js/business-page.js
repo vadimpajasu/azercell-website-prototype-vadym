@@ -21,18 +21,39 @@
     'Archived offers': true,
     'Business Bundles': true,
     'Old packages': true,
-    'Annual subscription groups': true
+    'Annual subscription groups': true,
+    'Subscription': true,
+    'Validity and new-user access': true,
+    'SMS packs': true,
+    'Archived packs': true
+  };
+
+  var DETAIL_TABLES = {
+    'Pack details': true,
+    'Package information': true
   };
 
   function renderBlock(block, path) {
     if (block.type === 'cards') {
       return section(
-        C.render('sectionHead', { title: block.title, body: block.body }) +
+        C.render('sectionHead', { title: block.title, body: block.body, action: block.action }) +
         C.render('businessCardGrid', { items: block.items, columns: block.columns })
       );
     }
+    if (block.type === 'offerStack') {
+      return section('<div class="cmp-business-offer-stack">' + block.groups.map(function (group) {
+        return C.render('businessOfferGrid', Object.assign({}, group, {
+          path: path,
+          variant: MOBILE_PLAN_TABLES[group.title] ? 'plan' : 'pack',
+          archived: /\/archive\//.test(path)
+        }));
+      }).join('') + '</div>');
+    }
     if (block.type === 'table') {
       if (!INFORMATION_TABLES[block.title]) {
+        if (DETAIL_TABLES[block.title]) {
+          return section(C.render('businessDetailCard', block));
+        }
         return section(C.render('businessOfferGrid', Object.assign({}, block, {
           path: path,
           variant: MOBILE_PLAN_TABLES[block.title] ? 'plan' : 'pack',

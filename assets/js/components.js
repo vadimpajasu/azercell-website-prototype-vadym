@@ -2469,8 +2469,9 @@
   C.campaignCardGrid = function (props) {
     var items = props.items || [];
     var business = isBusinessPage();
+    var columnsClass = props.columns === 1 ? 'grid--1' : (props.columns === 2 ? 'grid--2' : 'grid--3');
     return (
-      '<div class="cmp-campaign-cards grid ' + (props.columns === 2 ? 'grid--2' : 'grid--3') + '">' +
+      '<div class="cmp-campaign-cards grid ' + columnsClass + '">' +
         items.map(function (item) {
           var href = item.href ? registryHref(item.href) : '';
           var external = href && /^https?:/.test(href);
@@ -2719,6 +2720,20 @@
   };
 
   C.businessInfoTable = function (props) { return C.campaignInfoTable(props); };
+  C.businessDetailCard = function (props) {
+    return (
+      '<article class="cmp-business-detail-card ' + campaignSourceClass(props.source) + '">' +
+        (props.title ? '<h2 class="t-h2">' + esc(props.title) + '</h2>' : '') +
+        '<dl class="cmp-business-detail-card__rows">' + (props.rows || []).map(function (row) {
+          return '<div class="cmp-business-detail-card__row ' + campaignSourceClass(row.source || props.source) + '">' +
+            '<dt class="t-body t-muted">' + esc(row.label) + '</dt>' +
+            '<dd class="t-h3">' + esc(row.value) + '</dd>' +
+          '</div>';
+        }).join('') + '</dl>' +
+        (props.note ? '<p class="t-small t-muted cmp-business-detail-card__note">' + esc(props.note) + '</p>' : '') +
+      '</article>'
+    );
+  };
   C.businessSteps = function (props) { return C.campaignSteps(props); };
   C.businessFaq = function (props) { return C.campaignFaq(props); };
 

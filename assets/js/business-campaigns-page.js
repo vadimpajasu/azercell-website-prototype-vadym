@@ -17,6 +17,7 @@
 
   function parentRoute(key) {
     if (key === 'hub') return '';
+    if (/^archive.+/.test(key)) return D.routes.archive;
     if (key === 'mnp60' || key === 'mnp80') return D.routes.acquisition;
     if (key === 'iphone16' || key === 'iphone17' || key === 'leasing') return D.routes.devices;
     if (key === 'wallet') return D.routes.club;
@@ -24,6 +25,7 @@
   }
 
   function parentLabel(key) {
+    if (/^archive.+/.test(key)) return 'Campaigns archive';
     if (key === 'mnp60' || key === 'mnp80') return 'Acquisition campaigns';
     if (key === 'iphone16' || key === 'iphone17' || key === 'leasing') return 'Devices & financing';
     if (key === 'wallet') return 'My Business Club';
@@ -198,16 +200,23 @@
 
   function buildArchive() {
     var page = D.pages.archive;
-    var params = new URLSearchParams(global.location.search);
-    var perPage = parseInt(params.get('perPage'), 10);
-    if ([6, 12, 24].indexOf(perPage) < 0) perPage = 6;
-    var maxPage = Math.max(1, Math.ceil(page.items.length / perPage));
-    var currentPage = Math.min(maxPage, Math.max(1, parseInt(params.get('page'), 10) || 1));
     return [
       hero('archive'),
       legend(),
-      section(render('campaignArchive', { items: page.items, page: currentPage, perPage: perPage, baseHref: D.routes.archive }))
+      section(cards(page.items, 3))
     ];
+  }
+
+  function buildArchiveDetail(key) {
+    var page = D.pages[key];
+    return [
+      hero(key),
+      section(copy({ title: 'Campaign information', paragraphs: page.intro, source: 'site' }))
+    ].concat((page.tables || []).map(function (item) {
+      return section(table(item.title, item.rows, { source: 'site' }));
+    })).concat([
+      section(copy({ title: 'Conditions', items: page.conditions, source: 'site' }))
+    ]);
   }
 
   function customerGuide(key) {
@@ -257,6 +266,7 @@
     if (key === 'club') return buildClub();
     if (key === 'wallet') return buildWallet();
     if (key === 'archive') return buildArchive();
+    if (/^archive.+/.test(key)) return buildArchiveDetail(key);
     return buildHub();
   }
 

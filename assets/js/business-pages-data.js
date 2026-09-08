@@ -26,6 +26,10 @@
     return { type: 'table', title: title, rows: rows, note: note || '', source: source || 'site' };
   }
 
+  function offerStack(groups) {
+    return { type: 'offerStack', groups: groups };
+  }
+
   function faq(title, items) {
     return { type: 'faq', title: title, items: items };
   }
@@ -56,10 +60,15 @@
         card('Call Signature / Content Services', 'Add a business signature to outgoing calls.', '/business/customer-engagement/content-services/', 'prompt'),
         card('Talking minutes and internet packages', 'Use an Azercell loyalty service to reward customers with on-net minutes or internet packages.', '/business/mobile/mobile-marketing/talking-minutes-and-internet-packages/', 'prompt')
       ]),
-      cards('Campaigns', [
-        card('Business campaigns', 'Browse current corporate offers, device financing and loyalty benefits.', '/business/campaigns/', 'prompt'),
-        card('My Business Wi-Fi', 'Compare portable Mi-Fi and fixed WTTx internet offers for business teams.', '/business/campaigns/my-business-wifi/', 'prompt')
-      ]),
+      {
+        type: 'cards',
+        title: 'Campaigns',
+        action: { label: 'All business campaigns', href: '/business/campaigns/' },
+        columns: 1,
+        items: [
+          card('My Business Wi-Fi', 'Compare portable Mi-Fi and fixed WTTx internet offers for business teams.', '/business/campaigns/my-business-wifi/', 'prompt')
+        ]
+      },
       cards('Archive', [
         card('Tariffs archive', 'Previous corporate tariff plans and conditions.', '/business/mobile/tariffs/archive/', 'prompt'),
         card('Internet packs archive', 'Previous business data packages and their conditions.', '/business/mobile/internet/archive/', 'prompt'),
@@ -82,9 +91,14 @@
 
   P['/business/mobile/tariffs/archive/'] = page('/business/mobile/tariffs/archive/', 'Tariffs archive', '/business/mobile/tariffs/',
     'Terms for corporate tariff plans that are no longer presented as current mass offers.', 'site', [
-      cards('Archived tariff families', [
-        card('Business packages', 'Previous Business 10, Business 16 and Business 20 package terms.', '/business/mobile/tariffs/archive/old-business-packages/', 'site'),
-        card('Tariff archive', 'Browse the official archive of corporate mobile tariffs.', 'https://www.azercell.com/en/corporate/mobile-communications/tariffs-archive.html', 'site')
+      cards('Tariff archive', [
+        card('10GB roaming pack', 'Previous price, activation methods and conditions for the 10GB roaming internet pack.', '/business/mobile/tariffs/archive/10gb-roaming-pack/', 'site'),
+        card('Call packs', 'Archived corporate Business Bundles with calls, SMS and mobile internet.', '/business/mobile/tariffs/archive/call-packs/', 'site'),
+        card('Mobile Internet Packs', 'Archived corporate Mi-Fi, USB modem and specialist mobile internet products.', '/business/mobile/tariffs/archive/mobile-internet-packs/', 'site'),
+        card('My Business tariff plans', 'Archived My Business tariff-plan terms, allowances and baseline packages.', '/business/mobile/tariffs/archive/my-business-tariff-plans/', 'site'),
+        card('Old Business packages', 'Legacy Business 10, 20, 15, 25 and 55 package conditions.', '/business/mobile/tariffs/archive/old-business-packages/', 'site'),
+        card('SMS packs', 'Previous corporate SMS packages and prices.', '/business/mobile/tariffs/archive/sms-packs/', 'site'),
+        card('Tariffs', 'Earlier corporate tariff schedules and plan-by-plan usage rates.', '/business/mobile/tariffs/archive/tariffs/', 'site')
       ]),
       copy('Before changing a tariff', ['Confirm current availability and migration conditions with the Corporate Contact Center.'], 'authored')
     ], ['https://www.azercell.com/en/corporate/mobile-communications/tariffs-archive.html']);
@@ -103,18 +117,20 @@
 
   P['/business/mobile/internet/monthly/'] = page('/business/mobile/internet/monthly/', 'Monthly internet packs', '/business/mobile/internet/',
     'Data packages for recurring business use, valid for 30 days.', 'site', [
-      table('Monthly packs', [
-        { label: '2GB', value: '6 AZN · 30 days · SMS 2000 to 2525', href: '/business/mobile/internet/monthly/2gb/' },
-        { label: '7GB', value: '10 AZN · 30 days · SMS 7000 to 2525', href: '/business/mobile/internet/monthly/7gb/' },
-        { label: '14GB', value: '15 AZN · 30 days · SMS 14000 to 2525', href: '/business/mobile/internet/monthly/14gb/' },
-        { label: '35GB', value: '25 AZN · 30 days · SMS 35000 to 2525', href: '/business/mobile/internet/monthly/35gb/' },
-        { label: '55GB', value: '30 AZN · 30 days · SMS 55000 to 2525', href: '/business/mobile/internet/monthly/55gb/' }
-      ], 'Each pack is valid for 30 days. SMS to 2525 costs 0.01 AZN.', 'prompt'),
-      table('Non-recurrent packs', [
-        { label: '2GB', value: '6 AZN · SMS +2GB to 2525' },
-        { label: '7GB', value: '10 AZN · SMS +7GB to 2525' },
-        { label: '14GB', value: '15 AZN · SMS +14GB to 2525' }
-      ], 'Non-recurrent packs deactivate when their data is used or the 30-day period ends.')
+      offerStack([
+        table('Monthly packs', [
+          { label: '2GB', value: '6 AZN · 30 days · SMS 2000 to 2525', href: '/business/mobile/internet/monthly/2gb/' },
+          { label: '7GB', value: '10 AZN · 30 days · SMS 7000 to 2525', href: '/business/mobile/internet/monthly/7gb/' },
+          { label: '14GB', value: '15 AZN · 30 days · SMS 14000 to 2525', href: '/business/mobile/internet/monthly/14gb/' },
+          { label: '35GB', value: '25 AZN · 30 days · SMS 35000 to 2525', href: '/business/mobile/internet/monthly/35gb/' },
+          { label: '55GB', value: '30 AZN · 30 days · SMS 55000 to 2525', href: '/business/mobile/internet/monthly/55gb/' }
+        ], 'Each pack is valid for 30 days. SMS to 2525 costs 0.01 AZN.', 'prompt'),
+        table('Non-recurrent packs', [
+          { label: '2GB', value: '6 AZN · SMS +2GB to 2525' },
+          { label: '7GB', value: '10 AZN · SMS +7GB to 2525' },
+          { label: '14GB', value: '15 AZN · SMS +14GB to 2525' }
+        ], 'Non-recurrent packs deactivate when their data is used or the 30-day period ends.')
+      ])
     ], ['https://www.azercell.com/en/corporate/mobile-communications/internet/monthly.html']);
 
   P['/business/mobile/internet/short-term/'] = page('/business/mobile/internet/short-term/', 'Short-term packs', '/business/mobile/internet/',
@@ -922,18 +938,6 @@
      Current-site gap audit, 7 September 2026.
      Content restored from the original site uses the regular site provenance.
      ----------------------------------------------------------------------- */
-
-  addOfficial('/business/mobile/tariffs/archive/', [
-    cards('More official archive sections', [
-      card('My Business tariff plans', 'Archived My Business tariff-plan terms and packages.', '/business/mobile/tariffs/archive/my-business-tariff-plans/', 'site'),
-      card('SMS packs', 'Previous corporate SMS package terms.', '/business/mobile/tariffs/archive/sms-packs/', 'site'),
-      card('Mobile Internet Packs', 'Archived mobile internet products retained for reference.', '/business/mobile/tariffs/archive/mobile-internet-packs/', 'site'),
-      card('Tariffs', 'Earlier corporate tariff offers and conditions.', '/business/mobile/tariffs/archive/tariffs/', 'site'),
-      card('Call packs', 'Archived corporate call-package offers.', '/business/mobile/tariffs/archive/call-packs/', 'site'),
-      card('Old Business packages', 'Legacy Business packages and usage conditions.', '/business/mobile/tariffs/archive/old-business-packages/', 'site'),
-      card('10GB roaming pack', 'Previous price and conditions for the 10GB roaming internet pack.', '/business/mobile/tariffs/archive/10gb-roaming-pack/', 'site')
-    ])
-  ]);
 
   addOfficial('/business/mobile/internet/social/', [
     copy('Social media use for business', [
